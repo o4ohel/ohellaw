@@ -1,0 +1,250 @@
+html { background-color: #9a6f3c; }
+
+body {  }
+#doc, #doc2 { background: #FFF7DF url('/i/top-compass.jpg') no-repeat scroll -40px -10px; border: 0px solid #000; padding: 4px 5px; margin-top: 5em; -moz-border-radius: 6px; border-radius: 6px; -webkit-border-radius: 6px; }
+
+a { color: #660000; }
+a:visited, #bd a:active { color: #993300; }
+a:hover{ text-decoration: none; }
+em { font-style: italic; line-height: 1.32; }
+strong { font-weight: bold; }
+h1,h2,h3,h4, legend { color:#993300; font-size:13px; font-weight:bold; }
+h1 { font-size: 24px; }
+h2 { font-size: 16px; border-bottom: 1px dotted #bb9f7a; width: 90%; margin: .5em 0 .2em; padding-bottom: 3px; }
+
+p, .faq .answers .answer { margin: .8em 0; }
+
+form { border: 1px solid #9E6F3A; padding: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+form legend { color:#993300; font-weight:bold; font-size: 14px; margin-bottom: .5em; }
+form label { color: #9E6F3A; }
+form input, form textarea { border: 1px solid #9E6F3A; }
+/*form .button { cursor: pointer; width: inherit; background-color: #9E6F3A; color: #fff; font-weight: bold; margin: .4em; padding: 2px;  -moz-border-radius: 4px; border-radius: 4px; -webkit-border-radius: 4px; } */
+button { border: 1px solid #9E6F3A; color: #fff; font-weight: bold; margin: .4em; background-image: url('/i/bg-button.jpg'); -moz-border-radius: 4px; border-radius: 4px; -webkit-border-radius: 4px;} 
+
+input.error { background: url('/i/textfielderror.png') transparent bottom repeat-x; }
+
+#hd {  }
+#hd h1 { text-align: center; }
+#top-image { height: 100px; width: 100%; }
+#top-image img { position: relative; top: 26px; left: 6px; }
+#ft { font-size: 85%; border-top: 1px solid #bb9f7a; margin-top: 1.5em; }
+#ft p { padding: .5em; }
+
+#yui-main ul.anchorlist li { list-style-image: url('/i/icon_anchor.gif'); }
+.anchor:target, .anchor-target { background-color: #F2DEBB; padding: 5px; -moz-border-radius: 4px; border-radius: 4px; -webkit-border-radius: 4px; }
+.retop { margin-top: .5em; }
+/*
+.retop a { display:block; min-width:120px; width:100%; height:20px; background: url('/i/return_top.gif') no-repeat 0 0; }
+*/
+.faq .answers { width: 80%; }
+
+/*
+ * Ext Core Library Examples 3.0
+ * http://extjs.com/
+ * Copyright(c) 2006-2009, Ext JS, LLC.
+ * 
+ * The MIT License
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * 
+ */
+
+/*-- required & default rules --*/
+.ux-menu-container {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.ux-menu,
+.ux-menu ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.ux-menu li {
+    position: relative;
+    float: left;
+    list-style: none;
+}
+
+.ux-menu ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ext-border-box .ux-menu-ie-iframe,
+.ext-ie7 .ux-menu-ie-iframe {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    zoom: 1;
+    z-index: -1;
+    filter:mask();
+}
+
+.ux-menu-vertical .ux-menu-item-main {
+    clear: left;
+}
+
+.ux-menu a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    /*color: #432;*/
+    color: #000;
+    border-left: 1px solid #9E6F3A;
+    border-top: 1px solid #9E6F3A; 
+    border-bottom: 1px solid #9E6F3A;
+    /*background: #f3efec url(images/menu-item-bg.png) repeat;*/
+    background: #FBF8F0;
+    font-weight: bold;
+    /*font-size: 12px;*/
+    line-height: 12px;
+    padding: 10px 12px;
+}
+
+.ux-menu a.ux-menu-link-last {
+    border-right: 1px solid #9E6F3A;
+}
+
+ux.menu ul a {
+    width: 100%;
+}
+/*.ux-menu a:visited { color: #000; }*/
+.ux-menu a:focus,
+.ux-menu a:hover,
+.ux-menu a.ux-menu-link-hover {
+    border-color: #fff; /*#d2e3f4;*/
+    background: #000; /*url(images/menu-item-bg-over.png) repeat;*/
+    color: #fff!important;
+    outline: 0;
+}
+
+.ux-menu.ux-menu-vertical a.current { 
+  /*background-image: url(/i/lawoffices.gif);
+  background-position: 161px -76px; 
+  background-repeat: no-repeat;
+  */
+  border-right: none;
+  background-color: #FFF7DF;
+  color: #993300;
+}
+.ux-menu-vertical a:hover, .ux-menu-vertical a:focus, .ux-menu-vertical a.ux-menu-link-hover, 
+.ux-menu-vertical a.current:hover, .ux-menu-vertical a.current:focus, .ux-menu-vertical a.current.ux-menu-link-hover { background-color: #993300; }
+
+.ext-ie .ux-menu-clearfix {
+    zoom: 1;
+}
+
+.ux-menu-clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.ux-menu a.ux-menu-link-parent {
+    padding-right: 24px;
+    min-width: 1px;
+}
+
+.ux-menu ul a,
+.ux-menu.ux-menu-vertical a {
+    border-bottom: 0px;    
+    border-right: 1px solid #e3dad1;
+}
+
+
+.ux-menu ul a.ux-menu-link-last,
+.ux-menu.ux-menu-vertical a.ux-menu-link-last {
+    border-bottom: 1px solid #e3dad1;
+}
+
+.ux-menu-arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+    right: 10px;
+    top: 12px;
+    position: absolute;
+    background: url(/i/menu-arrow-down.jpg) no-repeat scroll 0 -8px;
+    font-size: 0;
+}
+
+.ux-menu a:focus .ux-menu-arrow, .ux-menu a:hover .ux-menu-arrow, .ux-menu a.ux-menu-link-hover .ux-menu-arrow { background-position: 0 0; }
+
+.ux-menu.ux-menu-vertical .ux-menu-arrow,
+.ux-menu ul .ux-menu-arrow  {
+    width: 6px;
+    height: 8px;
+    top: 13px; 
+    background: url(/i/menu-arrow-right.png) no-repeat;
+}
+
+.ext-border-box .ux-menu-arrow {
+    top: 17px;
+}
+.ext-border-box .ux-menu.ux-menu-vertical .ux-menu-arrow,
+.ext-border-box .ux-menu ul .ux-menu-arrow {
+    top: 16px;
+}
+
+.ux-menu ul.ux-menu-hidden {
+    display: none;
+}
+
+/*telephone links*/
+.tel-unstyled {
+    text-decoration: none;
+    color: inherit; 
+}
+
+/*
+.current {
+  background:#fff!important;
+}
+*/
+/*
+
+.ux-menu.ux-menu-horizontal > .ux-menu-item-first > a {
+    background: transparent url(images/menu-item-first.png) no-repeat center left;
+}
+.ux-menu.ux-menu-horizontal > .ux-menu-item-last > a {
+    background: transparent url(images/menu-item-last.png) no-repeat center right;
+}
+
+.ux-menu.ux-menu-horizontal > .ux-menu-item-first.ux-menu-item-hover > a {
+    background: transparent url(images/menu-item-first-over.png) no-repeat center left;
+}
+.ux-menu.ux-menu-horizontal > .ux-menu-item-last.ux-menu-item-hover > a {
+    background: transparent url(images/menu-item-last-over.png) no-repeat center right;
+}
+
+.ux-menu.ux-menu-horizontal > li.ux-menu-item-main > a {
+    padding-bottom: 12px;
+}*/
