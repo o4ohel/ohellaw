@@ -9,9 +9,15 @@
 
 <div class="row">
 	<div class="large-3 columns">
-		<ol-side-nav active="areas"></ol-side-nav>
+		<ol-side-nav active="testimonials"></ol-side-nav>
 	</div>
 	<div class="large-9 columns">
-		<h1>Areas Of Practice</h1> 
+		<h1>Client Testimonials</h1>
+		<div class="testimonials">
+			<div class="testimonial" ng-repeat="testimonial in testimonials">
+				<div class="quote">"{{testimonial.quote}}"</div>
+				<div class="initial"> - {{testimonial.initial}}</div>
+			</div>
+		</div>
 	</div>
 </div>

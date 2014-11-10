@@ -34,16 +34,30 @@ angular.module('app', ['ngRoute']).config(function($routeProvider, $locationProv
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
+	$scope.randomizeList = function(list) {
+		var i = list.length;
+  		if(i == 0) return false;
+  		while(--i) {
+    		var j = Math.floor(Math.random() * (i + 1)),
+    			tempi = list[i],
+    			tempj = list[j];
+    		list[i] = tempj;
+    		list[j] = tempi;
+  		}
+		return list;
+	};
 }]).controller('HomeController', ['$scope', '$http',function($scope, $http) {
-	$http.get('../data/testimonials.json').success(function(data) {
+	$http.get('data/testimonials.json').success(function(data) {
 		$scope.testimonials = data.items;
 	});
 }]).controller('AreasController', ['$scope',function($scope) {
 
 }]).controller('ProfileController', ['$scope',function($scope) {
 
-}]).controller('TestimonialsController', ['$scope',function($scope) {
-
+}]).controller('TestimonialsController', ['$scope', '$http',function($scope, $http) {
+	$http.get('data/testimonials.json').success(function(data) {
+		$scope.testimonials = $scope.randomizeList(data.items);
+	});
 }]).controller('ContactController', ['$scope',function($scope) {
 
 }])

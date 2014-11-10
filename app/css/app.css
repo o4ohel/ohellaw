@@ -6317,3 +6317,19 @@ hr {
 
 footer p {
   font-size: 0.7rem; }
+
+.testimonials {
+  font-size: 85%; }
+
+.testimonial {
+  border: 1px solid #9E6F3A;
+  border-radius: 4px;
+  font-style: italic;
+  margin-bottom: 15px;
+  padding: 3px 11px;
+  width: 90%; }
+
+.testimonial .initial {
+  margin-top: 6px;
+  padding-right: 30px;
+  text-align: right; }
