@@ -45,7 +45,6 @@ angular.module('app')
     };
 
     $scope.makeSameAddress = function() {
-      console.log("isSame?: %o", $scope.plan.wife.sameAddress)
       var isSame = $scope.plan.wife.sameAddress;
       if(isSame) {
         $scope.plan.wife.address = angular.copy($scope.plan.husband.address);
@@ -55,8 +54,6 @@ angular.module('app')
     };
 
     $scope.save = function() {
-      var plans = $scope.firebase.child("plans");
-      console.log("$scope.plan: %o", $scope.plan);
-      plans.push($scope.plan);
+      // plans.push($scope.plan);
     };
   });
