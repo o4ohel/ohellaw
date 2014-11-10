@@ -1,1 +1,38 @@
 /* all app scss styles here */
+.ol-topstrip {
+  background-color: $jet;
+  background-image: url('../images/top-compass.jpg');
+}
+.row {
+  background-color: $secondary-color;
+}
+.row.topnav {
+    background-image: url("../images/indeximage.jpg");
+    background-position: 0 -3px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+hr {
+  border-color: $brown;
+}
+.row.topnav .button-group {
+  margin-top: 10px;
+}
+.row.topnav .button-group > li {
+  margin: 0 -1px;
+}
+.row.topnav .button {
+  padding: .7rem;
+}
+
+.vcard {
+  font-size: 80%;
+}
+
+.resources {
+  font-size: $small-font-size * 1.2;
+}
+footer p {
+  font-size: .7rem;
+}
