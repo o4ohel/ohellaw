@@ -15,12 +15,11 @@ angular.module('app')
       {key: 'CA', label: 'California'},
       {key: 'NV', label: 'Nevada'}
     ];
-    //$scope.states = ['CA', 'AZ'];
     $scope.plan = {
-      husband: {
+      client: {
         isOwner: false
       },
-      wife: {},
+      spouse: {},
       children: {
         0: {}
       },

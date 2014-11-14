@@ -6,140 +6,103 @@
 		
 	</div>
 </div>
-
-<div class="row">
-	<div class="large-12 columns">
-		<h1>Estate Planning Questionnaire</h1>
-		<form target="_blank" onsubmit="return window.confirm(&quot;You are submitting information to an external page.\nAre you sure?&quot;);">
-		  <fieldset>
-		    <legend>Basic Info</legend>
-		    <fieldset>
-		      <legend>Husband</legend>
-		      <div>
-		        <label>First Name</label>
-		        <div>
-		          <input type="text">
-		          <span>First Name</span>
-		        </div>
-		        <label>Last Name</label>
-		        <div>
-		          <input type="text">
-		          <span>Last name</span>
-		        </div>
-		        <label>US Citizen?</label>
-		        <div>
-		          <input type="checkbox">
-		        </div>
-		      </div>
-		      <div>
-		        <label>Date of birth</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>Phone</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		      </div>
-		      <div>
-		        <label>Address</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>Owner?</label>
-		        <div>
-		          <input type="checkbox">
-		        </div>
-		      </div>
-		      <div>
-		        <label>City</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>State</label>
-		        <div>
-		          <select>
-		          </select>
-		        </div>
-		        <label>Zip</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		      </div>
-		      <div>
-		        <label>Email</label>
-		        <div>
-		          <input type="email">
-		        </div>
-		      </div>
-		
-		    </fieldset>
-		
-		    <fieldset>
-		      <legend>Wife</legend>
-		      <div>
-		        <label>First Name</label>
-		        <div>
-		          <input type="text">
-		          <span>First Name</span>
-		        </div>
-		        <label>Last Name</label>
-		        <div>
-		          <input type="text">
-		          <span>Last name</span>
-		        </div>
-		        <label>US Citizen?</label>
-		        <div>
-		          <input type="checkbox">
-		        </div>
-		      </div>
-		      <div>
-		        <label>Date of birth</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>Phone</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		      </div>
-		      <div>
-		        <div>
-		          <input type="checkbox">
-		          <span>Same as husband?</span>
-		        </div>
-		        <label>Address</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>Owner?</label>
-		        <div>
-		          <input type="checkbox">
-		        </div>
-		      </div>
-		      <div>
-		        <label>City</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		        <label>State</label>
-		        <div>
-		          <select>
-		          </select>
-		        </div>
-		        <label>Zip</label>
-		        <div>
-		          <input type="text">
-		        </div>
-		      </div>
-		      <div>
-		        <label>Email</label>
-		        <div>
-		          <input type="email">
-		        </div>
-		      </div>
-		    </fieldset>
-		  </fieldset>
+<pre>{{plan | json}}</pre>
+<form>
+	<div class="row">
+		<div class="small-12 columns">
+			<h1>Estate Planning Questionnaire</h1>
+			<fieldset>
+		    	<legend>Basic Info</legend>
+				<div class="row">
+					<div class="small-6 columns">
+						<fieldset>
+							<legend>Client</legend>
+							<div class="row">
+								<div class="small-4 columns">
+									<label>First Name <input ng-model="plan.client.firstName" type="text" placeholder="First Name"></label>	
+								</div>
+								<div class="small-5 columns">
+									<label>Last Name <input ng-model="plan.client.lastName" type="text" placeholder="Last Name"></label>	
+								</div>
+								<div class="small-3 columns">
+									<label class="inline"><br/>US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="small-6 columns">
+									<label>Date of birth<input ng-model="plan.client.dob" type="date"></label>
+								</div>
+								<div class="small-6 columns">
+									<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
+								</div>-
+							</div>
+							<div class="row">
+								<div class="small-9 columns">
+									<label>Address <input ng-model="plan.client.address" type="text"></label>
+								</div>
+								<div class="small-3 columns">
+									<label class="inline"><br/>Owner? <input ng-model="plan.client.isOwner" type="checkbox"></label>	
+								</div>
+							</div>
+			        		<div class="row">
+								<div class="small-6 columns">
+									<label>City <input type="text"></label>
+								</div>
+								<div class="small-2 columns">
+									<label>State <select></select></label>	
+								</div>
+								<div class="small-4 columns">
+									<label>Zip <input type="text"></label>	
+								</div>
+							</div>
+			        		<label>Email <input type="email"></label>
+		        		</fieldset>	
+					</div>
+					<div class="small-6 columns">
+						<fieldset>
+							<legend>Spouse</legend>
+							<div class="row">
+								<div class="small-6 columns">
+									<label>First Name <input type="text" placeholder="First Name"></label>	
+								</div>
+								<div class="small-6 columns">
+									<label>Last Name <input type="text" placeholder="Last Name"></label>	
+								</div>
+							</div>
+							<label>US Citizen? <input type="checkbox"></label>
+							<div class="row">
+								<div class="small-6 columns">
+									<label>Date of birth<input type="date"></label>
+								</div>
+								<div class="small-6 columns">
+									<label>Phone <input type="text"></label>	
+								</div>
+							</div>
+							<div class="row">
+								<div class="small-9 columns">
+									<label>Address <input type="text"></label>
+								</div>
+								<div class="small-3 columns">
+									<label class="inline"><br/>Owner? <input type="checkbox"></label>	
+								</div>
+							</div>
+			        		<div class="row">
+								<div class="small-6 columns">
+									<label>City <input type="text"></label>
+								</div>
+								<div class="small-2 columns">
+									<label>State <select></select></label>	
+								</div>
+								<div class="small-4 columns">
+									<label>Zip <input type="text"></label>	
+								</div>
+							</div>
+			        		<label>Email <input type="email"></label>
+		        		</fieldset>		
+					</div>	
+				</div>
+			</fieldset>
 		
 		  <fieldset>
 		    <legend>
@@ -191,17 +154,14 @@
 		    </div>
 		  </fieldset>
 		
-		  <fieldset>
-		    <legend> </legend>
-		    <div>
-		      <button type="submit">Save</button>
-		    </div>
-		    <div>
-		      <button type="button">Cancel</button>
-		    </div>
-		  </fieldset>
-		</form>
+			<fieldset>
+		    	<legend> </legend>
+		    	<button type="submit">Save</button>
+		    	<button type="button">Cancel</button>
+	    	</fieldset>
+		
 		<pre>{{plan.husband | json}}</pre>
 		<pre>{{plan.wife | json}}</pre>
 	</div>
 </div>
+</form>
