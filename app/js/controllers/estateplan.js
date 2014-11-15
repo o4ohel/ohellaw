@@ -20,35 +20,42 @@ angular.module('app')
         isOwner: false
       },
       spouse: {},
-      children: {
-        0: {}
-      },
-      beneficiaries: {
-        0: {}
-      }
+      children: [],
+      beneficiaries: [],
+      trustee: {}
     };
 
     $scope.addChild = function() {
       $scope.plan.children.push({});
     };
+    $scope.addChild();
     $scope.removeChild = function() {
       var child = this.child;
+      if($scope.plan.children.length < 2) {
+        $scope.plan.children = [{}];
+        return;
+      }
       $scope.plan.children.splice($scope.plan.children.indexOf(child), 1);
     };
     $scope.addBeneficiary = function() {
       $scope.plan.beneficiaries.push({});
     };
+    $scope.addBeneficiary();
     $scope.removeBeneficiary = function() {
       var beneficiary = this.beneficiary;
+      if($scope.plan.beneficiaries.length < 2) {
+        $scope.plan.beneficiaries = [{}];
+        return;
+      }
       $scope.plan.beneficiaries.splice($scope.plan.beneficiaries.indexOf(beneficiary), 1);
     };
 
     $scope.makeSameAddress = function() {
-      var isSame = $scope.plan.wife.sameAddress;
+      var isSame = $scope.plan.spouse.sameAddr;
       if(isSame) {
-        $scope.plan.wife.address = angular.copy($scope.plan.husband.address);
+        $scope.plan.spouse.address = angular.copy($scope.plan.client.address);
       } else {
-        $scope.plan.wife.address = {};
+        $scope.plan.spouse.address = {};
       }
     };
 

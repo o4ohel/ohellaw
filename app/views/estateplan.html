@@ -1,8 +1,8 @@
 <div class="row ol-topstrip">
-	<div class="large-3 columns">
+	<div class="small-3 columns">
 		<h1><img border="0" alt="Law Offices Of Doron Ohel, A Professional Corporation" src="images/lawoffices.gif"></h1>
 	</div>
-	<div class="large-9 columns">
+	<div class="small-9 columns">
 		
 	</div>
 </div>
@@ -39,7 +39,7 @@
 							</div>
 							<div class="row">
 								<div class="small-9 columns">
-									<label>Address <input ng-model="plan.client.address" type="text"></label>
+									<label>Address <input ng-model="plan.client.address.street" type="text"></label>
 								</div>
 								<div class="small-3 columns">
 									<label class="inline"><br/>Owner? <input ng-model="plan.client.isOwner" type="checkbox"></label>	
@@ -47,113 +47,161 @@
 							</div>
 			        		<div class="row">
 								<div class="small-6 columns">
-									<label>City <input type="text"></label>
+									<label>City <input ng-model="plan.client.address.city" type="text"></label>
 								</div>
 								<div class="small-2 columns">
-									<label>State <select></select></label>	
+									<label>State <select ng-model="plan.client.address.state"></select></label>	
 								</div>
 								<div class="small-4 columns">
-									<label>Zip <input type="text"></label>	
+									<label>Zip <input ng-model="plan.client.address.zip" type="text"></label>	
 								</div>
 							</div>
-			        		<label>Email <input type="email"></label>
+			        		<label>Email <input ng-model="plan.client.email" type="email"></label>
 		        		</fieldset>	
 					</div>
 					<div class="small-6 columns">
 						<fieldset>
 							<legend>Spouse</legend>
 							<div class="row">
-								<div class="small-6 columns">
-									<label>First Name <input type="text" placeholder="First Name"></label>	
+								<div class="small-4 columns">
+									<label>First Name <input ng-model="plan.spouse.firstName" type="text" placeholder="First Name"></label>	
 								</div>
-								<div class="small-6 columns">
-									<label>Last Name <input type="text" placeholder="Last Name"></label>	
+								<div class="small-5 columns">
+									<label>Last Name <input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name"></label>	
+								</div>
+								<div class="small-3 columns">
+									<label class="inline"><br/>US Citizen? <input ng-model="plan.spouse.isCitizen" type="checkbox"></label>
 								</div>
 							</div>
-							<label>US Citizen? <input type="checkbox"></label>
+						
 							<div class="row">
 								<div class="small-6 columns">
-									<label>Date of birth<input type="date"></label>
+									<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
 								</div>
 								<div class="small-6 columns">
-									<label>Phone <input type="text"></label>	
+									<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
 								</div>
 							</div>
 							<div class="row">
 								<div class="small-9 columns">
-									<label>Address <input type="text"></label>
+									<label>Address <input ng-model="plan.spouse.address.street" type="text"></label>
 								</div>
 								<div class="small-3 columns">
-									<label class="inline"><br/>Owner? <input type="checkbox"></label>	
+									<label class="inline">Same as client? <input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label>	
 								</div>
 							</div>
 			        		<div class="row">
 								<div class="small-6 columns">
-									<label>City <input type="text"></label>
+									<label>City <input ng-model="plan.spouse.address.city" type="text"></label>
 								</div>
 								<div class="small-2 columns">
-									<label>State <select></select></label>	
+									<label>State <select ng-model="plan.spouse.address.state"></select></label>	
 								</div>
 								<div class="small-4 columns">
-									<label>Zip <input type="text"></label>	
+									<label>Zip <input ng-model="plan.spouse.address.zip" type="text"></label>	
 								</div>
 							</div>
-			        		<label>Email <input type="email"></label>
+			        		<label>Email <input ng-model="plan.spouse.email" type="email"></label>
 		        		</fieldset>		
 					</div>	
 				</div>
 			</fieldset>
+
+			<fieldset>
+		    	<legend><span>Children</span></legend>
+		      	<div class="row"><div class="small-offset-10"><button ng-click="addChild()" class="round tiny">Add child</button></div></div>
+		      	<div class="row">
+					<!-- <div class="small-1 columns">18+</div> -->
+					<div class="small-3 columns">First Name</div>
+					<div class="small-3 columns">Last Name</div>
+					<div class="small-3 columns">DOB</div>
+					<div class="small-1 columns">M</div>
+					<div class="small-1 columns">F</div>
+					<div class="small-1 columns"><i class="fa fa-close"></i></div>
+				</div>
+				<div class="row" ng-repeat="child in plan.children">
+					<!-- <div class="small-1 columns"><input type="checkbox"></div> -->
+					<div class="small-3 columns"><input ng-model="child.fName" type="text"></div>
+					<div class="small-3 columns"><input ng-model="child.lName" type="text"></div>
+					<div class="small-3 columns"><input ng-model="child.dob" type="date"></div>
+					<div class="small-1 columns"><input ng-model="child.gender" type="radio" value="male"></div>
+					<div class="small-1 columns"><input ng-model="child.gender" type="radio" value="female"></div>
+					<div class="small-1 columns"><i ng-click="removeChild()" class="fa fa-close"></i></div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+		    	<legend><span>Beneficiary</span></legend>
+		      	<div class="row"><div class="small-offset-10"><button ng-click="addBeneficiary()" class="round tiny">Add Beneficiary</button></div></div>
+		      	<div class="row">
+					<!-- <div class="small-1 columns">18+</div> -->
+					<div class="small-3 columns">First Name</div>
+					<div class="small-3 columns">Last Name</div>
+					<div class="small-3 columns">Relationship</div>
+					<div class="small-1 columns">M</div>
+					<div class="small-1 columns">F</div>
+					<div class="small-1 columns"><i class="fa fa-close"></i></div>
+				</div>
+				<div class="row" ng-repeat="beneficiary in plan.beneficiaries">
+					<!-- <div class="small-1 columns"><input type="checkbox"></div> -->
+					<div class="small-3 columns"><input ng-model="beneficiary.fName" type="text"></div>
+					<div class="small-3 columns"><input ng-model="beneficiary.lName" type="text"></div>
+					<div class="small-3 columns"><input ng-model="beneficiary.relationship" type="text"></div>
+					<div class="small-1 columns"><input ng-model="beneficiary.gender" type="radio" value="male"></div>
+					<div class="small-1 columns"><input ng-model="beneficiary.gender" type="radio" value="female"></div>
+					<div class="small-1 columns"><i ng-click="removeBeneficiary()" class="fa fa-close"></i></div>
+				</div>
+			</fieldset>
 		
-		  <fieldset>
-		    <legend>
-		      <button>Add Child</button>
-		      <span>Children</span>
-		    </legend>
-		    <div>
-		      <div>18+</div>
-		      <div>First Name</div>
-		      <div>Last Name</div>
-		      <div>DOB</div>
-		      <div>M</div>
-		      <div>F</div>
-		      <div>Remove</div>
-		    </div>
-		    <div>
-		      <div><input type="checkbox"></div>
-		      <div><input type="text"></div>
-		      <div><input type="text"></div>
-		      <div><input type="text"></div>
-		      <div><input type="radio"></div>
-		      <div><input type="radio"></div>
-		      <div><i></i></div>
-		    </div>
-		  </fieldset>
-		
-		  <fieldset>
-		    <legend>
-		      <button>Add Beneficiary</button>
-		      <span>Other Beneficiaries</span>
-		    </legend>
-		    <div>
-		      <div> </div>
-		      <div>First Name</div>
-		      <div>Last Name</div>
-		      <div>DOB</div>
-		      <div>M</div>
-		      <div>F</div>
-		      <div>Remove</div>
-		    </div>
-		    <div>
-		      <div>{{$index + 1}})</div>
-		      <div><input type="text"></div>
-		      <div><input type="text"></div>
-		      <div><input type="text"></div>
-		      <div><input type="radio"></div>
-		      <div><input type="radio"></div>
-		      <div><i></i></div>
-		    </div>
-		  </fieldset>
-		
+			<fieldset>
+				<legend>Successor Trustee / Executor</legend>
+				<div class="row">
+					<div class="small-12 columns">You and your spouse are each other's initial trustees, guardians, and agents for durable power of attorney. You can nominate your adult children / beneficiaries / foreign residents as successor trustees.
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="trustee-name" class="right inline">Successor Trustee's Name</label>
+					</div>
+					<div class="small-7 columns">
+						<input ng-model="plan.trustee.name" type="text" id="trustee-name">
+					</div>
+					<div class="small-1 columns">
+						<label>M <input ng-model="plan.trustee.gender" type="radio" value="male"></label>
+					</div>
+					<div class="small-1 columns">
+						<label>F <input ng-model="plan.trustee.gender" type="radio" value="female"></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="trustee-address" class="right inline">Address</label>
+					</div>
+					<div class="small-9 columns">
+						<input ng-model="plan.trustee.address.steet" type="text" id="trustee-address">
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="trustee-city" class="right inline">City</label>
+					</div>
+					<div class="small-5 columns">
+						<input ng-model="plan.trustee.address.city" type="text">
+					</div>
+					<div class="small-1 columns">
+						<label class="right inline">State</label>
+					</div>
+					<div class="small-1 columns">
+						<select ng-model="plan.trustee.address.state"></select>
+					</div>
+					<div class="small-1 columns">
+						<label class="right inline">Zip</label>
+					</div>
+					<div class="small-1 columns">
+						<input ng-model="plan.trustee.address.zip" type="text">
+					</div>
+				</div>
+			</fieldset>
 			<fieldset>
 		    	<legend> </legend>
 		    	<button type="submit">Save</button>

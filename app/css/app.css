@@ -6333,3 +6333,15 @@ footer p {
   margin-top: 6px;
   padding-right: 30px;
   text-align: right; }
+
+form fieldset {
+  position: relative; }
+
+form button.small, form .button.small {
+  padding: 4px;
+  border-radius: 6px; }
+
+form button.small.right {
+  position: absolute;
+  top: -5px;
+  right: 5px; }
