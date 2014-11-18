@@ -15,5 +15,5 @@
 		"jQuery": false,
 		"$": false
 	},
-	"predef": ["angular"]
+	"predef": ["angular","google"]
 }
