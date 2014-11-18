@@ -55,7 +55,7 @@ angular.module('app')
       if(isSame) {
         $scope.plan.spouse.address = angular.copy($scope.plan.client.address);
       } else {
-        $scope.plan.spouse.address = {};
+        $scope.plan.spouse.address = '';
       }
     };
 

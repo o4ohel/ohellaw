@@ -68,3 +68,10 @@ form button.small.right {
   top: -5px;
   right: 5px;
 }
+
+label label {
+  float: right;
+}
+label label input[type=checkbox] {
+  margin-bottom: 0;
+}

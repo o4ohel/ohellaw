@@ -18,14 +18,19 @@
 						<fieldset>
 							<legend>Client</legend>
 							<div class="row">
-								<div class="small-4 columns">
-									<label>First Name <input ng-model="plan.client.firstName" type="text" placeholder="First Name"></label>	
+								<div class="small-6 columns">
+									<label for="clientFname">First Name</label>	
 								</div>
-								<div class="small-5 columns">
-									<label>Last Name <input ng-model="plan.client.lastName" type="text" placeholder="Last Name"></label>	
+								<div class="small-6 columns">
+									<label for="clientLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.client.isCitizen" type="checkbox"></label></label>	
 								</div>
-								<div class="small-3 columns">
-									<label class="inline"><br/>US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label>
+							</div>
+							<div class="row">
+								<div class="small-6 columns">
+									<input ng-model="plan.client.firstName" type="text" placeholder="First Name" id="clientFname">
+								</div>
+								<div class="small-6 columns">
+									<input ng-model="plan.client.lastName" type="text" placeholder="Last Name" id="clientLname">
 								</div>
 							</div>
 							
@@ -35,25 +40,11 @@
 								</div>
 								<div class="small-6 columns">
 									<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
-								</div>-
+								</div>
 							</div>
 							<div class="row">
-								<div class="small-9 columns">
-									<label>Address <input ng-model="plan.client.address.street" type="text"></label>
-								</div>
-								<div class="small-3 columns">
-									<label class="inline"><br/>Owner? <input ng-model="plan.client.isOwner" type="checkbox"></label>	
-								</div>
-							</div>
-			        		<div class="row">
-								<div class="small-6 columns">
-									<label>City <input ng-model="plan.client.address.city" type="text"></label>
-								</div>
-								<div class="small-2 columns">
-									<label>State <select ng-model="plan.client.address.state"></select></label>	
-								</div>
-								<div class="small-4 columns">
-									<label>Zip <input ng-model="plan.client.address.zip" type="text"></label>	
+								<div class="small-12 columns">
+									<label for="clientAddress">Address <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></label><input ng-model="plan.client.address" type="text" id="clientAddress" googleplace>
 								</div>
 							</div>
 			        		<label>Email <input ng-model="plan.client.email" type="email"></label>
@@ -63,14 +54,19 @@
 						<fieldset>
 							<legend>Spouse</legend>
 							<div class="row">
-								<div class="small-4 columns">
-									<label>First Name <input ng-model="plan.spouse.firstName" type="text" placeholder="First Name"></label>	
+								<div class="small-6 columns">
+									<label for="spouseFname">First Name</label>	
 								</div>
-								<div class="small-5 columns">
-									<label>Last Name <input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name"></label>	
+								<div class="small-6 columns">
+									<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
 								</div>
-								<div class="small-3 columns">
-									<label class="inline"><br/>US Citizen? <input ng-model="plan.spouse.isCitizen" type="checkbox"></label>
+							</div>
+							<div class="row">
+								<div class="small-6 columns">
+									<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
+								</div>
+								<div class="small-6 columns">
+									<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
 								</div>
 							</div>
 						
@@ -83,22 +79,8 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="small-9 columns">
-									<label>Address <input ng-model="plan.spouse.address.street" type="text"></label>
-								</div>
-								<div class="small-3 columns">
-									<label class="inline">Same as client? <input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label>	
-								</div>
-							</div>
-			        		<div class="row">
-								<div class="small-6 columns">
-									<label>City <input ng-model="plan.spouse.address.city" type="text"></label>
-								</div>
-								<div class="small-2 columns">
-									<label>State <select ng-model="plan.spouse.address.state"></select></label>	
-								</div>
-								<div class="small-4 columns">
-									<label>Zip <input ng-model="plan.spouse.address.zip" type="text"></label>	
+								<div class="small-12 columns">
+									<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
 								</div>
 							</div>
 			        		<label>Email <input ng-model="plan.spouse.email" type="email"></label>
@@ -175,13 +157,13 @@
 				</div>
 				<div class="row">
 					<div class="small-3 columns">
-						<label for="trustee-address" class="right inline">Address</label>
+						<label for="trusteeAddress" class="right inline">Address</label>
 					</div>
 					<div class="small-9 columns">
-						<input ng-model="plan.trustee.address.steet" type="text" id="trustee-address">
+						<input ng-model="plan.trustee.address" type="text" id="trusteeAddress" googleplace>
 					</div>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<div class="small-3 columns">
 						<label for="trustee-city" class="right inline">City</label>
 					</div>
@@ -199,8 +181,8 @@
 					</div>
 					<div class="small-1 columns">
 						<input ng-model="plan.trustee.address.zip" type="text">
-					</div>
-				</div>
+					</div> 
+				</div>-->
 			</fieldset>
 			<fieldset>
 		    	<legend> </legend>
