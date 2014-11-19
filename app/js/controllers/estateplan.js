@@ -22,7 +22,12 @@ angular.module('app')
       spouse: {},
       children: [],
       beneficiaries: [],
-      trustee: {}
+      trustee: {},
+      distribution: {
+        age1: 18,
+        age2: 18,
+        age3: 18
+      }
     };
 
     $scope.addChild = function() {

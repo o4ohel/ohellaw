@@ -6,7 +6,7 @@
 		
 	</div>
 </div>
-<!-- <pre>{{plan | json}}</pre> -->
+<pre>{{plan | json}}</pre>
 <form>
 	<div class="row">
 		<div class="small-12 columns">
@@ -91,7 +91,7 @@
 
 			<fieldset>
 		    	<legend><span>Children</span></legend>
-		      	<div class="row"><div class="small-offset-10"><button ng-click="addChild()" class="round tiny">Add child</button></div></div>
+		      	<div class="row"><div class="small-offset-11 right"><button ng-click="addChild()" class="round small">Add child</button></div></div>
 		      	<div class="row">
 					<!-- <div class="small-1 columns">18+</div> -->
 					<div class="small-3 columns">First Name</div>
@@ -114,7 +114,7 @@
 
 			<fieldset>
 		    	<legend><span>Beneficiary</span></legend>
-		      	<div class="row"><div class="small-offset-10"><button ng-click="addBeneficiary()" class="round tiny">Add Beneficiary</button></div></div>
+		      	<div class="row"><div class="small-offset-10 right"><button ng-click="addBeneficiary()" class="round small">Add Beneficiary</button></div></div>
 		      	<div class="row">
 					<!-- <div class="small-1 columns">18+</div> -->
 					<div class="small-3 columns">First Name</div>
@@ -163,32 +163,71 @@
 						<input ng-model="plan.trustee.address" type="text" id="trusteeAddress" googleplace>
 					</div>
 				</div>
-				<!-- <div class="row">
+
+				<div class="row">
 					<div class="small-3 columns">
-						<label for="trustee-city" class="right inline">City</label>
+						<label for="trustee-name" class="right inline">Alternate Trustee's Name</label>
 					</div>
-					<div class="small-5 columns">
-						<input ng-model="plan.trustee.address.city" type="text">
-					</div>
-					<div class="small-1 columns">
-						<label class="right inline">State</label>
+					<div class="small-7 columns">
+						<input ng-model="plan.trustee2.name" type="text" id="alt-trustee-name">
 					</div>
 					<div class="small-1 columns">
-						<select ng-model="plan.trustee.address.state"></select>
+						<label>M <input ng-model="plan.trustee2.gender" type="radio" value="male"></label>
 					</div>
 					<div class="small-1 columns">
-						<label class="right inline">Zip</label>
+						<label>F <input ng-model="plan.trustee2.gender" type="radio" value="female"></label>
 					</div>
-					<div class="small-1 columns">
-						<input ng-model="plan.trustee.address.zip" type="text">
-					</div> 
-				</div>-->
+				</div>
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="trustee2Address" class="right inline">Address</label>
+					</div>
+					<div class="small-9 columns">
+						<input ng-model="plan.trustee2.address" type="text" id="trustee2Address" googleplace>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label><input type="checkbox"> All my adult children shall be co-successor trustees. </label>
+					</div>
+				</div>
 			</fieldset>
 			<fieldset>
-		    	<legend> </legend>
-		    	<button type="submit">Save</button>
-		    	<button type="button">Cancel</button>
-	    	</fieldset>
+				<legend>Distribution Of Estate After Death</legend>
+				<div class="row">
+					<div class="small-12 columns">
+						Estate will be distributed equally to all children. If benefeciaries not children, fill in additional contact information as needed at end of questionnare.
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						Optional cash gift ... ???
+					</div> 
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Timing Of Distribution</legend>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>I want my children to receive my money at age 18 <input ng-model="plan.distribution.at18" type="checkbox"></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-5 columns">
+						Or distributed at up to 3 equal installments at age:
+					</div>
+					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age1"></div>
+					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age2"></div>
+					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age3"></div>
+					<div class="small-4 columns"></div>
+				</div>
+			</fieldset>
+			<div class="row">
+				<div class="small-3 small-centered columns">
+					<button class="small round" type="submit">Save</button>
+					<button class="small round" type="button">Cancel</button>
+				</div>
+	    	</div>
 	</div>
 </div>
 </form>
