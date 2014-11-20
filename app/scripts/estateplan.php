@@ -7,8 +7,8 @@ $data = json_decode($input, true);
 #print_r($data);
 #$object = json_encode($input);
 
-$filename = str_replace("@", "-", $data["plan"]["client"]["email"]);
-$file = fopen( $filenam . ".json", "w" );
+$filename = str_replace("@", "-", $data["client"]["email"]);
+$file = fopen( $filename . ".json", "w" );
 if( $file == false ) {
    echo ( "Error in opening new file" );
    exit();
