@@ -7,8 +7,8 @@ $data = json_decode($input, true);
 #print_r($data);
 #$object = json_encode($input);
 
-$filename = str_replace("@", "-", $data["plan"]["client"]["email"]) . ".json";
-$file = fopen( $filename, "w" );
+$filename = str_replace("@", "-", $data["plan"]["client"]["email"]);
+$file = fopen( $filenam . ".json", "w" );
 if( $file == false ) {
    echo ( "Error in opening new file" );
    exit();
@@ -34,5 +34,18 @@ $pdf->SetRightMargin(20);
 $pdf->AddPage();
 $pdf->Cell(40,10,'Hello World!');
 
-$pdf->Output();
+//Output the document
+// $dir = "/G:/PDF/test.pdf/"; // full path like C:/xampp/htdocs/file/file/
+// $pdf->Output($dir.$filename,'F');
+$pdf->Output($filename . ".pdf", 'F');
+// $pdf->Output();
+
+//output some response to indicate success or whatever
+$response['status'] = array(
+'type' => 'success',
+'value' => 'Form has been saved',
+);
+$encoded = json_encode($response);
+header('Content-type: application/json');
+exit($encoded);
 ?>

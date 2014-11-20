@@ -8,13 +8,7 @@
  * Controller of the estate plan form
  */
 angular.module('app')
-  .controller('EstateplanController', function ($scope) {
-
-    $scope.states = [
-      {key: 'AZ', label: 'Arizona'},
-      {key: 'CA', label: 'California'},
-      {key: 'NV', label: 'Nevada'}
-    ];
+  .controller('EstateplanController', ['$scope', '$http', '$modal', '$log', function ($scope, $http, $modal, $log) {
     $scope.plan = {
       client: {
         isOwner: false
@@ -66,5 +60,31 @@ angular.module('app')
 
     $scope.save = function() {
       // plans.push($scope.plan);
+      $http.post('scripts/estateplan.php', $scope.plan).success(function(data) {
+        console.log('data from estateplan.php : %o', data);
+      });
     };
-  });
+
+    $scope.preview = function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/estateplan.preview.html',
+        controller: 'EstateplanPreviewController'
+      });
+      modalInstance.result.then(function () {
+        $log.info('need to save now.');
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    };
+  }])
+.controller('EstateplanPreviewController', ['$scope', '$modalInstance', function($scope, $modalInstance) {
+  $scope.save = function () {
+    $modalInstance.close(true);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+}])
+
+;

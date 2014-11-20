@@ -7,7 +7,7 @@
 	</div>
 </div>
 <pre>{{plan | json}}</pre>
-<form>
+<form ng-submit="estateplanForm.$valid && save()">
 	<div class="row">
 		<div class="small-12 columns">
 			<h1>Estate Planning Questionnaire</h1>
@@ -225,6 +225,7 @@
 			<div class="row">
 				<div class="small-3 small-centered columns">
 					<button class="small round" type="submit">Save</button>
+					<!-- <button class="small round" type="button" ng-click="preview()">Preview</button> -->
 					<button class="small round" type="button">Cancel</button>
 				</div>
 	    	</div>

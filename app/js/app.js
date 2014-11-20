@@ -1,24 +1,24 @@
 'use strict';
 
-var app = (function(document, $) {
-	var docElem = document.documentElement, _userAgentInit = function() {
-		docElem.setAttribute('data-useragent', navigator.userAgent);
-	}, _init = function() {
-		$(document).foundation();
-		_userAgentInit();
-	};
+// var app = (function(document, $) {
+// 	var docElem = document.documentElement, _userAgentInit = function() {
+// 		docElem.setAttribute('data-useragent', navigator.userAgent);
+// 	}, _init = function() {
+// 		$(document).foundation();
+// 		_userAgentInit();
+// 	};
 
-	return {
-		init : _init
-	};
+// 	return {
+// 		init : _init
+// 	};
 
-})(document, jQuery);
+// })(document, jQuery);
 
-(function() {
-	app.init();
-})();
+// (function() {
+// 	app.init();
+// })();
 
-angular.module('app', ['ngRoute']).config(function($routeProvider) {
+angular.module('app', ['ngRoute', 'mm.foundation']).config(function($routeProvider) {
 	$routeProvider
 	.when('/home', {templateUrl : 'views/home.html', controller : 'HomeController'})
 	.when('/areas', {templateUrl : 'views/areas.html', controller : 'AreasController'})
