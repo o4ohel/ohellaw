@@ -10,7 +10,7 @@
 	"browser": true,
 	"devel": true,
 	"strict": true,
-	"quotmark": "single",
+//	"quotmark": "single",
 	"globals": {
 		"jQuery": false,
 		"$": false
