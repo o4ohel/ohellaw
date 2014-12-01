@@ -14,7 +14,7 @@ angular.module('app')
         isOwner: false
       },
       spouse: {},
-      children: [],
+      // children: [],
       beneficiaries: [],
       trustee: {},
       distribution: {
@@ -24,18 +24,19 @@ angular.module('app')
       }
     };
 
-    $scope.addChild = function() {
-      $scope.plan.children.push({});
-    };
-    $scope.addChild();
-    $scope.removeChild = function() {
-      var child = this.child;
-      if($scope.plan.children.length < 2) {
-        $scope.plan.children = [{}];
-        return;
-      }
-      $scope.plan.children.splice($scope.plan.children.indexOf(child), 1);
-    };
+	$scope.relationships = ["Son", "Daughter", "Wife", "Husband", "other"];
+    // $scope.addChild = function() {
+      // $scope.plan.children.push({});
+    // };
+    // $scope.addChild();
+    // $scope.removeChild = function() {
+      // var child = this.child;
+      // if($scope.plan.children.length < 2) {
+        // $scope.plan.children = [{}];
+        // return;
+      // }
+      // $scope.plan.children.splice($scope.plan.children.indexOf(child), 1);
+    // };
     $scope.addBeneficiary = function() {
       $scope.plan.beneficiaries.push({});
     };

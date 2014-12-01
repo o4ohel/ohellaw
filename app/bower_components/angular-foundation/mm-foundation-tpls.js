@@ -2,7 +2,7 @@
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
 
- * Version: 0.4.0 - 2014-10-15
+ * Version: 0.5.1 - 2014-11-29
  * License: MIT
  * (c) Pinecone, LLC
  */
@@ -422,10 +422,14 @@ angular.module('mm.foundation.dropdownToggle', [ 'mm.foundation.position', 'mm.f
     },
     controller: 'DropdownToggleController',
     link: function(scope, element, attrs, controller) {
+      var parent = element.parent();
       var dropdown = angular.element($document[0].querySelector(scope.dropdownToggle));
 
-      scope.$watch('$location.path', function() { closeMenu(); });
-      element.bind('click', function (event) {
+      var parentHasDropdown = function() {
+        return parent.hasClass('has-dropdown');
+      };
+
+      var onClick = function (event) {
         dropdown = angular.element($document[0].querySelector(scope.dropdownToggle));
         var elementWasOpen = (element === openElement);
 
@@ -437,15 +441,12 @@ angular.module('mm.foundation.dropdownToggle', [ 'mm.foundation.position', 'mm.f
         }
 
         if (!elementWasOpen && !element.hasClass('disabled') && !element.prop('disabled')) {
-          dropdown.css('display', 'block');
-
+          dropdown.css('display', 'block'); // We display the element so that offsetParent is populated
           var offset = $position.offset(element);
           var parentOffset = $position.offset(angular.element(dropdown[0].offsetParent));
-
           var dropdownWidth = dropdown.prop('offsetWidth');
-
           var css = {
-              top: offset.top - parentOffset.top + offset.height + 'px'
+            top: offset.top - parentOffset.top + offset.height + 'px'
           };
 
           if (controller.small()) {
@@ -468,20 +469,35 @@ angular.module('mm.foundation.dropdownToggle', [ 'mm.foundation.position', 'mm.f
 
           dropdown.css(css);
 
+          if (parentHasDropdown()) {
+            parent.addClass('hover');
+          }
+
           openElement = element;
+
           closeMenu = function (event) {
-            $document.unbind('click', closeMenu);
+            $document.off('click', closeMenu);
             dropdown.css('display', 'none');
             closeMenu = angular.noop;
             openElement = null;
+            if (parent.hasClass('hover')) {
+              parent.removeClass('hover');
+            }
           };
-          $document.bind('click', closeMenu);
+          $document.on('click', closeMenu);
         }
-      });
+      };
 
       if (dropdown) {
         dropdown.css('display', 'none');
       }
+
+      scope.$watch('$location.path', function() { closeMenu(); });
+
+      element.on('click', onClick);
+      element.on('$destroy', function() {
+        element.off('click', onClick);
+      });
     }
   };
 }]);
@@ -992,7 +1008,6 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
       });
 
       function removeModalWindow(modalInstance) {
-
         var body = $document.find('body').eq(0);
         var modalWindow = openedWindows.get(modalInstance).value;
 
@@ -1000,8 +1015,11 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
         openedWindows.remove(modalInstance);
 
         //remove window DOM element
-        removeAfterAnimate(modalWindow.modalDomEl, modalWindow.modalScope, 300, checkRemoveBackdrop);
-        body.toggleClass(OPENED_MODAL_CLASS, openedWindows.length() > 0);
+        removeAfterAnimate(modalWindow.modalDomEl, modalWindow.modalScope, 300, function() {
+          modalWindow.modalScope.$destroy();
+          body.toggleClass(OPENED_MODAL_CLASS, openedWindows.length() > 0);
+          checkRemoveBackdrop();
+        });
       }
 
       function checkRemoveBackdrop() {
@@ -1080,15 +1098,17 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
           backdropDomEl = $compile('<div modal-backdrop></div>')(backdropScope);
           body.append(backdropDomEl);
         }
-          
+
         // Create a faux modal div just to measure its
         // distance to top
         var faux = angular.element('<div class="reveal-modal" style="z-index:-1""></div>');
         body.append(faux[0]);
-        var marginTop = parseInt(getComputedStyle(faux[0]).top);
+        var marginTop = parseInt(getComputedStyle(faux[0]).top) || 0;
         faux.remove();
 
-        var openAt = $window.scrollY + marginTop;
+        // Using pageYOffset instead of scrollY to ensure compatibility with IE
+        var scrollY = $window.pageYOffset || 0;
+        var openAt = scrollY + marginTop;
 
         var angularDomEl = angular.element('<div modal-window style="visibility: visible; top:' + openAt +'px;"></div>');
         angularDomEl.attr('window-class', modal.windowClass);
@@ -1857,9 +1877,13 @@ angular.module( 'mm.foundation.tooltip', [ 'mm.foundation.position', 'mm.foundat
               scope.tt_title = val;
             });
 
+            attrs[prefix+'Placement'] = attrs[prefix+'Placement'] || null;
+
             attrs.$observe( prefix+'Placement', function ( val ) {
-              scope.tt_placement = angular.isDefined( val ) ? val : options.placement;
+              scope.tt_placement = angular.isDefined( val ) && val ? val : options.placement;
             });
+
+            attrs[prefix+'PopupDelay'] = attrs[prefix+'PopupDelay'] || null;
 
             attrs.$observe( prefix+'PopupDelay', function ( val ) {
               var delay = parseInt( val, 10 );
@@ -1878,6 +1902,8 @@ angular.module( 'mm.foundation.tooltip', [ 'mm.foundation.position', 'mm.foundat
             };
 
             var unregisterTriggerFunction = function () {};
+
+            attrs[prefix+'Trigger'] = attrs[prefix+'Trigger'] || null;
 
             attrs.$observe( prefix+'Trigger', function ( val ) {
               unregisterTriggers();
@@ -2359,8 +2385,11 @@ angular.module('mm.foundation.tabs', [])
         }
 
         scope.$watch('active', function(active) {
+          if( !angular.isFunction(setActive) ){
+            return;
+          }
           // Note this watcher also initializes and assigns scope.active to the
-          // attrs.active expression.
+          // attrs.active expression.          
           setActive(scope.$parent, active);
           if (active) {
             tabsetCtrl.select(scope);
@@ -2510,10 +2539,10 @@ angular.module("mm.foundation.topbar", ['mm.foundation.mediaQueries'])
                     var $class = angular.element($document[0].querySelector('.' + $scope.settings.stickyClass));
                     var distance = stickyoffset;
 
-                    if ($window.scrollY > distance && !$class.hasClass('fixed')) {
+                    if ($window.pageYOffset > distance && !$class.hasClass('fixed')) {
                         $class.addClass('fixed');
                         body.css('padding-top', $scope.originalHeight + 'px');
-                    } else if ($window.scrollY <= distance && $class.hasClass('fixed')) {
+                    } else if ($window.pageYOffset <= distance && $class.hasClass('fixed')) {
                         $class.removeClass('fixed');
                         body.css('padding-top', '');
                     }
@@ -2581,7 +2610,7 @@ angular.module("mm.foundation.topbar", ['mm.foundation.mediaQueries'])
                     }
                 });
 
-                var lastBreakpoint = mediaQueries.topbarBreakpoint();             
+                var lastBreakpoint = mediaQueries.topbarBreakpoint();
 
                 angular.element($window).bind('resize', function(){
                     var currentBreakpoint = mediaQueries.topbarBreakpoint();

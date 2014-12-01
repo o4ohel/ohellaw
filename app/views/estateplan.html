@@ -89,11 +89,11 @@
 				</div>
 			</fieldset>
 
-			<fieldset>
+			<!-- <fieldset>
 		    	<legend><span>Children</span></legend>
 		      	<div class="row"><div class="small-offset-11 right"><button ng-click="addChild()" class="round small">Add child</button></div></div>
 		      	<div class="row">
-					<!-- <div class="small-1 columns">18+</div> -->
+					<div class="small-1 columns">18+</div> 
 					<div class="small-3 columns">First Name</div>
 					<div class="small-3 columns">Last Name</div>
 					<div class="small-3 columns">DOB</div>
@@ -102,7 +102,7 @@
 					<div class="small-1 columns"><i class="fa fa-close"></i></div>
 				</div>
 				<div class="row" ng-repeat="child in plan.children">
-					<!-- <div class="small-1 columns"><input type="checkbox"></div> -->
+					<div class="small-1 columns"><input type="checkbox"></div>
 					<div class="small-3 columns"><input ng-model="child.fName" type="text"></div>
 					<div class="small-3 columns"><input ng-model="child.lName" type="text"></div>
 					<div class="small-3 columns"><input ng-model="child.dob" type="date"></div>
@@ -110,27 +110,32 @@
 					<div class="small-1 columns"><input ng-model="child.gender" type="radio" value="female"></div>
 					<div class="small-1 columns"><i ng-click="removeChild()" class="fa fa-close"></i></div>
 				</div>
-			</fieldset>
+			</fieldset> -->
 
 			<fieldset>
-		    	<legend><span>Beneficiary</span></legend>
-		      	<div class="row"><div class="small-offset-10 right"><button ng-click="addBeneficiary()" class="round small">Add Beneficiary</button></div></div>
+		    	<legend><span>Children / Beneficiaries</span></legend>
+		      	<div class="row"><div class="small-offset-10 right"><button ng-click="addBeneficiary()" class="round small"><i class="fa fa-plus"></i> Add</button></div></div>
 		      	<div class="row">
 					<!-- <div class="small-1 columns">18+</div> -->
 					<div class="small-3 columns">First Name</div>
 					<div class="small-3 columns">Last Name</div>
-					<div class="small-3 columns">Relationship</div>
-					<div class="small-1 columns">M</div>
-					<div class="small-1 columns">F</div>
+					<div class="small-2 columns">Relationship</div>
+					<div class="small-2 columns">DOB</div>
+					<div class="small-1 columns">M / F</div>
+					<!-- <div class="small-1 columns">F</div> -->
 					<div class="small-1 columns"><i class="fa fa-close"></i></div>
 				</div>
 				<div class="row" ng-repeat="beneficiary in plan.beneficiaries">
 					<!-- <div class="small-1 columns"><input type="checkbox"></div> -->
 					<div class="small-3 columns"><input ng-model="beneficiary.fName" type="text"></div>
 					<div class="small-3 columns"><input ng-model="beneficiary.lName" type="text"></div>
-					<div class="small-3 columns"><input ng-model="beneficiary.relationship" type="text"></div>
-					<div class="small-1 columns"><input ng-model="beneficiary.gender" type="radio" value="male"></div>
-					<div class="small-1 columns"><input ng-model="beneficiary.gender" type="radio" value="female"></div>
+					<div class="small-2 columns"><input ng-model="beneficiary.relationship" type="text"></div>
+					<div class="small-2 columns"><input ng-model="beneficiary.dob" type="text"></div>
+					<div class="small-1 columns">
+						<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;
+						<input ng-model="beneficiary.gender" type="radio" value="female">
+					</div>
+					<!-- <div class="small-1 columns"></div> -->
 					<div class="small-1 columns"><i ng-click="removeBeneficiary()" class="fa fa-close"></i></div>
 				</div>
 			</fieldset>
