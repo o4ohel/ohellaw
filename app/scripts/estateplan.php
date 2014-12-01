@@ -46,6 +46,21 @@ $response['status'] = array(
 'value' => 'Form has been saved',
 );
 $encoded = json_encode($response);
-header('Content-type: application/json');
-exit($encoded);
+#header('Content-type: application/json');
+#exit($encoded);
+
+$to="o4ohel@gmail.com";
+$subject = "Estate Plan";
+$body = "The following Customer has requested your response: \n\n";
+$body .= "  Name: " . $data["client"]["firstName"] . "\n";
+$body .= " Phone: " . $data["client"]["phone"] . "\n";
+$body .= " Email: " . $data["client"]["email"] . "\n\n";
+$body .= "Comments: download the full form at: ... \n";
+$headers = "From: webmaster@dohellaw.com\n";
+
+mail($to,$subject,$body,$headers);
+
+
+
+
 ?>
