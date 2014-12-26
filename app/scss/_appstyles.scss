@@ -1,4 +1,6 @@
 /* all app scss styles here */
+@import "forms";
+
 .ol-topstrip {
   background-color: $jet;
   background-image: url('../images/top-compass.jpg');
@@ -55,23 +57,3 @@ footer p {
   text-align: right;
 }
 
-form fieldset {
-  position: relative;
-}
-
-form button.small, form .button.small {
-  padding: 4px; 
-  border-radius: 6px;  
-}
-form button.small.right {
-  position: absolute;
-  top: -5px;
-  right: 5px;
-}
-
-label label {
-  float: right;
-}
-label label input[type=checkbox] {
-  margin-bottom: 0;
-}

@@ -1,0 +1,24 @@
+form legend {
+	background-color: transparent;
+}
+
+form fieldset {
+  position: relative;
+}
+
+form button.small, form .button.small {
+  padding: 4px; 
+  border-radius: 6px;  
+}
+form button.small.right {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+}
+
+label label {
+  float: right;
+}
+label label input[type=checkbox] {
+  margin-bottom: 0;
+}

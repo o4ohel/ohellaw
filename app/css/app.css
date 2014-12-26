@@ -6284,6 +6284,27 @@ th.hide-for-touch {
  }
 
 /* all app scss styles here */
+form legend {
+  background-color: transparent; }
+
+form fieldset {
+  position: relative; }
+
+form button.small, form .button.small {
+  padding: 4px;
+  border-radius: 6px; }
+
+form button.small.right {
+  position: absolute;
+  top: -5px;
+  right: 5px; }
+
+label label {
+  float: right; }
+
+label label input[type=checkbox] {
+  margin-bottom: 0; }
+
 .ol-topstrip {
   background-color: #222222;
   background-image: url('../images/top-compass.jpg'); }
@@ -6333,21 +6354,3 @@ footer p {
   margin-top: 6px;
   padding-right: 30px;
   text-align: right; }
-
-form fieldset {
-  position: relative; }
-
-form button.small, form .button.small {
-  padding: 4px;
-  border-radius: 6px; }
-
-form button.small.right {
-  position: absolute;
-  top: -5px;
-  right: 5px; }
-
-label label {
-  float: right; }
-
-label label input[type=checkbox] {
-  margin-bottom: 0; }
