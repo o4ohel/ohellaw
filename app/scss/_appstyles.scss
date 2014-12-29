@@ -1,6 +1,10 @@
 /* all app scss styles here */
 @import "forms";
 
+.f-dropdown li.active {
+  background: $smoke;
+}
+
 .ol-topstrip {
   background-color: $jet;
   background-image: url('../images/top-compass.jpg');

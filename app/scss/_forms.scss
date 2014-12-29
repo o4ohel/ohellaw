@@ -2,6 +2,11 @@ form legend {
 	background-color: transparent;
 }
 
+form legend .legend-action {
+	position: absolute;
+	right: 10px;
+}
+
 form fieldset {
   position: relative;
 }
@@ -21,4 +26,8 @@ label label {
 }
 label label input[type=checkbox] {
   margin-bottom: 0;
+}
+
+input.ng-invalid {
+	margin-bottom: 0;
 }

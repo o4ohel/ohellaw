@@ -15,8 +15,14 @@ angular.module('app')
       },
       spouse: {},
       // children: [],
-      beneficiaries: [],
+      beneficiaries: [{
+        // firstName: 'John',
+        // lastName: 'Jones',
+        // gender: 'male',
+        relationship: 'child'
+      }],
       trustee: {},
+      trustees: [],
       distribution: {
         age1: 18,
         age2: 18,
@@ -24,7 +30,7 @@ angular.module('app')
       }
     };
 
-	$scope.relationships = ["Son", "Daughter", "Wife", "Husband", "other"];
+	$scope.relationships = ['child', 'other'];
     // $scope.addChild = function() {
       // $scope.plan.children.push({});
     // };
@@ -38,9 +44,9 @@ angular.module('app')
       // $scope.plan.children.splice($scope.plan.children.indexOf(child), 1);
     // };
     $scope.addBeneficiary = function() {
-      $scope.plan.beneficiaries.push({});
+      $scope.plan.beneficiaries.push({relationship: 'child'});
     };
-    $scope.addBeneficiary();
+    // $scope.addBeneficiary();
     $scope.removeBeneficiary = function() {
       var beneficiary = this.beneficiary;
       if($scope.plan.beneficiaries.length < 2) {
@@ -48,6 +54,22 @@ angular.module('app')
         return;
       }
       $scope.plan.beneficiaries.splice($scope.plan.beneficiaries.indexOf(beneficiary), 1);
+    };
+
+    $scope.addTrustee = function(beneficiary) {
+      var trustee = {};
+      if(beneficiary) {
+        trustee = beneficiary;
+        trustee.isBeneficiary = true;
+        // trustee.name = beneficiary.firstName + " " + beneficiary.lastName;
+        // trustee.gender = beneficiary.gender;
+      }
+      $scope.plan.trustees.push(trustee);
+    };
+    // $scope.addTrustee();
+    $scope.removeTrustee = function() {
+      var trustee = this.trustee;
+      $scope.plan.trustees.splice($scope.plan.trustees.indexOf(trustee), 1);
     };
 
     $scope.makeSameAddress = function() {
