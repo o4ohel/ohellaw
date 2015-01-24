@@ -1,34 +1,47 @@
 <fieldset>
 	<legend>Client</legend>
 	<div class="row">
-		<div class="col-md-6">
-			<label for="clientFname">First Name</label>	
+		<div class="col-md-6 form-group">
+			<label for="clientFname">First Name</label>
+			<input ng-model="plan.client.firstName" type="text" class="form-control" placeholder="First Name" id="clientFname">
 		</div>
-		<div class="col-md-6">
-			<label for="clientLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.client.isCitizen" type="checkbox"></label></label>	
+		<div class="col-md-6 form-group">
+			<label for="clientLname">Last Name</label>
+			<input ng-model="plan.client.lastName" type="text" class="form-control" placeholder="Last Name" id="clientLname">
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-6">
-			<input ng-model="plan.client.firstName" type="text" placeholder="First Name" id="clientFname">
+		<div class="col-md-4 form-group">
+			<label for="clientDob">Date of birth</label>
+			<input ng-model="plan.client.dob" type="date" class="form-control" id="clientDob">
 		</div>
-		<div class="col-md-6">
-			<input ng-model="plan.client.lastName" type="text" placeholder="Last Name" id="clientLname">
+		<div class="col-md-4 form-group">
+			<label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label>
+		</div>
+		<div class="col-md-4 form-group">
+			<label class="vertical-align">US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label>
+			
 		</div>
 	</div>
-		
+
 	<div class="row">
-		<div class="col-md-6">
-			<label>Date of birth<input ng-model="plan.client.dob" type="date"></label>
+		<div class="col-md-6 form-group">
+			<label for="clientEmail">Email</label>
+			<input ng-model="plan.client.email" type="email" class="form-control" id="clientEmail">
 		</div>
-		<div class="col-md-6">
-			<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
+		<div class="col-md-6 form-group">
+			<label for="clientPhone">Phone </label>
+			<input ng-model="plan.client.phone" type="text" class="form-control" id="clientPhone">
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-12">
-			<label for="clientAddress">Address <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></label><input ng-model="plan.client.address" type="text" id="clientAddress" googleplace>
+		<div class="col-md-12 form-group">
+			<label for="clientAddress">Address</label>
+			<input ng-model="plan.client.address" type="text" class="form-control" id="clientAddress" googleplace>
 		</div>
 	</div>
-	<label>Email <input ng-model="plan.client.email" type="email"></label>
+	
 </fieldset>
+<!-- <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label> -->

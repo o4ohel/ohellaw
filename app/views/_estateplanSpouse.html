@@ -1,34 +1,48 @@
 <fieldset>
 	<legend>Spouse</legend>
 	<div class="row">
-		<div class="col-md-6">
-			<label for="spouseFname">First Name</label>	
+		<div class="col-md-6 form-group">
+			<label for="spouseFname">First Name</label>
+			<input ng-model="plan.spouse.firstName" type="text" class="form-control" placeholder="First Name" id="clientFname">
 		</div>
-		<div class="col-md-6">
-			<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
-		</div>
-		<div class="scol-md-6">
-			<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
+		<div class="col-md-6 form-group">
+			<label for="spouseLname">Last Name</label>
+			<input ng-model="plan.spouse.lastName" type="text" class="form-control" placeholder="Last Name" id="clientLname">
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">
-			<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
+		<div class="col-md-4 form-group">
+			<label for="spouseDob">Date of birth</label>
+			<input ng-model="plan.spouse.dob" type="date" class="form-control" id="clientDob">
 		</div>
-		<div class="col-md-6">
-			<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
+		<div class="col-md-4 form-group">
+			<label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.spouse.isOwner" type="checkbox"></label>
+		</div>
+		<div class="col-md-4 form-group">
+			<label class="vertical-align">US Citizen? <input ng-model="plan.spouse.isCitizen" type="checkbox"></label>
+			
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-12">
-			<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
+		<div class="col-md-6 form-group">
+			<label for="spouseEmail">Email</label>
+			<input ng-model="plan.spouse.email" type="email" class="form-control" id="clientEmail">
+		</div>
+		<div class="col-md-6 form-group">
+			<label for="spousePhone">Phone </label>
+			<input ng-model="plan.spouse.phone" type="text" class="form-control" id="clientPhone">
 		</div>
 	</div>
-	<label>Email <input ng-model="plan.spouse.email" type="email"></label>
+
+	<div class="row">
+		<div class="col-md-8 form-group">
+			<label for="spouseAddress">Address</label>
+			<input ng-model="plan.spouse.address" type="text" class="form-control" id="clientAddress" googleplace>
+		</div>
+		<div class="col-md-4 form-group">
+			<label class="vertical-align">Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label>
+		</div>
+	</div>
 </fieldset>		
