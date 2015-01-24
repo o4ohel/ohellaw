@@ -1,120 +1,85 @@
-<div class="row ol-topstrip">
-	<div class="small-3 columns">
-		<h1><img border="0" alt="Law Offices Of Doron Ohel, A Professional Corporation" src="images/lawoffices.gif"></h1>
-	</div>
-	<div class="small-9 columns">
-		
-	</div>
-</div>
-<!-- <pre>{{plan | json}}</pre> -->
+<h1>Estate Planning Questionnaire</h1>
+
 <form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate>
 	<div class="row">
-		<div class="small-12 columns">
-			<h1>Estate Planning Questionnaire</h1>
-<!-- 			<fieldset>
-		    	<legend>Basic Info</legend> -->
-				<div class="row">
-					<div class="small-6 columns">
-						<fieldset>
-							<legend>Client</legend>
-							<div class="row">
-								<div class="small-6 columns">
-									<label for="clientFname">First Name</label>	
-								</div>
-								<div class="small-6 columns">
-									<label for="clientLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.client.isCitizen" type="checkbox"></label></label>	
-								</div>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6">
+					<fieldset>
+						<legend>Client</legend>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="clientFname">First Name</label>	
 							</div>
-							<div class="row">
-								<div class="small-6 columns">
-									<input ng-model="plan.client.firstName" type="text" placeholder="First Name" id="clientFname">
-								</div>
-								<div class="small-6 columns">
-									<input ng-model="plan.client.lastName" type="text" placeholder="Last Name" id="clientLname">
-								</div>
+							<div class="col-md-6">
+								<label for="clientLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.client.isCitizen" type="checkbox"></label></label>	
 							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<input ng-model="plan.client.firstName" type="text" placeholder="First Name" id="clientFname">
+							</div>
+							<div class="col-md-6">
+								<input ng-model="plan.client.lastName" type="text" placeholder="Last Name" id="clientLname">
+							</div>
+						</div>
 							
-							<div class="row">
-								<div class="small-6 columns">
-									<label>Date of birth<input ng-model="plan.client.dob" type="date"></label>
-								</div>
-								<div class="small-6 columns">
-									<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
-								</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Date of birth<input ng-model="plan.client.dob" type="date"></label>
 							</div>
-							<div class="row">
-								<div class="small-12 columns">
-									<label for="clientAddress">Address <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></label><input ng-model="plan.client.address" type="text" id="clientAddress" googleplace>
-								</div>
+							<div class="col-md-6">
+								<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
 							</div>
-			        		<label>Email <input ng-model="plan.client.email" type="email"></label>
-		        		</fieldset>	
-					</div>
-					<div class="small-6 columns">
-						<fieldset>
-							<legend>Spouse</legend>
-							<div class="row">
-								<div class="small-6 columns">
-									<label for="spouseFname">First Name</label>	
-								</div>
-								<div class="small-6 columns">
-									<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
-								</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="clientAddress">Address <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></label><input ng-model="plan.client.address" type="text" id="clientAddress" googleplace>
 							</div>
-							<div class="row">
-								<div class="small-6 columns">
-									<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
-								</div>
-								<div class="small-6 columns">
-									<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
-								</div>
-							</div>
-						
-							<div class="row">
-								<div class="small-6 columns">
-									<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
-								</div>
-								<div class="small-6 columns">
-									<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
-								</div>
-							</div>
-							<div class="row">
-								<div class="small-12 columns">
-									<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
-								</div>
-							</div>
-			        		<label>Email <input ng-model="plan.spouse.email" type="email"></label>
-		        		</fieldset>		
-					</div>	
+						</div>
+		        		<label>Email <input ng-model="plan.client.email" type="email"></label>
+		        	</fieldset>	
 				</div>
-			<!-- </fieldset> -->
-
-			<!-- <fieldset>
-		    	<legend><span>Children</span></legend>
-		      	<div class="row"><div class="small-offset-11 right"><button ng-click="addChild()" class="round small">Add child</button></div></div>
-		      	<div class="row">
-					<div class="small-1 columns">18+</div> 
-					<div class="small-3 columns">First Name</div>
-					<div class="small-3 columns">Last Name</div>
-					<div class="small-3 columns">DOB</div>
-					<div class="small-1 columns">M</div>
-					<div class="small-1 columns">F</div>
-					<div class="small-1 columns"><i class="fa fa-close"></i></div>
-				</div>
-				<div class="row" ng-repeat="child in plan.children">
-					<div class="small-1 columns"><input type="checkbox"></div>
-					<div class="small-3 columns"><input ng-model="child.fName" type="text"></div>
-					<div class="small-3 columns"><input ng-model="child.lName" type="text"></div>
-					<div class="small-3 columns"><input ng-model="child.dob" type="date"></div>
-					<div class="small-1 columns"><input ng-model="child.gender" type="radio" value="male"></div>
-					<div class="small-1 columns"><input ng-model="child.gender" type="radio" value="female"></div>
-					<div class="small-1 columns"><i ng-click="removeChild()" class="fa fa-close"></i></div>
-				</div>
-			</fieldset> -->
+				<div class="col-md-6">
+					<fieldset>
+						<legend>Spouse</legend>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="spouseFname">First Name</label>	
+							</div>
+							<div class="col-md-6">
+								<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
+							</div>
+							<div class="scol-md-6">
+								<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
+							</div>
+						</div>
+					
+						<div class="row">
+							<div class="col-md-6">
+								<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
+							</div>
+							<div class="col-md-6">
+								<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
+							</div>
+						</div>
+		        		<label>Email <input ng-model="plan.spouse.email" type="email"></label>
+	        		</fieldset>		
+				</div>	
+			</div>
 			
 			<fieldset>
-				
-			    	<legend><span>Children / Beneficiaries</span><span class="legend-action"><button ng-click="beneficiariesForm.$valid && addBeneficiary()" class="round small"><i class="fa fa-plus"></i> Add</button></span></legend>
+				<legend><span>Children / Beneficiaries</span><span class="legend-action"><button ng-click="beneficiariesForm.$valid && addBeneficiary()" class="round small"><i class="fa fa-plus"></i> Add</button></span></legend>
 			    	<ng-form name="beneficiariesForm">
 			      	<div class="row form-header">
 						<div class="small-2 columns"><label>First Name</label></div>

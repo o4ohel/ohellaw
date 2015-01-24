@@ -1,0 +1,19 @@
+<ol class="breadcrumb">
+  <li><a href="/#/areas">Areas Of Practice</a></li>
+  <li class="active">Wills, Trusts, and Estate Planning</li>
+</ol>
+<h1>Wills, Trusts, and Estate Planning</h1>
+
+<h2>FAQ</h2>
+
+<div class="faq">
+	<ul class="anchorlist list-group">
+		<li class="list-group-item" ng-repeat="faq in faqs">
+			<a href="/#/areas/trusts" ng-click="collapsed = !collapsed">
+				<i class="glyphicon pull-right" ng-class="{'glyphicon-arrow-right': !collapsed, 'glyphicon-arrow-down': collapsed}"></i>
+				{{faq.question}}
+			</a>
+			<p collapse="!collapsed">{{faq.answer}}</p>
+		</li>
+  </ul>
+</div>

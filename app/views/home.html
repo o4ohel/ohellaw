@@ -1,95 +1,41 @@
-<div class="row topnav">
-	<div class="large-2 columns">
-		<h1><img border="0" alt="Law Offices Of Doron Ohel, A Professional Corporation" src="images/lawoffices.gif"></h1>
+
+
+<div class="row contact-info">
+	<div class="col-md-4">
+		<div>39300 Civic Center Drive, Ste. 110<br>Fremont, CA 94538</div>
+		<div>(510) 795-1725</div> 
 	</div>
-	<div class="large-10 columns">
-		<ul class="button-group right">
-			<li class="has-dropdown">
-				<a href="#areas" class="button">AREAS OF PRACTICE</a>
-				<!-- <ul class="dropdown">
-          			<li><a href="#trusts">Trusts</a></li>
-          			<li><a href="#areas">Litigation and Mediation</a></li>
-          			<li><a href="#faqcorp">Business Formation</a></li>
-        		</ul> -->
-			</li>
-			<li>
-				<a href="#profile" class="button">ATTORNEY PROFILE</a>
-			</li>
-			<li>
-				<a href="#testimonials" class="button">TESTIMONIALS</a>
-			</li>
-			<li>
-				<a href="#contact" class="button">CONTACT US</a>
-			</li>
-		</ul>
+	<div class="col-md-4">
+		<div>19925 Stevens Creek Blvd., Ste. 100<br>Cupertino, CA 95014</div>
+		<div>(408) 252-4911</div>     
+	</div>
+	<div class="col-md-4">
+		<div>120 North El Camino Real<br>San Mateo, CA 94401</div>
+		<div>(650) 523-3527</div>
 	</div>
 </div>
 
 <div class="row">
-	<div class="large-12 columns text-center">
-
-		<div class="row">
-			<div class="large-4 columns">
-				<ul class="vcard">
-					<li class="street-address">
-						39300 Civic Center Drive, Ste. 110
-					</li>
-					<li class="locality">
-						Fremont, CA 94538
-					</li>
-					<li class="phone">
-						(510) 795-1725
-					</li>
-				</ul>
-			</div>
-			<div class="large-4 columns">
-				<ul class="vcard">
-					<li class="street-address">
-						19925 Stevens Creek Blvd., Ste. 100
-					</li>
-					<li class="locality">
-						Cupertino, CA 95014
-					</li>
-					<li class="phone">
-						(408) 252-4911
-					</li>
-				</ul>
-			</div>
-			<div class="large-4 columns">
-				<ul class="vcard">
-					<li class="street-address">
-						120 North El Camino Real
-					</li>
-					<li class="locality">
-						San Mateo, CA 94401
-					</li>
-					<li class="phone">
-						(650) 523-3527
-					</li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="row">
-	<div class="large-5 columns">
+	<div class="col-md-5">
 		<p>
-			<em><strong>Welcome.</strong> We provide our clients creative, intelligent, and thorough solutions to legal questions. Working as determined advocates on your behalf, we are committed to providing the best possible legal services at the best possible value. Let us work with you to find the best solutions to your legal problems. Browse our website and contact us anytime for further assistance.</em>
+			<strong>Welcome:</strong> We provide our clients creative, intelligent, and thorough solutions to legal questions. Working as determined advocates on your behalf, we are committed to providing the best possible legal services at the best possible value. Let us work with you to find the best solutions to your legal problems. Browse our website and contact us anytime for further assistance.
 		</p>
 		<div class="resources">
-			<a href="#estateplan">Estate Plan Fillable Form <i class="fa fa-file-pdf-o fa-lg"></i></a>
-			<br>
-			<a href="https://squareup.com/market/doron-ohel-law-offices/estate-plans"><span style="vertical-align: middle;">Online Payment Store</span><img style="height:13px; margin-left: 4px; vertical-align: middle;" alt="squareup logo" src="../images/squareup-logo.png"></a>
+			<a ui-sref="estateplan">Estate Plan Fillable Form<img width="26" src="/i/icon-pdf-sm.png" alt="pdf"></a>
+	    	<br>
+	    	<a href="https://squareup.com/market/doron-ohel-law-offices/estate-plans">Online Payment Store<img height="18" src="/images/squareup-logo.png" alt="squareup logo"></a>
         </div>
 	</div>
-	<div class="large-7 columns">
-		<h3>Client Testimonials</h3>
-		<!-- <ul>
-		<li ng-repeat="testimonial in testimonials">{{testimonial.initial}}</li>
-		</ul> -->
-	</div>
+	<div class="col-md-7" style="height: 305px">
+		<carousel interval="slideInterval">
+			<slide ng-repeat="slide in slides" active="slide.active">
+				<p><i>{{slide.text}}</i></p><div class="pull-right"> - {{slide.initial}}</div>
+				<!-- <img ng-src="{{slide.image}}" style="margin:auto;">
+				<div class="carousel-caption">
+					<h4>Slide {{$index}}</h4>
+					<p>{{slide.text}}</p>
+				</div> -->
+			</slide>
+		</carousel>
+  	</div>
 </div>
-
-

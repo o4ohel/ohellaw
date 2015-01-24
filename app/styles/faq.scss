@@ -1,0 +1,20 @@
+@import "variables";
+
+.faq {
+	.list-group-item {
+		a {
+			display: block;
+		}
+		p {
+			background-color: darken($body-bg, 2%);
+			border-radius: 6px;
+			padding: 8px;
+		}
+		background-color: lighten($body-bg, 2%);
+		border-color: $global-border-color;
+	}
+	.glyphicon.glyphicon-arrow-down, .glyphicon.glyphicon-arrow-right, .glyphicon.glyphicon-arrow-up {
+		font-size: 80%;
+		margin-right: 5px;
+	}
+}
