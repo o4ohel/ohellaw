@@ -1,80 +1,15 @@
-<h1>Estate Planning Questionnaire</h1>
 
-<form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate>
+
+<form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate class="estateplan">
+	<h1>Estate Planning Questionnaire</h1>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-6">
-					<fieldset>
-						<legend>Client</legend>
-						<div class="row">
-							<div class="col-md-6">
-								<label for="clientFname">First Name</label>	
-							</div>
-							<div class="col-md-6">
-								<label for="clientLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.client.isCitizen" type="checkbox"></label></label>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<input ng-model="plan.client.firstName" type="text" placeholder="First Name" id="clientFname">
-							</div>
-							<div class="col-md-6">
-								<input ng-model="plan.client.lastName" type="text" placeholder="Last Name" id="clientLname">
-							</div>
-						</div>
-							
-						<div class="row">
-							<div class="col-md-6">
-								<label>Date of birth<input ng-model="plan.client.dob" type="date"></label>
-							</div>
-							<div class="col-md-6">
-								<label>Phone <input ng-model="plan.client.phone" type="text"></label>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<label for="clientAddress">Address <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></label><input ng-model="plan.client.address" type="text" id="clientAddress" googleplace>
-							</div>
-						</div>
-		        		<label>Email <input ng-model="plan.client.email" type="email"></label>
-		        	</fieldset>	
+					<ng-include src="'views/_estateplanClient.html'"></ng-include>
 				</div>
 				<div class="col-md-6">
-					<fieldset>
-						<legend>Spouse</legend>
-						<div class="row">
-							<div class="col-md-6">
-								<label for="spouseFname">First Name</label>	
-							</div>
-							<div class="col-md-6">
-								<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
-							</div>
-							<div class="scol-md-6">
-								<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
-							</div>
-						</div>
-					
-						<div class="row">
-							<div class="col-md-6">
-								<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
-							</div>
-							<div class="col-md-6">
-								<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
-							</div>
-						</div>
-		        		<label>Email <input ng-model="plan.spouse.email" type="email"></label>
-	        		</fieldset>		
+					<ng-include src="'views/_estateplanSpouse.html'"></ng-include>
 				</div>	
 			</div>
 			

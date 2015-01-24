@@ -1,0 +1,34 @@
+<fieldset>
+	<legend>Spouse</legend>
+	<div class="row">
+		<div class="col-md-6">
+			<label for="spouseFname">First Name</label>	
+		</div>
+		<div class="col-md-6">
+			<label for="spouseLname">Last Name<label>US Citizen?&nbsp;<input ng-model="plan.spouse.isCitizen" type="checkbox"></label></label>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<input ng-model="plan.spouse.firstName" type="text" placeholder="First Name" id="spouseFname">
+		</div>
+		<div class="scol-md-6">
+			<input ng-model="plan.spouse.lastName" type="text" placeholder="Last Name" id="spouseLname">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>Date of birth<input ng-model="plan.spouse.dob" type="date"></label>
+		</div>
+		<div class="col-md-6">
+			<label>Phone <input ng-model="plan.spouse.phone" type="text"></label>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<label for="spouseAddress">Address <label>Same as client?&nbsp;<input ng-change="makeSameAddress()" ng-model="plan.spouse.sameAddr" type="checkbox"></label></label><input ng-model="plan.spouse.address" type="text" id="spouseAddress" googleplace>
+		</div>
+	</div>
+	<label>Email <input ng-model="plan.spouse.email" type="email"></label>
+</fieldset>		

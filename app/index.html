@@ -59,7 +59,7 @@
         </div>
       </nav>
 
-      <div id="body" class="container">
+      <div id="body" ng-class="{'container-fluid': fluidBodyLayout, 'container': !fluidBodyLayout}">
         <div ui-view></div>
       </div>
 

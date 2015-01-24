@@ -1,15 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
-// bower:scss
-//@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
-
 @import "_variables.scss";
 @import "bootstrap-custom";
 
 //override bootstrap styles
 @import "scaffolding";
 @import "type";
+@import "estateplan";
 
 h1 {
   margin-top: 0;
