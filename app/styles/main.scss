@@ -4,8 +4,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-custom";
 
 //override bootstrap styles
+@import "carousel";
 @import "scaffolding";
 @import "type";
+
+//ohellaw styles
 @import "estateplan";
 
 h1 {
