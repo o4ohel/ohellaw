@@ -46,13 +46,14 @@
               </li>
               <li ui-sref-active="active"><a ui-sref="profile">About</a></li>
               <li ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
-              <li ng-class="{active: $state.includes('locations')}" class="dropdown" dropdown>
-                <a ui-sref="locations.main">Locations</a><a class="dropdown-toggle" dropdown-toggle><span class="caret"></span></a>
-                <ul class="dropdown-menu">
+              <li ng-class="{active: $state.includes('locations')}">
+                <a ui-sref="locations.cupertino">Directions</a>
+                <!-- <a class="dropdown-toggle" dropdown-toggle><span class="caret"></span></a> -->
+                <!-- <ul class="dropdown-menu">
                   <li><a ui-sref="locations.cupertino">Cupertino</a></li>
                   <li><a ui-sref="locations.fremont">Fremont</a></li>
                   <li><a ui-sref="locations.sanmateo">San Mateo</a></li>
-                </ul>
+                </ul> -->
               </li>
               <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
             </ul>
