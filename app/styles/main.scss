@@ -30,6 +30,10 @@ h1 {
   padding-left: 0;
   margin-left: -10px;
 }
+
+.navbar-brand > img {
+  margin-top: -4px;
+}
 //ohellaw specific styles
 @import "faq";
 

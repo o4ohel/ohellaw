@@ -13,44 +13,7 @@
 				</div>	
 			</div>
 			
-			<fieldset>
-				<legend><span>Children / Beneficiaries</span><span class="legend-action"><button ng-click="beneficiariesForm.$valid && addBeneficiary()" class="round small"><i class="fa fa-plus"></i> Add</button></span></legend>
-			    	<ng-form name="beneficiariesForm">
-			      	<div class="row form-header">
-						<div class="small-2 columns"><label>First Name</label></div>
-						<div class="small-3 columns"><label>Last Name</label></div>
-						<div class="small-2 columns"><label>Relationship</label></div>
-						<div class="small-2 columns"><label>DOB</label></div>
-						<div class="small-1 columns"><label>M / F</label></div>
-						<div class="small-1 columns"><label>Trustee</label></div>
-						<div class="small-1 columns"><label><i class="fa fa-close right"></i></label></div>
-					</div>
-					<div class="row" ng-repeat="beneficiary in plan.beneficiaries">
-						<ng-form name="beneficiaryForm">
-							<div class="small-2 columns">
-								<input ng-model="beneficiary.firstName" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text">
-								<small ng-show="beneficiaryForm.firstName.$touched && beneficiaryForm.firstName.$error.required" class="error">Required Field</small>
-							</div>
-							<div class="small-3 columns">
-								<input ng-model="beneficiary.lastName" required ng-model-options="{updateOn: ' blur'}" type="text">
-								<small ng-show="beneficiaryForm.lastName.$touched && beneficiaryForm.lastName.$error.required" class="error">Required Field</small>
-							</div>
-							<div class="small-2 columns">
-								<!-- <input type="text" ng-model="beneficiary.relationship" name="relationship" typeahead="relationship for relationship in relationships | filter:$viewValue" typeahead-editable="false" class="form-control">
-								<small ng-show="beneficiaryForm.relationship.$error.editable" class="error">Invalid option</small>-->
-								<select ng-options="relationship for relationship in relationships" ng-model="beneficiary.relationship"></select>
-							</div>
-							<div class="small-2 columns"><input ng-model="beneficiary.dob" type="date"></div>
-							<div class="small-1 columns">
-								<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;
-								<input ng-model="beneficiary.gender" type="radio" value="female">
-							</div>
-							<div class="small-1 columns">&nbsp;&nbsp;<input ng-model="beneficiary.isTrustee" type="checkbox" ng-click="addTrustee(beneficiary)"></div>
-							<div class="small-1 columns"><label><i ng-click="removeBeneficiary()" class="fa fa-close right"></i></label></div>
-						</ng-form>
-					</div>
-				</ng-form>
-			</fieldset>
+			<ng-include src="'views/_estateplanBeneficiaries.html'"></ng-include>
 		
 			<fieldset>
 				<legend><span>Successor Trustee / Executor</span><span class="legend-action"><button ng-click="addTrustee()" class="round small"><i class="fa fa-plus"></i> Add</button></span></legend>

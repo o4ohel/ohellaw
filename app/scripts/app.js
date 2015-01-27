@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('ohellawApp', ['ngAnimate','ngMessages','ngRoute','ngSanitize','ngTouch','ui.bootstrap','ui.router'])
+  .module('ohellawApp', ['ngMessages','ngRoute','ngSanitize','ngTouch','ui.bootstrap','ui.router'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider

@@ -1,0 +1,51 @@
+<fieldset>
+	<legend>
+		<span>Children / Beneficiaries</span>
+		<span class="legend-action">
+			<button ng-click="beneficiariesForm.$valid && addBeneficiary()" class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-plus"></i> Add
+			</button>
+		</span>
+	</legend>
+	<ng-form name="beneficiariesForm">
+		<div class="row form-header">
+			<div class="col-md-2"><label>First Name</label></div>
+			<div class="col-md-3"><label>Last Name</label></div>
+			<div class="col-md-2"><label>Relationship</label></div>
+			<div class="col-md-2"><label>DOB</label></div>
+			<div class="col-md-1"><label>M / F</label></div>
+			<div class="col-md-1"><label>Trustee</label></div>
+			<div class="col-md-1"><label><i class="fa fa-close right"></i></label></div>
+		</div>
+		<div class="row" ng-repeat="beneficiary in plan.beneficiaries track by $index">
+			<ng-form name="beneficiaryForm">
+				<div class="col-md-2">
+					<input ng-model="beneficiary.firstName" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<small ng-show="beneficiaryForm.firstName.$touched && beneficiaryForm.firstName.$error.required" class="error">Required Field</small>
+				</div>
+				<div class="col-md-3">
+					<input ng-model="beneficiary.lastName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<small ng-show="beneficiaryForm.lastName.$touched && beneficiaryForm.lastName.$error.required" class="error">Required Field</small>
+				</div>
+				<div class="col-md-2">
+					<!-- <input type="text" ng-model="beneficiary.relationship" name="relationship" typeahead="relationship for relationship in relationships | filter:$viewValue" typeahead-editable="false" class="form-control">
+					<small ng-show="beneficiaryForm.relationship.$error.editable" class="error">Invalid option</small>-->
+					<select ng-options="relationship for relationship in relationships" ng-model="beneficiary.relationship" class="form-control"></select>
+				</div>
+				<div class="col-md-2">
+					<input ng-model="beneficiary.dob" type="date" class="form-control">
+				</div>
+				<div class="col-md-1">
+					<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;
+					<input ng-model="beneficiary.gender" type="radio" value="female">
+				</div>
+				<div class="col-md-1">
+					&nbsp;&nbsp;<input ng-model="beneficiary.isTrustee" type="checkbox" ng-click="addTrustee(beneficiary)">
+				</div>
+				<div class="col-md-1">
+					<label><i ng-click="removeBeneficiary()" class="fa fa-close right"></i></label>
+				</div>
+			</ng-form>
+		</div>
+	</ng-form>
+</fieldset>

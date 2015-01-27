@@ -33,6 +33,7 @@ angular.module('ohellawApp')
     $scope.relationships = ['child', 'other'];
 
     $scope.addBeneficiary = function() {
+      console.log('addBeneficiary');
       $scope.plan.beneficiaries.push({relationship: 'child'});
     };
     // $scope.addBeneficiary();
