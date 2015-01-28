@@ -13,7 +13,9 @@ angular.module('ohellawApp')
 
   	$rootScope.$on('$stateChangeStart', function(event, toState){
   		$rootScope.fluidBodyLayout = (toState.name === 'estateplan');
-	});
+    });
+
+    $scope.navbarCollapse = true;
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

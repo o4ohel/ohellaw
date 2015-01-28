@@ -25,29 +25,29 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" ng-click="navbarCollapse = !navbarCollapse" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ui-sref="home">
+            <a class="navbar-brand" ui-sref="home" ng-click="navbarCollapse = true">
               <img src="images/lawoffices.png">
             </a>
           </div>
-          <div id="navbar" class="collapse navbar-collapse pull-right">
+          <div id="navbar" collapse="navbarCollapse" class="collapse navbar-collapse pull-right">
             <ul class="nav navbar-nav">
               <li ng-class="{active: $state.includes('areas')}" class="dropdown" dropdown>
-                <a ui-sref="areas.main">Areas Of Practice</a><a class="dropdown-toggle" dropdown-toggle><span class="caret "></span></a>
-                <ul class="dropdown-menu">
+                <a ui-sref="areas.main" ng-click="navbarCollapse = true">Areas Of Practice</a><a class="dropdown-toggle" dropdown-toggle><span class="caret "></span></a>
+                <ul class="dropdown-menu" ng-click="navbarCollapse = true">
                   <li ui-sref-active="active"><a ui-sref="areas.trusts">Trusts</a></li>
                   <li><a ui-sref="areas.main">Litigation and Mediation</a></li>
                   <li ui-sref-active="active"><a ui-sref="areas.corp">Business Formation</a></li>
                 </ul>
               </li>
-              <li ui-sref-active="active"><a ui-sref="profile">About</a></li>
-              <li ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
-              <li ng-class="{active: $state.includes('locations')}">
+              <li ui-sref-active="active" ng-click="navbarCollapse = true"><a ui-sref="profile">About</a></li>
+              <li ui-sref-active="active"><a ui-sref="testimonials" ng-click="navbarCollapse = true">Testimonials</a></li>
+              <li ng-class="{active: $state.includes('locations')}" ng-click="navbarCollapse = true">
                 <a ui-sref="locations.cupertino">Directions</a>
                 <!-- <a class="dropdown-toggle" dropdown-toggle><span class="caret"></span></a> -->
                 <!-- <ul class="dropdown-menu">
@@ -62,7 +62,7 @@
                   <ng-include src="'views/_contactform.html'"></ng-include>
                 </div>
               </li>
-              <li class="visible-xs-block" ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
+              <li class="visible-xs-block" ui-sref-active="active" ng-click="navbarCollapse = true"><a ui-sref="contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
