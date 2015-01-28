@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
   </head>
   <body ng-app="ohellawApp">
 
@@ -55,7 +56,12 @@
                   <li><a ui-sref="locations.sanmateo">San Mateo</a></li>
                 </ul> -->
               </li>
-              <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>
+              <li class="dropdown" dropdown>
+                <a dropdown-toggle>Contact</a>
+                <div class="contact-form dropdown-menu ">
+                  <ng-include src="'views/_contactform.html'"></ng-include>
+                </div>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

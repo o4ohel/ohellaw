@@ -1,0 +1,25 @@
+<!-- begin contact form --> 
+<form name="contactForm" ng-submit="contactForm.$valid && send('/includes/f2m.php')">
+  <fieldset>
+    <div class="form-group form-group-sm">
+      <label for="contactName">Name:</label>
+      <input class="form-control" name="contactName" id="contactName" type="text">
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="contactPhone">Phone:</label>
+      <input class="form-control" name="contactPhone" id="contactPhone" type="phone">
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="contactEmail">Email:</label>
+      <input class="form-control" name="contactEmail" id="contactEmail" type="email">
+    </div>
+    <div class="form-group form-group-sm">
+      <label for="contactQuestion">Question:</label>
+      <textarea class="form-control" name="contactQuestion" rows="2" id="contactQuestion"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Send</button>
+    </div>
+  </fieldset>
+  <div class="g-recaptcha" data-sitekey="6LeKHQETAAAAABKxg8wH0hIuCxN0skWuty59kHAd"></div>
+</form> <!-- end contact form -->
