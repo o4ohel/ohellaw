@@ -24,7 +24,7 @@ angular
         .state('locations.cupertino', {url: '/cupertino', templateUrl: '/views/cupertino.html'})
         .state('locations.fremont', {url: '/fremont', templateUrl: '/views/fremont.html'})
         .state('locations.sanmateo', {url: '/sanmateo', templateUrl: '/views/sanmateo.html'})
-      .state('contact', {url: '/contact', templateUrl: 'views/contact.html', controller: 'ContactCtrl'})
+      .state('contact', {url: '/contact', templateUrl: 'views/contactform.html', controller: 'ContactCtrl'})
       .state('disclaimer', {url: '/disclaimer', templateUrl: 'views/disclaimer.html', controller: 'DisclaimerCtrl'})
       .state('estateplan', {url: '/estateplan', templateUrl: 'views/estateplan.html', controller: 'EstateplanCtrl'})
     ;
