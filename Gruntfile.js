@@ -162,6 +162,9 @@ module.exports = function (grunt) {
 
     // Automatically inject Bower components into the app
     wiredep: {
+      options: {
+        exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/', 'bower_components/jquery/dist/jquery.js']
+      },
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
