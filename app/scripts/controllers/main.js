@@ -10,9 +10,11 @@
 angular.module('ohellawApp')
   .controller('MainCtrl', function ($scope, $rootScope, $state) {
   	$rootScope.$state = $state;
+    $scope.navbarCollapse = true;
 
   	$rootScope.$on('$stateChangeStart', function(event, toState){
   		$rootScope.fluidBodyLayout = (toState.name === 'estateplan');
+      $scope.navbarCollapse = true;
     });
 
     $scope.navbarCollapse = true;
