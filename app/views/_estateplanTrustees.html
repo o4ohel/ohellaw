@@ -1,0 +1,50 @@
+<fieldset>
+	<legend>
+		<span>Successor Trustee / Executor</span>
+		<span class="legend-action">
+			<button ng-click="addTrustee()" class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-plus"></i> Add
+			</button>
+		</span>
+	</legend>
+	<p>
+		You and your spouse are each other's initial trustees, guardians, and agents for durable power of attorney. You can nominate your adult children / beneficiaries / foreign residents as successor trustees.
+	</p>
+	<fieldset ng-repeat="trustee in plan.trustees">
+		<div class="row" ng-if="!trustee.isBeneficiary">
+			<div class="col-md-4 form-group">
+				<label>Successor Trustee's Name</label>
+				<input ng-model="trustee.name" type="text" class="form-control">
+			</div>
+			<div class="col-md-1 form-group">
+				<div class="radio">
+					<label>
+						<input ng-model="trustee.gender" type="radio" value="male"> M
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input ng-model="trustee.gender" type="radio" value="female"> F
+					</label>
+				</div>
+			</div>
+			<div class="col-md-5 form-group">
+				<label class="right inline">Address</label>
+				<input ng-model="trustee.address" type="text" googleplace class="form-control">
+			</div>
+			<div class="col-md-1 form-group">
+				<label>&nbsp;</label>
+				<button ng-click="removeTrustee()" class="btn btn-default btn-xs form-control">
+					<i class="glyphicon glyphicon-remove"></i>
+				</button>
+		</div>
+		<div class="row" ng-if="trustee.isBeneficiary">
+			<div class="col-md-9 form-group">
+				Successor Trustee's Name: <strong>{{trustee.firstName}}&nbsp;{{trustee.lastName}}</strong>
+			</div>
+			<div class="small-3 columns">
+				Gender: <strong>{{trustee.gender}}</strong>
+			</div>
+		</div>
+	</fieldset>
+</fieldset>
