@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="fieldset-section">
 	<legend>
 		<span>Children / Beneficiaries</span>
 		<span class="legend-action">
@@ -28,8 +28,6 @@
 					<small ng-show="beneficiaryForm.lastName.$touched && beneficiaryForm.lastName.$error.required" class="error">Required Field</small>
 				</div>
 				<div class="col-md-2">
-					<!-- <input type="text" ng-model="beneficiary.relationship" name="relationship" typeahead="relationship for relationship in relationships | filter:$viewValue" typeahead-editable="false" class="form-control">
-					<small ng-show="beneficiaryForm.relationship.$error.editable" class="error">Invalid option</small>-->
 					<select ng-options="relationship for relationship in relationships" ng-model="beneficiary.relationship" class="form-control"></select>
 				</div>
 				<div class="col-md-2">
@@ -43,7 +41,7 @@
 					&nbsp;&nbsp;<input ng-model="beneficiary.isTrustee" type="checkbox" ng-click="addTrustee(beneficiary)">
 				</div>
 				<div class="col-md-1">
-					<label><i ng-click="removeBeneficiary()" class="fa fa-close right"></i></label>
+					<label><i ng-click="removeBeneficiary()" class="glyphicon glyphicon-remove"></i></label>
 				</div>
 			</ng-form>
 		</div>
