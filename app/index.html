@@ -39,16 +39,16 @@
             <ul class="nav navbar-nav">
               <li ng-class="{active: $state.includes('areas')}" class="dropdown" dropdown>
                 <a ui-sref="areas.main" ng-click="navbarCollapse = true">Areas Of Practice</a><a class="dropdown-toggle" dropdown-toggle><span class="caret "></span></a>
-                <ul class="dropdown-menu" ng-click="navbarCollapse = true">
-                  <li ui-sref-active="active"><a ui-sref="areas.trusts">Trusts</a></li>
-                  <li><a ui-sref="areas.main">Litigation and Mediation</a></li>
-                  <li ui-sref-active="active"><a ui-sref="areas.corp">Business Formation</a></li>
+                <ul class="dropdown-menu">
+                  <li ui-sref-active="active"><a ui-sref="areas.trusts" ng-click="navbarCollapse = true">Trusts</a></li>
+                  <li><a ui-sref="areas.main" ng-click="navbarCollapse = true">Litigation and Mediation</a></li>
+                  <li ui-sref-active="active"><a ui-sref="areas.corp" ng-click="navbarCollapse = true">Business Formation</a></li>
                 </ul>
               </li>
-              <li ui-sref-active="active" ng-click="navbarCollapse = true"><a ui-sref="profile">About</a></li>
+              <li ui-sref-active="active"><a ui-sref="profile" ng-click="navbarCollapse = true">About</a></li>
               <li ui-sref-active="active"><a ui-sref="testimonials" ng-click="navbarCollapse = true">Testimonials</a></li>
-              <li ng-class="{active: $state.includes('locations')}" ng-click="navbarCollapse = true">
-                <a ui-sref="locations.cupertino">Directions</a>
+              <li ng-class="{active: $state.includes('locations')}">
+                <a ui-sref="locations.cupertino" ng-click="navbarCollapse = true">Directions</a>
                 <!-- <a class="dropdown-toggle" dropdown-toggle><span class="caret"></span></a> -->
                 <!-- <ul class="dropdown-menu">
                   <li><a ui-sref="locations.cupertino">Cupertino</a></li>
@@ -62,7 +62,7 @@
                   <ng-include src="'views/_contactform.html'"></ng-include>
                 </div>
               </li>
-              <li class="visible-xs-block" ui-sref-active="active" ng-click="navbarCollapse = true"><a ui-sref="contact">Contact</a></li>
+              <li class="visible-xs-block" ui-sref-active="active"><a ui-sref="contact" ng-click="navbarCollapse = true">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
