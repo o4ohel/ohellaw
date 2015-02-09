@@ -1,0 +1,114 @@
+<fieldset class="fieldset-section">
+	<legend>Health Care Provisions</legend>
+	<div>
+		<div class="row form-header">
+			<div class="col-md-12">
+				Stop life support if in irreversible Coma? 
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-3">
+				<div class="input-group">
+	      	<div class="input-group-addon">Husband</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.stopLifeSupport" class="form-control"></select>
+	      </div>
+	    </div>
+	    <div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.husband.lifeSupportNotes" type="text" class="form-control">
+	    </div>
+	  </div>
+	  <div class="row">
+			<div class="form-group col-md-3">
+				<div class="input-group" dropdown>
+	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.stopLifeSupport" class="form-control"></select>
+	      </div>
+	    </div>
+	    <div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.wife.lifeSupportNodes" type="text" class="form-control">
+	    </div>
+	  </div>
+	</div>
+
+  <div class="fieldset-section">
+	  <div class="row form-header">
+	  	<div class="col-md-6">
+	  		Organ Donation
+	  	</div>
+	  	<div class="6">
+	  		Specific parts and/or purpose
+	  	</div>
+	  </div>
+	  <div class="row">
+	  	<div class="form-group col-md-3">
+	  		<div class="input-group">
+	      	<div class="input-group-addon">Husband</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.organDonation" class="form-control"></select>
+	      </div>
+			</div>
+			<div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.husband.organDonationNotes" type="text" class="form-control">
+	    </div>
+		</div>
+		<div class="row">
+	  	<div class="form-group col-md-3">
+	  		<div class="input-group">
+	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.organDonation" class="form-control"></select>
+	      </div>
+			</div>
+			<div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.wife.organDonationNotes" type="text" class="form-control">
+	    </div>
+		</div>
+	</div>
+
+	<div class="fieldset-section">
+	  <div class="row form-header">
+	  	<div class="col-md-6">
+	  		Autopsy ok if requestion by family member? 
+	  	</div>
+	  </div>
+	  <div class="row">
+	  	<div class="form-group col-md-3">
+	  		<div class="input-group">
+	      	<div class="input-group-addon">Husband</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.autopsy" class="form-control"></select>
+	      </div>
+			</div>
+			<div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.husband.autopsyNotes" type="text" class="form-control">
+	    </div>
+		</div>
+		<div class="row">
+	  	<div class="form-group col-md-3">
+	  		<div class="input-group">
+	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.autopsy" class="form-control"></select>
+	      </div>
+			</div>
+			<div class="form-group col-md-1">
+	    	Notes:
+	    </div>
+	    <div class="form-group col-md-8">
+	    	<input ng-model="plan.health.wife.autopsyNotes" type="text" class="form-control">
+	    </div>
+		</div>
+	</div>
+
+</fieldset>

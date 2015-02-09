@@ -1,0 +1,31 @@
+<fieldset class="fieldset-section">
+	<legend>Distribution Of Estate After Death</legend>
+	<div>
+		<div>
+			Estate will be distributed equally to all children. If benefeciaries not children, fill in additional contact information as needed at end of questionnare.
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			Optional cash gift ... ???
+		</div>
+	</div>
+</fieldset>
+
+<fieldset class="fieldset-section">
+	<legend>Timing Of Distribution</legend>
+	<div class="row">
+		<div class="small-12 columns">
+			<label>I want my children to receive my money at age 18 <input ng-model="plan.distribution.at18" type="checkbox"></label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			Or distributed at up to 3 equal installments at age:
+		</div>
+		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age1"></div>
+		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age2"></div>
+		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age3"></div>
+		<div class="col-md-4"></div>
+	</div>
+</fieldset>

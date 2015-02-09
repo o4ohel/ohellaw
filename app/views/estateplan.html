@@ -3,57 +3,47 @@
 <form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate class="estateplan">
 	<h1>Estate Planning Questionnaire</h1>
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-6">
-					<ng-include src="'views/_estateplanClient.html'"></ng-include>
-				</div>
-				<div class="col-md-6">
-					<ng-include src="'views/_estateplanSpouse.html'"></ng-include>
-				</div>	
-			</div>
-			
-			<ng-include src="'views/_estateplanBeneficiaries.html'"></ng-include>
-
-			<ng-include src="'views/_estateplanTrustees.html'"></ng-include>
-		
-			<fieldset>
-				<legend>Distribution Of Estate After Death</legend>
-				<div class="row">
-					<div class="small-12 columns">
-						Estate will be distributed equally to all children. If benefeciaries not children, fill in additional contact information as needed at end of questionnare.
-					</div>
-				</div>
-				<div class="row">
-					<div class="small-12 columns">
-						Optional cash gift ... ???
-					</div> 
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>Timing Of Distribution</legend>
-				<div class="row">
-					<div class="small-12 columns">
-						<label>I want my children to receive my money at age 18 <input ng-model="plan.distribution.at18" type="checkbox"></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="small-5 columns">
-						Or distributed at up to 3 equal installments at age:
-					</div>
-					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age1"></div>
-					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age2"></div>
-					<div class="small-1 columns"><input min="18" max="100" type="number" ng-model="plan.distribution.age3"></div>
-					<div class="small-4 columns"></div>
-				</div>
-			</fieldset>
-			<div class="row">
-				<div class="small-3 small-centered columns">
-					<button class="small round" type="submit">Save</button>
-					<!-- <button class="small round" type="button" ng-click="preview()">Preview</button> -->
-					<button class="small round" type="button">Cancel</button>
-				</div>
-	    	</div>
+		<div class="col-md-6">
+			<ng-include src="'views/_estateplanClient.html'"></ng-include>
+		</div>
+		<div class="col-md-6">
+			<ng-include src="'views/_estateplanSpouse.html'"></ng-include>
+		</div>	
 	</div>
-</div>
+		
+	<ng-include src="'views/_estateplanBeneficiaries.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanTrustees.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanDistribution.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanGuardianship.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanPowerOfAttorney.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanHealthCareProvisions.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanBurial.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanRentalProperty.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanStocks.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanPrevMarriage.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanPrevPlan.html'"></ng-include>
+
+	<ng-include src="'views/_estateplanNotes.html'"></ng-include>
+
+
+	<fieldset class="fieldset-section">
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-success" type="submit">Save</button>
+				<!-- <button class="small round" type="button" ng-click="preview()">Preview</button> -->
+				<button class="btn btn-default" type="button">Cancel</button>
+			</div>
+    </div>
+	</fieldset>
 </form>
+<pre>{{plan | json}}</pre>

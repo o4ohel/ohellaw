@@ -27,10 +27,12 @@ angular.module('ohellawApp')
         age1: 18,
         age2: 18,
         age3: 18
-      }
+      },
+      prevPlans: [{}]
     };
 
     $scope.relationships = ['child', 'other'];
+    $scope.yesNo = ['Yes', 'No'];
 
     $scope.addBeneficiary = function() {
       console.log('addBeneficiary');
@@ -95,7 +97,16 @@ angular.module('ohellawApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.addPrevPlan = function() {
+      $scope.plan.prevPlans.push({});
+    };
+    $scope.removePrevPlan = function() {
+      var item = this.plan;
+      $scope.plan.prevPlans.splice($scope.plan.prevPlans.indexOf(item), 1);
+    };
   })
+
 	.controller('EstateplanPreviewController', ['$scope', '$modalInstance', function($scope, $modalInstance) {
 	  $scope.save = function () {
 	    $modalInstance.close(true);
@@ -104,4 +115,5 @@ angular.module('ohellawApp')
 	  $scope.cancel = function () {
 	    $modalInstance.dismiss('cancel');
 	  };
-	}]);
+	}])
+  ;
