@@ -40,7 +40,7 @@
               <li ng-class="{active: $state.includes('areas')}" class="dropdown" dropdown>
                 <a ui-sref="areas.main">Areas Of Practice</a><a class="dropdown-toggle" dropdown-toggle><span class="caret "></span></a>
                 <ul class="dropdown-menu">
-                  <li ui-sref-active="active"><a ui-sref="areas.trusts">Trusts</a></li>
+                  <li ui-sref-active="active"><a ui-sref="areas.trusts">Estate Planning</a></li>
                   <li><a ui-sref="areas.main">Litigation and Mediation</a></li>
                   <li ui-sref-active="active"><a ui-sref="areas.corp">Business Formation</a></li>
                 </ul>
@@ -49,7 +49,7 @@
               <li ui-sref-active="active"><a ui-sref="testimonials">Testimonials</a></li>
               <li ui-sref-active="active"><a ui-sref="directions">Directions</a></li>
               <li class="dropdown hidden-xs" dropdown>
-                <a dropdown-toggle>Contact</a>
+                <a dropdown-toggle style="padding-top: 10px; padding-bottom: 0;"><span class="btn btn-default">Contact</span></a>
                 <div class="contact-form dropdown-menu ">
                   <ng-include src="'views/_contactform.html'"></ng-include>
                 </div>
