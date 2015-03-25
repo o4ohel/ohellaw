@@ -10,6 +10,22 @@
 angular.module('ohellawApp')
   .controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams) {
     $scope.planId = $stateParams.planId;
+
+    $scope.datepicker = {
+      open: function(evt, who) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        $scope.datepicker[who] = true;
+      },
+      client: false, 
+      spouse: false
+    };
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1
+    };
+
   	$scope.plan = {
       client: {
         isOwner: false

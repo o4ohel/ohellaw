@@ -31,7 +31,21 @@
 					<select ng-options="relationship for relationship in relationships" ng-model="beneficiary.relationship" class="form-control"></select>
 				</div>
 				<div class="col-md-2">
-					<input ng-model="beneficiary.dob" type="date" class="form-control">
+					<!-- <input ng-model="beneficiary.dob" type="date" class="form-control"> -->
+					<p class="input-group">
+				<input 
+					id="spouseDob"
+					type="text" 
+					class="form-control" 
+					datepicker-popup="dd-MMM-yyyy" 
+					ng-model="plan.spouse.dob" 
+					is-open="datepicker['b' + $index]" 
+					date-disabled="disabled(date, mode)" 
+					datepicker-options="dateOptions"
+					ng-required="true" 
+					close-text="Close" 
+					ng-click="datepicker['b' + $index] = true"
+					>
 				</div>
 				<div class="col-md-1">
 					<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;
