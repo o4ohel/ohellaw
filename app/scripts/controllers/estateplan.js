@@ -102,7 +102,7 @@ angular.module('ohellawApp')
 
     $scope.save = function() {
       // plans.push($scope.plan);
-      $http.post('scripts/estateplan.php', $scope.plan).success(function(data) {
+      $http.post('php/estateplan.php', $scope.plan).success(function(data) {
         console.log('data from estateplan.php : %o', data);
       });
     };
