@@ -23,6 +23,6 @@ angular
       .state('directions', {url: '/directions', templateUrl: 'views/cupertino.html'})
       .state('contact', {url: '/contact', templateUrl: 'views/contactform.html', controller: 'ContactCtrl'})
       .state('disclaimer', {url: '/disclaimer', templateUrl: 'views/disclaimer.html', controller: 'DisclaimerCtrl'})
-      .state('estateplan', {url: '/estateplan', templateUrl: 'views/estateplan.html', controller: 'EstateplanCtrl'})
+      .state('estateplan', {url: '/estateplan/:planId', templateUrl: 'views/estateplan.html', controller: 'EstateplanCtrl'})
     ;
   });

@@ -8,7 +8,8 @@
  * Controller of the ohellawApp
  */
 angular.module('ohellawApp')
-  .controller('EstateplanCtrl', function ($scope, $http, $modal, $log) {
+  .controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams) {
+    $scope.planId = $stateParams.planId;
   	$scope.plan = {
       client: {
         isOwner: false
@@ -30,6 +31,16 @@ angular.module('ohellawApp')
       },
       prevPlans: [{}]
     };
+
+    $scope.loadPlan = function(planId) {
+      $http.get('db/'+ planId +'.json').success(function(data) {
+        $scope.plan = data;
+      });
+    };
+    if($scope.planId) {
+      $scope.loadPlan($scope.planId);
+    }
+    
 
     $scope.relationships = ['child', 'other'];
     $scope.yesNo = ['Yes', 'No'];
