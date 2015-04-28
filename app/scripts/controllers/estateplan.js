@@ -28,9 +28,14 @@ angular.module('ohellawApp')
 
   	$scope.plan = {
       client: {
-        isOwner: false
+        isOwner: false,
+        firstName: '',
+        lastName: ''
       },
-      spouse: {},
+      spouse: {
+        firstName: '',
+        lastName: ''
+      },
       // children: [],
       beneficiaries: [{
         // firstName: 'John',
@@ -45,6 +50,8 @@ angular.module('ohellawApp')
         age2: 18,
         age3: 18
       },
+      rentalProperties: [{}],
+      stockOptionPlans: [{}],
       prevPlans: [{}]
     };
 
@@ -56,13 +63,46 @@ angular.module('ohellawApp')
     if($scope.planId) {
       $scope.loadPlan($scope.planId);
     }
+
+    $scope.getFullNameList = function() {
+      return [
+        $scope.plan.client.firstName + ' ' + $scope.plan.client.lastName,
+        $scope.plan.spouse.firstName + ' ' + $scope.plan.spouse.lastName
+      ];
+    };
     
 
     $scope.relationships = ['child', 'other'];
     $scope.yesNo = ['Yes', 'No'];
+    $scope.burialTypes = ['Spouse\'s Decision', 'Burial', 'Cremation'];
+
+    $scope.addRentalProperty = function() {
+      $scope.plan.rentalProperties.push({});
+    };
+
+    $scope.removeRentalProperty = function() {
+      var property = this.property;
+      if($scope.plan.rentalProperties.length < 2) {
+        $scope.plan.rentalProperties = [{}];
+        return;
+      }
+      $scope.plan.rentalProperties.splice($scope.plan.rentalProperties.indexOf(property), 1);
+    };
+
+    $scope.addStocks = function() {
+      $scope.plan.stockOptionPlans.push({});
+    };
+
+    $scope.removeStock = function() {
+      var stock = this.stock;
+      if($scope.plan.stockOptionPlans.length < 2) {
+        $scope.plan.stockOptionPlans = [{}];
+        return;
+      }
+      $scope.plan.stockOptionPlans.splice($scope.plan.stockOptionPlans.indexOf(stock), 1);
+    };
 
     $scope.addBeneficiary = function() {
-      console.log('addBeneficiary');
       $scope.plan.beneficiaries.push({relationship: 'child'});
     };
     // $scope.addBeneficiary();

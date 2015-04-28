@@ -1,3 +1,33 @@
 <fieldset class="fieldset-section">
-	<legend>Company Stock Option Plans</legend>
+	<legend>
+		<span>Company Stock Option Plans</span>
+		<span class="legend-action">
+			<button ng-click="stocksForm.$valid && addStocks()" class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-plus"></i> Add
+			</button>
+		</span>
+	</legend>
+	<ng-form name="stocksForm">
+		<div class="row form-header"> 
+			<div class="col-md-4"><label>Stock Owner</label></div>
+			<div class="col-md-4"><label>Company</label></div>
+			<div class="col-md-3"><label>Notes</label></div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row" ng-repeat="stock in plan.stockOptionPlans track by $index">
+			<ng-form name="stockFrm">
+				<div class="col-md-4">
+					<!-- <input ng-model="stock.owner" name="trustName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control"> -->
+					<select ng-options="item for item in getFullNameList()" ng-model="stock.owner" class="form-control"></select>
+				</div>
+				<div class="col-md-4">
+					<input type="text" class="form-control" ng-model="stock.company">
+				</div>
+				<div class="col-md-3">
+					<input ng-model="stock.notes" type="text" class="form-control">
+				</div>
+				<div class="col-md-1"><label><i ng-click="removeStock()" class="glyphicon glyphicon-remove"></i></label></div>
+			</ng-form>
+		</div>
+	</ng-form>
 </fieldset>

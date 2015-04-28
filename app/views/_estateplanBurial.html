@@ -8,23 +8,24 @@
 	<div class="row">
 		<div class="form-group col-md-4">
 			<div class="input-group">
-      	<div class="input-group-addon">Husband</div>
-      	<input ng-model="plan.burial.husband.type" type="text" class="form-control">
+      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+      	<!-- <input ng-model="plan.burial.husband.type" type="text" class="form-control"> -->
+        <select ng-options="item for item in burialTypes" ng-model="plan.client.burial.type" class="form-control"></select>
       </div>
     </div>
     <div class="form-group col-md-8">
-    	<input ng-model="plan.burial.husband.notes" type="text" class="form-control">
+    	<input ng-model="plan.client.burial.notes" type="text" class="form-control">
     </div>
   </div>
   <div class="row">
 		<div class="form-group col-md-4">
 			<div class="input-group">
-      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
-      	<input ng-model="plan.burial.wife.type" type="text" class="form-control">
+      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+        <select ng-options="item for item in burialTypes" ng-model="plan.spouse.burial.type" class="form-control"></select>
       </div>
     </div>
     <div class="form-group col-md-8">
-    	<input ng-model="plan.burial.wife.notes" type="text" class="form-control">
+    	<input ng-model="plan.spouse.burial.notes" type="text" class="form-control">
     </div>
   </div>
 </fieldset>

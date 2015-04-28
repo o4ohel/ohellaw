@@ -1,5 +1,6 @@
 <?php
 require('fpdf.php');
+#require_once "Mail.php";
 
 
 $input = file_get_contents('php://input');
@@ -39,24 +40,52 @@ fclose( $file );
 #Output the document
 #$pdf->Output($filename . ".pdf", 'F');
 
-#output some response to indicate success or whatever
+
+$to="o4ohel@gmail.com";
+$subject = "Estate Plan";
+$body = "The following Customer has requested your response: \n\n";
+$body .= "    Name: " . $data["client"]["firstName"] . "\n";
+$body .= "   Phone: " . $data["client"]["phone"] . "\n";
+$body .= "   Email: " . $data["client"]["email"] . "\n\n";
+$body .= "Comments: download the full form at: http://ohellaw.com/dist/#/estateplan/" . $filename . " \n\n";
+$headers = "From: dohel@ohellaw.com\n";
+
+mail($to,$subject,$body,$headers);
+
+#$from = "Webmaster <webmaster@ohellaw.com>";
+#$to = "Ofer Ohel <o4ohel@gmail.com>";
+#$subject = "Estate Plan";
+#$body = "The following Customer has requested your response: \n\n";
+#$body .= "    Name: " . $data["client"]["firstName"] . "\n";
+#$body .= "   Phone: " . $data["client"]["phone"] . "\n";
+#$body .= "   Email: " . $data["client"]["email"] . "\n\n";
+#$body .= "Comments: download the full form at: http://ohellaw.com/dist/#/estateplan/" . $filename . " \n\n";
+
+#$host = "ssl://mail.goddady.com";
+#$port = "465";
+#$username = "smtp_username";
+#$password = "smtp_password";
+
+#$headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
+#$smtp = Mail::factory('smtp',
+  #array ('host' => $host,
+   #        'port' => $port,
+   #        'auth' => true,
+   #        'username' => $username,
+   #        'password' => $password));
+
+#$mail = $smtp->send($to, $headers, $body);
+#if (PEAR::isError($mail)) {
+	#echo("<p>" . $mail->getMessage() . "</p>");
+#} else {
+	#echo("<p>Message successfully sent!</p>");
+#}
+
 $response['status'] = array(
-'type' => 'success',
+'file_saved' => 'success',
 'value' => 'Form has been saved',
 );
 $encoded = json_encode($response);
-
-
-#$to="o4ohel@gmail.com";
-#$subject = "Estate Plan";
-#$body = "The following Customer has requested your response: \n\n";
-#$body .= "  Name: " . $data["client"]["firstName"] . "\n";
-#$body .= " Phone: " . $data["client"]["phone"] . "\n";
-#$body .= " Email: " . $data["client"]["email"] . "\n\n";
-#$body .= "Comments: download the full form at: http://ohellaw.com/dist/#/estateplan/" . $filename . " \n";
-#$headers = "From: webmaster@dohellaw.com\n";
-
-#mail($to,$subject,$body,$headers);
 
 header('Content-type: application/json');
 exit($encoded);

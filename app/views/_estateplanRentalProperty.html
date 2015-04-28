@@ -1,3 +1,18 @@
 <fieldset class="fieldset-section">
-	<legend>Rental Property</legend>
+	<legend>
+		<span>Rental Properties</span>
+		<span class="legend-action">
+			<button ng-click="addRentalProperty()" class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-plus"></i> Add
+			</button>
+		</span>
+	</legend>
+
+	<div class="form-group" ng-repeat="property in plan.rentalProperties track by $index">
+		<div class="input-group">
+    	<div class="input-group-addon">Address</div>
+    	<input ng-model="property.address" type="text" class="form-control" googleplace>
+    	<div class="input-group-addon" ng-click="removeRentalProperty()" ><i class="glyphicon glyphicon-remove"></i></div>
+    </div>
+	</div>
 </fieldset>

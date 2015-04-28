@@ -14,18 +14,28 @@
 			<div class="col-md-4"><label>Signing Location</label></div>
 			<div class="col-md-1"></div>
 		</div>
-		<div class="row" ng-repeat="plan in plan.prevPlans track by $index">
+		<div class="row" ng-repeat="p in plan.prevPlans track by $index">
 			<ng-form name="prevPlan">
 				<div class="col-md-5">
-					<input ng-model="plan.trustName" name="trustName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<input ng-model="p.trustName" name="trustName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 					<small ng-show="prevPlan.trustName.$touched && prevPlan.trustName.$error.required" class="error">Required Field</small>
 				</div>
 				<div class="col-md-2">
-					<input ng-model="plan.signingDate" name="signingDate" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<input 
+						type="text" 
+						class="form-control" 
+						datepicker-popup="dd-MMM-yyyy" 
+						ng-model="p.signingDate" 
+						is-open="datepicker['pp' + $index]" 
+						date-disabled="disabled(date, mode)" 
+						datepicker-options="dateOptions"
+						ng-required="true" 
+						close-text="Close" 
+						ng-click="datepicker['pp' + $index] = true">
 					<small ng-show="prevPlan.signingDate.$touched && prevPlan.signingDate.$error.required" class="error">Required Field</small>
 				</div>
 				<div class="col-md-4">
-					<input ng-model="plan.signingLocation" name="signingLocation" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<input ng-model="p.signingLocation" name="signingLocation" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 					<small ng-show="prevPlan.signingLocation.$touched && prevPlan.signingLocation.$error.required" class="error">Required Field</small>
 				</div>
 				<div class="col-md-1"><label><i ng-click="removePrevPlan()" class="glyphicon glyphicon-remove"></i></label></div>
