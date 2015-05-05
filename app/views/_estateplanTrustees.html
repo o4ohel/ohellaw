@@ -10,14 +10,37 @@
 	<p>
 		You and your spouse are each other's initial trustees, guardians, and agents for durable power of attorney. You can nominate your adult children / beneficiaries / foreign residents as successor trustees.
 	</p>
+	<fieldset >
+		<div class="row">
+			<div class="col-md-4 form-group"><label>Successor Trustee's Name</label></div>
+			<div class="col-md-1 form-group"><label>Relationship</label></div>
+			<div class="col-md-1 form-group"><label>Gender</label></div>
+			<div class="col-md-5 form-group"><label>Address</label></div>
+			<div class="col-md-1 form-group">&nbsp;</div>
+		</div>
+		<div class="row" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}">
+			<div class="col-md-4 form-group">{{beneficiary.firstName}} {{beneficiary.lastName}}</div>
+			<div class="col-md-1 form-group"><span>{{beneficiary.relationship}}</span></div>
+			<div class="col-md-1 form-group"><span>{{beneficiary.gender}}</span></div>
+			<div class="col-md-5 form-group"><input ng-model="beneficiary.address" type="text" googleplace class="form-control"></div>
+			<div class="col-md-1 form-group">
+				<button ng-click="beneficiary.isTrustee = false" class="btn btn-default btn-xs form-control">
+					<i class="glyphicon glyphicon-remove"></i>
+				</button>
+			</div>
+		</div>
+	</fieldset>
 	<fieldset ng-repeat="trustee in plan.trustees">
 		<div class="row" ng-if="!trustee.isBeneficiary">
 			<div class="col-md-4 form-group">
-				<label>Successor Trustee's Name</label>
+				<!-- <label>Successor Trustee's Name</label> -->
 				<input ng-model="trustee.name" type="text" class="form-control">
 			</div>
 			<div class="col-md-1 form-group">
-				<div class="radio">
+				Other
+			</div>
+			<div class="col-md-1 form-group">
+				<div class="radio" style="margin-top: 0;">
 					<label>
 						<input ng-model="trustee.gender" type="radio" value="male"> M
 					</label>
@@ -29,22 +52,22 @@
 				</div>
 			</div>
 			<div class="col-md-5 form-group">
-				<label class="right inline">Address</label>
+				<!-- <label class="right inline">Address</label> -->
 				<input ng-model="trustee.address" type="text" googleplace class="form-control">
 			</div>
 			<div class="col-md-1 form-group">
-				<label>&nbsp;</label>
+				<!-- <label>&nbsp;</label> -->
 				<button ng-click="removeTrustee()" class="btn btn-default btn-xs form-control">
 					<i class="glyphicon glyphicon-remove"></i>
 				</button>
 		</div>
-		<div class="row" ng-if="trustee.isBeneficiary">
+		<!-- <div class="row" ng-if="trustee.isBeneficiary">
 			<div class="col-md-9 form-group">
 				Successor Trustee's Name: <strong>{{trustee.firstName}}&nbsp;{{trustee.lastName}}</strong>
 			</div>
 			<div class="small-3 columns">
 				Gender: <strong>{{trustee.gender}}</strong>
 			</div>
-		</div>
+		</div> -->
 	</fieldset>
 </fieldset>
