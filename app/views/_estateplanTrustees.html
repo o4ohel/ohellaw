@@ -31,13 +31,13 @@
 		</div>
 	</fieldset>
 	<fieldset ng-repeat="trustee in plan.trustees">
-		<div class="row" ng-if="!trustee.isBeneficiary">
+		<div class="row">
 			<div class="col-md-4 form-group">
 				<!-- <label>Successor Trustee's Name</label> -->
 				<input ng-model="trustee.name" type="text" class="form-control">
 			</div>
 			<div class="col-md-1 form-group">
-				Other
+				<input type="text" ng-model="trustee.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch"  typeahead-focus class="form-control">
 			</div>
 			<div class="col-md-1 form-group">
 				<div class="radio" style="margin-top: 0;">
@@ -61,13 +61,5 @@
 					<i class="glyphicon glyphicon-remove"></i>
 				</button>
 		</div>
-		<!-- <div class="row" ng-if="trustee.isBeneficiary">
-			<div class="col-md-9 form-group">
-				Successor Trustee's Name: <strong>{{trustee.firstName}}&nbsp;{{trustee.lastName}}</strong>
-			</div>
-			<div class="small-3 columns">
-				Gender: <strong>{{trustee.gender}}</strong>
-			</div>
-		</div> -->
 	</fieldset>
 </fieldset>
