@@ -41,7 +41,7 @@ angular.module('ohellawApp')
         // firstName: 'John',
         // lastName: 'Jones',
         // gender: 'male',
-        relationship: 'child'
+        // relationship: 'child'
       }],
       trustee: {},
       trustees: [],
@@ -115,14 +115,8 @@ angular.module('ohellawApp')
       $scope.plan.beneficiaries.splice($scope.plan.beneficiaries.indexOf(beneficiary), 1);
     };
 
-    $scope.addTrustee = function(beneficiary) {
+    $scope.addTrustee = function() {
       var trustee = {};
-      if(beneficiary) {
-        trustee = beneficiary;
-        trustee.isBeneficiary = true;
-        // trustee.name = beneficiary.firstName + " " + beneficiary.lastName;
-        // trustee.gender = beneficiary.gender;
-      }
       $scope.plan.trustees.push(trustee);
     };
     // $scope.addTrustee();
