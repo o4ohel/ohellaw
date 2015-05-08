@@ -50,6 +50,7 @@ angular.module('ohellawApp')
         age2: 18,
         age3: 18
       },
+      guardians: [],
       rentalProperties: [{}],
       stockOptionPlans: [{}],
       prevPlans: [{}]
@@ -103,7 +104,7 @@ angular.module('ohellawApp')
     };
 
     $scope.addBeneficiary = function() {
-      $scope.plan.beneficiaries.push({relationship: 'child'});
+      $scope.plan.beneficiaries.push({});
     };
     // $scope.addBeneficiary();
     $scope.removeBeneficiary = function() {
@@ -113,6 +114,21 @@ angular.module('ohellawApp')
         return;
       }
       $scope.plan.beneficiaries.splice($scope.plan.beneficiaries.indexOf(beneficiary), 1);
+    };
+
+    $scope.addGuardian = function() {
+      if(!$scope.plan.guardians) {
+        $scope.plan.guardians = [];
+      }
+      $scope.plan.guardians.push({});
+    };
+    $scope.removeGuardian = function() {
+      var guardian = this.guardian;
+      if($scope.plan.guardians.length < 2) {
+        $scope.plan.guardians = [{}];
+        return;
+      }
+      $scope.plan.guardians.splice($scope.plan.guardians.indexOf(guardian), 1);
     };
 
     $scope.addTrustee = function() {

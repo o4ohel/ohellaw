@@ -1,3 +1,40 @@
+
 <fieldset class="fieldset-section">
-	<legend>Guardianship For Minor Children Younger Than 18</legend>
+	<legend>
+		<span>Guardianship For Minor Children Younger Than 18</span>
+		<span class="legend-action">
+			<button type="button" ng-click="guardianshipForm.$valid && addGuardian()" class="btn btn-default btn-xs">
+				<i class="glyphicon glyphicon-plus"></i> Add
+			</button>
+		</span>
+	</legend>
+	<ng-form name="guardianshipForm">
+		<div class="row form-header">
+			<div class="col-md-3"><label>Name</label></div>
+			<div class="col-md-4"><label>Address</label></div>
+			<div class="col-md-2"><label>Phone</label></div>
+			<div class="col-md-2"><label>Relationship</label></div>
+			<div class="col-md-1"><label><i class="fa fa-close right"></i></label></div>
+		</div>
+		<div class="row" ng-repeat="guardian in plan.guardians track by $index">
+			<ng-form name="guardianForm">
+				<div class="col-md-3">
+					<input ng-model="guardian.name" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<small ng-show="guardianForm.name.$touched && guardianForm.name.$error.required" class="error">Required Field</small>
+				</div>
+				<div class="col-md-4 form-group">
+					<input ng-model="guardian.address" type="text" googleplace class="form-control">
+				</div>
+				<div class="col-md-2">
+					<input type="phone" ng-model="guardian.phone" class="form-control">
+				</div>
+				<div class="col-md-2">
+					<input type="text" ng-model="guardian.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
+				</div>
+				<div class="col-md-1">
+					<label><i ng-click="removeGuardian()" class="glyphicon glyphicon-remove"></i></label>
+				</div>
+			</ng-form>
+		</div>
+	</ng-form>
 </fieldset>
