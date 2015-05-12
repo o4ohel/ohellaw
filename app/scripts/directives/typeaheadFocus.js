@@ -28,7 +28,7 @@ angular.module('ohellawApp').directive('typeaheadFocus', function () {
         if (expected === ' ') {
           return true;
         }
-        return actual.indexOf(expected) > -1;
+        return actual.toLowerCase().indexOf(expected.toLowerCase()) > -1;
       };
     }
   };

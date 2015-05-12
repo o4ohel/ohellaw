@@ -157,8 +157,12 @@ angular.module('ohellawApp')
     }
 
     $scope.checkBeneficiaryAge = function() {
-      var beneficiary = this.beneficiary, 
-        age = _calculateAge(new Date(beneficiary.dob));
+      var beneficiary = this.beneficiary;
+      if(!beneficiary.dob) {
+        beneficiary.isTrustee = false;
+        return;
+      }
+      var age = _calculateAge(new Date(beneficiary.dob));
       if(age < 18) {
         beneficiary.isTrustee = false;
         beneficiary.isMinor = true;
