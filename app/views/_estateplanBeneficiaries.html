@@ -1,6 +1,6 @@
 <fieldset class="fieldset-section">
 	<legend>
-		<span>Children / Beneficiaries</span>
+		<span>Beneficiaries</span>
 		<span class="legend-action">
 			<button type="button" ng-click="beneficiariesForm.$valid && addBeneficiary()" class="btn btn-default btn-xs">
 				<i class="glyphicon glyphicon-plus"></i> Add
@@ -44,14 +44,16 @@
 						ng-required="true" 
 						close-text="Close" 
 						ng-click="datepicker['b' + $index] = true"
+						ng-change="beneficiary.isMinor = false"
 						>
 				</div>
 				<div class="col-md-1">
 					<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;
 					<input ng-model="beneficiary.gender" type="radio" value="female">
 				</div>
-				<div class="col-md-1">
-					&nbsp;&nbsp;<input ng-model="beneficiary.isTrustee" type="checkbox">
+				<div class="col-md-1" >
+					<div ng-hide="beneficiary.isMinor">&nbsp;&nbsp;<input ng-model="beneficiary.isTrustee" ng-change="checkBeneficiaryAge()" type="checkbox"></div>
+					<div class="text-danger" ng-show="beneficiary.isMinor"><small>Under 18</small></div>
 				</div>
 				<div class="col-md-1">
 					<label><i ng-click="removeBeneficiary()" class="glyphicon glyphicon-remove"></i></label>

@@ -150,6 +150,23 @@ angular.module('ohellawApp')
       }
     };
 
+    function _calculateAge(birthday) { // birthday is a date
+      var ageDifMs = Date.now() - birthday.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
+    $scope.checkBeneficiaryAge = function() {
+      var beneficiary = this.beneficiary, 
+        age = _calculateAge(new Date(beneficiary.dob));
+      if(age < 18) {
+        beneficiary.isTrustee = false;
+        beneficiary.isMinor = true;
+      } else {
+        beneficiary.isMinor = false;
+      }
+    };
+
     $scope.save = function() {
       // plans.push($scope.plan);
       $http.post('php/estateplan.php', $scope.plan).success(function(data) {
