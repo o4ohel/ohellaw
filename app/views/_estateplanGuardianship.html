@@ -9,32 +9,62 @@
 		</span>
 	</legend>
 	<ng-form name="guardianshipForm">
-		<div class="row form-header">
-			<div class="col-md-3"><label>Name</label></div>
-			<div class="col-md-4"><label>Address</label></div>
-			<div class="col-md-2"><label>Phone</label></div>
-			<div class="col-md-2"><label>Relationship</label></div>
-			<div class="col-md-1"><label><i class="fa fa-close right"></i></label></div>
-		</div>
-		<div class="row" ng-repeat="guardian in plan.guardians track by $index">
-			<ng-form name="guardianForm">
-				<div class="col-md-3">
-					<input ng-model="guardian.name" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
-					<small ng-show="guardianForm.name.$touched && guardianForm.name.$error.required" class="error">Required Field</small>
+		<ng-form name="guardianForm" ng-repeat="guardian in plan.guardians track by $index">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>
+							Name&nbsp;
+							<small>Will a spouse or partner be co-guardian? 
+								<input type="checkbox" ng-model="guardian.isCoGuardian"> 
+								 <i class="glyphicon glyphicon-question-sign"></i>
+							</small>
+						</label>
+						<input ng-model="guardian.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+						<small ng-show="guardianForm.name.$touched && guardianForm.name.$error.required" class="error">Required Field</small>
+					</div>
+					<div class="form-group">
+						<label>Address</label>
+						<input ng-model="guardian.address" type="text" googleplace class="form-control">
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Phone</label>
+							<input type="phone" ng-model="guardian.phone" class="form-control">
+						</div>
+						<div class="col-md-6">
+							<label>Relationship</label>
+							<input type="text" ng-model="guardian.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
+						</div>
+					</div>
 				</div>
-				<div class="col-md-4 form-group">
-					<input ng-model="guardian.address" type="text" googleplace class="form-control">
+
+				<div class="col-md-6" ng-show="guardian.isCoGuardian">
+					<div class="form-group">
+						<label>Name</label>
+						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Address</label>
+						<input ng-model="guardian.spouse.address" type="text" googleplace class="form-control">
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<label>Phone</label>
+							<input type="phone" ng-model="guardian.spouse.phone" class="form-control">
+						</div>
+						<div class="col-md-6">
+							<label>Relationship</label>
+							<input type="text" ng-model="guardian.spouse.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
+						</div>
+					</div>
 				</div>
-				<div class="col-md-2">
-					<input type="phone" ng-model="guardian.phone" class="form-control">
-				</div>
-				<div class="col-md-2">
-					<input type="text" ng-model="guardian.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
-				</div>
-				<div class="col-md-1">
+				
+				<!-- <div class="col-md-1">
 					<label><i ng-click="removeGuardian()" class="glyphicon glyphicon-remove"></i></label>
-				</div>
-			</ng-form>
-		</div>
+				</div> -->
+			</div>
+			<hr>
+		</ng-form>
 	</ng-form>
 </fieldset>
