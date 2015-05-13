@@ -14,18 +14,20 @@
 
 <fieldset class="fieldset-section">
 	<legend>Timing Of Distribution</legend>
+	
 	<div class="row">
-		<div class="small-12 columns">
+		<div class="col-md-12">
 			<label>I want my children to receive my money at age 18 <input ng-model="plan.distribution.at18" type="checkbox"></label>
+			<p>(Trustee will give allowances to children for expenses prior to final distribution.)</p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-4">
 			Or distributed at up to 3 equal installments at age:
 		</div>
 		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age1"></div>
 		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age2"></div>
 		<div class="col-md-1"><input min="18" max="100" type="number" ng-model="plan.distribution.age3"></div>
-		<div class="col-md-4"></div>
+		<div class="col-md-5"></div>
 	</div>
 </fieldset>
