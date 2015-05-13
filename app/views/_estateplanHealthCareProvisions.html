@@ -9,29 +9,29 @@
 		<div class="row">
 			<div class="form-group col-md-3">
 				<div class="input-group">
-	      	<div class="input-group-addon">Husband</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.stopLifeSupport" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.stopLifeSupport" class="form-control"></select>
 	      </div>
 	    </div>
 	    <div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.husband.lifeSupportNotes" type="text" class="form-control">
+	    	<input ng-model="plan.client.health.lifeSupportNotes" type="text" class="form-control">
 	    </div>
 	  </div>
 	  <div class="row">
 			<div class="form-group col-md-3">
 				<div class="input-group" dropdown>
-	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.stopLifeSupport" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.stopLifeSupport" class="form-control"></select>
 	      </div>
 	    </div>
 	    <div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.wife.lifeSupportNodes" type="text" class="form-control">
+	    	<input ng-model="plan.spouse.health.lifeSupportNodes" type="text" class="form-control">
 	    </div>
 	  </div>
 	</div>
@@ -48,29 +48,29 @@
 	  <div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">Husband</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.organDonation" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.organDonation" class="form-control"></select>
 	      </div>
 			</div>
 			<div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.husband.organDonationNotes" type="text" class="form-control">
+	    	<input ng-model="plan.client.health.organDonationNotes" type="text" class="form-control">
 	    </div>
 		</div>
 		<div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.organDonation" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.organDonation" class="form-control"></select>
 	      </div>
 			</div>
 			<div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.wife.organDonationNotes" type="text" class="form-control">
+	    	<input ng-model="plan.spouse.health.organDonationNotes" type="text" class="form-control">
 	    </div>
 		</div>
 	</div>
@@ -84,31 +84,33 @@
 	  <div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">Husband</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.husband.autopsy" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.autopsy" class="form-control"></select>
 	      </div>
 			</div>
 			<div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.husband.autopsyNotes" type="text" class="form-control">
+	    	<input ng-model="plan.client.health.autopsyNotes" type="text" class="form-control">
 	    </div>
 		</div>
 		<div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">&nbsp;&nbsp;&nbsp;Wife&nbsp;&nbsp;&nbsp;&nbsp;</div>
-	      	<select ng-options="item for item in yesNo" ng-model="plan.health.wife.autopsy" class="form-control"></select>
+	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.autopsy" class="form-control"></select>
 	      </div>
 			</div>
 			<div class="form-group col-md-1">
 	    	Notes:
 	    </div>
 	    <div class="form-group col-md-8">
-	    	<input ng-model="plan.health.wife.autopsyNotes" type="text" class="form-control">
+	    	<input ng-model="plan.spouse.health.autopsyNotes" type="text" class="form-control">
 	    </div>
 		</div>
 	</div>
 
 </fieldset>
+<!-- <pre>{{plan.client | json}}</pre>
+<pre>{{plan.spouse | json}}</pre> -->
