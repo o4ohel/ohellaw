@@ -12,10 +12,10 @@
 		<ng-form name="guardianForm" ng-repeat="guardian in plan.guardians track by $index">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="form-group">
+					<div>
 						<label>
 							Name&nbsp;
-							<small>Will a spouse or partner be co-guardian? 
+							<small class="text-muted">Will a spouse or partner be co-guardian? 
 								<input type="checkbox" ng-model="guardian.isCoGuardian"> 
 								 <i class="glyphicon glyphicon-question-sign"></i>
 							</small>
@@ -23,11 +23,11 @@
 						<input ng-model="guardian.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 						<small ng-show="guardianForm.name.$touched && guardianForm.name.$error.required" class="error">Required Field</small>
 					</div>
-					<div class="form-group">
+					<div>
 						<label>Address</label>
 						<input ng-model="guardian.address" type="text" googleplace class="form-control">
 					</div>
-					<div class="form-group row">
+					<div class="row">
 						<div class="col-md-6">
 							<label>Phone</label>
 							<input type="phone" ng-model="guardian.phone" class="form-control">
@@ -40,15 +40,15 @@
 				</div>
 
 				<div class="col-md-6" ng-show="guardian.isCoGuardian">
-					<div class="form-group">
+					<div>
 						<label>Name</label>
 						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 					</div>
-					<div class="form-group">
+					<div>
 						<label>Address</label>
 						<input ng-model="guardian.spouse.address" type="text" googleplace class="form-control">
 					</div>
-					<div class="form-group row">
+					<div class="row">
 						<div class="col-md-6">
 							<label>Phone</label>
 							<input type="phone" ng-model="guardian.spouse.phone" class="form-control">
