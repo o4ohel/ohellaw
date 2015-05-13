@@ -1,0 +1,35 @@
+<fieldset>
+	<h4>Spouse</h4>
+	<div class="row">
+		<div class="col-md-6">
+			<label>Name</label>: {{plan.spouse.firstName}} {{plan.spouse.lastName}}
+		</div>
+		<div class="col-md-6">
+			<label for="spouseDob">Date of birth</label>: {{plan.spouse.dob | date: 'MMM d, y'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.spouse.isOwner" type="checkbox"></label>
+		</div>
+		<div class="col-md-6">
+			<label class="vertical-align">US Citizen? <input ng-model="plan.spouse.isCitizen" type="checkbox"></label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>Email</label>: {{plan.spouse.email}}
+		</div>
+		<div class="col-md-6 form-group">
+			<label>Phone</label>: {{plan.spouse.phone}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<label>Address</label>: {{plan.spouse.address}}
+		</div>
+	</div>
+</fieldset>

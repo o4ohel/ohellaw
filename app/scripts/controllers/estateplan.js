@@ -7,8 +7,7 @@
  * # EstateplanCtrl
  * Controller of the ohellawApp
  */
-angular.module('ohellawApp')
-  .controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams) {
+angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams) {
     $scope.planId = $stateParams.planId;
 
     $scope.datepicker = {
@@ -180,8 +179,15 @@ angular.module('ohellawApp')
 
     $scope.preview = function() {
       var modalInstance = $modal.open({
-        templateUrl: 'views/estateplan.preview.html',
-        controller: 'EstateplanPreviewController'
+        templateUrl: 'views/estateplan_preview.html',
+        controller: 'EstateplanPreviewController',
+        // windowClass: 'estate-plan-preview-modal',
+        resolve: {
+          plan: function () {
+            return $scope.plan;
+          }
+        },
+        size: 'lg'
       });
       modalInstance.result.then(function () {
         $log.info('need to save now.');
@@ -205,7 +211,8 @@ angular.module('ohellawApp')
     };
   })
 
-	.controller('EstateplanPreviewController', ['$scope', '$modalInstance', function($scope, $modalInstance) {
+	.controller('EstateplanPreviewController', ['$scope', '$modalInstance', 'plan', function($scope, $modalInstance, plan) {
+    $scope.plan = plan;
 	  $scope.save = function () {
 	    $modalInstance.close(true);
 	  };
@@ -214,4 +221,4 @@ angular.module('ohellawApp')
 	    $modalInstance.dismiss('cancel');
 	  };
 	}])
-  ;
+;
