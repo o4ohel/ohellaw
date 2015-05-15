@@ -1,52 +1,5 @@
-
-
-<section id="estate-plan-preview">
-	<div class="modal-header">
-		<h3 class="modal-title">Estate Planning Questionnaire Preview</h3>
-	</div>
-	<div class="modal-body">
-		<div class="row">
-			<div class="col-md-6">
-				<ng-include src="'views/_estateplan_preview_Client.html'"></ng-include>
-			</div>
-			<div class="col-md-6">
-				<ng-include src="'views/_estateplan_preview_Spouse.html'"></ng-include>
-			</div>	
-		</div>
-			
-		<ng-include src="'views/_estateplan_preview_Beneficiaries.html'"></ng-include>
-
-		<!-- <ng-include src="'views/_estateplan_preview_Trustees.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_Distribution.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_Guardianship.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_PowerOfAttorney.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_HealthCareProvisions.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_Burial.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_RentalProperty.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_Stocks.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_PrevMarriage.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_PrevPlan.html'"></ng-include>
-
-		<ng-include src="'views/_estateplan_preview_Notes.html'"></ng-include>
-	 -->
-	</div>
-</section>
-<div class="modal-footer">
-	<div class="row">
-		<div class="col-md-3">
-			<button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
-
-			<button type="button" class="btn btn-info" ng-print print-element-id="estate-plan-preview">Print</button>
-		</div>
-  </div>
+<div id="estate-plan-preview">
+	<h1>Estate Plan - Preview</h1>
+	<ng-include src="'views/estateplan/_estateplan_preview.html'"></ng-include>
 </div>
-<!-- <pre>{{plan | json}}</pre> -->
+<button type="button" class="btn btn-info" ng-print print-element-id="estate-plan-preview">Print</button>

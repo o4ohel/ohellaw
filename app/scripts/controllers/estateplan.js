@@ -179,7 +179,7 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
 
     $scope.preview = function() {
       var modalInstance = $modal.open({
-        templateUrl: 'views/estateplan_preview.html',
+        templateUrl: 'views/estateplan_preview_modal.html',
         controller: 'EstateplanPreviewController',
         // windowClass: 'estate-plan-preview-modal',
         resolve: {

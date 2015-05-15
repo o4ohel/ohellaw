@@ -1,0 +1,16 @@
+<fieldset class="fieldset-section">
+	<h4>Beneficiaries</h4>
+	<div ng-repeat="beneficiary in plan.beneficiaries track by $index">
+		<div>
+			<label>{{beneficiary.firstName}} {{beneficiary.lastName}}</label>:
+			[<label>Relationship</label>: {{beneficiary.relationship}} &nbsp; | &nbsp;
+			<label>DOB</label>: {{beneficiary.dob | date: 'MMM d, y'}} &nbsp; | &nbsp;
+			<label>Gender</label>: {{beneficiary.gender}} &nbsp; <span ng-show="beneficiary.isTrustee">| &nbsp;
+			<label >is trustee</label></span>
+			<span ng-show="beneficiary.giftDistribution">| &nbsp;
+			<label>Cash Gift</label>: ${{beneficiary.cashGift}}</span>
+			]
+		</div>
+	</div>
+</fieldset>
+<!-- <pre>{{plan.beneficiaries | json}}</pre> -->

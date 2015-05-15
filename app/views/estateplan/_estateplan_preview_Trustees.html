@@ -1,0 +1,23 @@
+<fieldset class="fieldset-section">
+	<h4>Trustees</h4>
+	<div ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}">
+		<div>
+			<label>{{beneficiary.firstName}} {{beneficiary.lastName}}</label>:
+			[<label>Relationship</label>: {{beneficiary.relationship}} &nbsp; | &nbsp;
+			<label>Gender</label>: {{beneficiary.gender}} &nbsp; | &nbsp;
+			<label>Address</label>: {{beneficiary.address}} &nbsp; | &nbsp;
+			<label>Phone</label>: {{beneficiary.phone}}]
+			]
+		</div>
+	</div>
+	<div ng-repeat="trustee in plan.trustees">
+		<div>
+			<label>{{trustee.name}}</label>:
+			[<label>Relationship</label>: {{trustee.relationship}} &nbsp; | &nbsp;
+			<label>Gender</label>: {{trustee.gender}} &nbsp; | &nbsp;
+			<label>Address</label>: {{trustee.address}} &nbsp; | &nbsp;
+			<label>Phone</label>: {{trustee.phone}}]
+		</div>
+	</div>
+</fieldset>
+<!-- <pre>{{plan.beneficiaries | json}}</pre> -->
