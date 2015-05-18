@@ -19,24 +19,21 @@
 			<div class="col-md-2 form-group"><label>Phone</label></div>
 			<div class="col-md-1 form-group">&nbsp;</div>
 		</div>
-		<div class="row" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}" ng-mouseenter="beneficiary.showMoveRemove = true" ng-mouseleave="beneficiary.showMoveRemove = false">
+		<div class="row animate-repeat" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}" ng-mouseenter="beneficiary.showRemoveT = true" ng-mouseleave="beneficiary.showRemoveT = false">
 			<div class="col-md-3 form-group">{{beneficiary.firstName}} {{beneficiary.lastName}}</div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.relationship}}</span></div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.gender}}</span></div>
 			<div class="col-md-4 form-group"><input ng-model="beneficiary.address" type="text" googleplace class="form-control"></div>
 			<div class="col-md-2 form-group"><input ng-model="beneficiary.phone" type="text" class="form-control"></div>
-			<div class="col-md-1 form-group" ng-class="{hide: !beneficiary.showMoveRemove}">
-				<label ng-show="$index > 0">
-					<i class="glyphicon glyphicon-chevron-up text-muted" ng-click="moveUp('beneficiaries', $index)"></i>
-				</label>
-				<label ng-click="beneficiary.isTrustee = false" class="" type="button">
-					<i class="glyphicon glyphicon-remove"></i>
+			<div class="col-md-1 form-group">
+				<label ng-click="beneficiary.isTrustee = false">
+					<i class="glyphicon" ng-class="{'glyphicon-remove': beneficiary.showRemoveT}"></i>
 				</label>
 			</div>
 		</div>
 	</fieldset>
-	<fieldset ng-repeat="trustee in plan.trustees">
-		<div class="row">
+	<fieldset class="animate-repeat" ng-repeat="trustee in plan.trustees">
+		<div class="row" ng-mouseenter="trustee.showRemove = true" ng-mouseleave="trustee.showRemove = false">
 			<div class="col-md-3 form-group">
 				<!-- <label>Successor Trustee's Name</label> -->
 				<input ng-model="trustee.name" type="text" class="form-control">
@@ -62,10 +59,9 @@
 			</div>
 			<div class="col-md-2 form-group"><input ng-model="trustee.phone" type="text" class="form-control"></div>
 			<div class="col-md-1 form-group">
-				<!-- <label>&nbsp;</label> -->
-				<button ng-click="removeTrustee()" class="btn btn-default btn-xs form-control" type="button">
-					<i class="glyphicon glyphicon-remove"></i>
-				</button>
+				<label ng-click="removeTrustee()">
+					<i class="glyphicon" ng-class="{'glyphicon-remove': trustee.showRemove}"></i>
+				</label>
 		</div>
 	</fieldset>
 </fieldset>
