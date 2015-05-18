@@ -209,6 +209,16 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
       var item = this.plan;
       $scope.plan.prevPlans.splice($scope.plan.prevPlans.indexOf(item), 1);
     };
+
+    function swap(list, idx1, idx2) {
+      var temp = list[idx2];
+      list[idx2] = list[idx1];
+      list[idx1] = temp;
+    }
+
+    $scope.moveUp = function(listName, idx) {
+      swap($scope.plan[listName], idx, idx - 1);
+    };
   })
 
 	.controller('EstateplanPreviewController', ['$scope', '$modalInstance', 'plan', function($scope, $modalInstance, plan) {

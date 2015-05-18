@@ -10,7 +10,7 @@
 	</legend>
 	<ng-form name="guardianshipForm">
 		<ng-form name="guardianForm" ng-repeat="guardian in plan.guardians track by $index">
-			<div class="row">
+			<div class="row" ng-mouseenter="guardian.showMoveRemove = true" ng-mouseleave="guardian.showMoveRemove = false">
 				<div class="col-md-6">
 					<div>
 						<label>
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-6" ng-show="guardian.isCoGuardian">
+				<div class="col-md-5" ng-show="guardian.isCoGuardian">
 					<div>
 						<label>Name</label>
 						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
@@ -59,6 +59,16 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-1 form-group" ng-class="{hide: !guardian.showMoveRemove}">
+					<label ng-show="$index > 0">
+						<i class="glyphicon glyphicon-chevron-up text-muted" ng-click="moveUp('guardians', $index)"></i>
+					</label>
+					<label>
+						<i class="glyphicon glyphicon-remove"></i>
+					</label>
+				</div>
+
 				
 				<!-- <div class="col-md-1">
 					<label><i ng-click="removeGuardian()" class="glyphicon glyphicon-remove"></i></label>

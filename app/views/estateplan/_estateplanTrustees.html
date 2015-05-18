@@ -19,16 +19,19 @@
 			<div class="col-md-2 form-group"><label>Phone</label></div>
 			<div class="col-md-1 form-group">&nbsp;</div>
 		</div>
-		<div class="row" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}">
+		<div class="row" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}" ng-mouseenter="beneficiary.showMoveRemove = true" ng-mouseleave="beneficiary.showMoveRemove = false">
 			<div class="col-md-3 form-group">{{beneficiary.firstName}} {{beneficiary.lastName}}</div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.relationship}}</span></div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.gender}}</span></div>
 			<div class="col-md-4 form-group"><input ng-model="beneficiary.address" type="text" googleplace class="form-control"></div>
 			<div class="col-md-2 form-group"><input ng-model="beneficiary.phone" type="text" class="form-control"></div>
-			<div class="col-md-1 form-group">
-				<button ng-click="beneficiary.isTrustee = false" class="btn btn-default btn-xs form-control" type="button">
+			<div class="col-md-1 form-group" ng-class="{hide: !beneficiary.showMoveRemove}">
+				<label ng-show="$index > 0">
+					<i class="glyphicon glyphicon-chevron-up text-muted" ng-click="moveUp('beneficiaries', $index)"></i>
+				</label>
+				<label ng-click="beneficiary.isTrustee = false" class="" type="button">
 					<i class="glyphicon glyphicon-remove"></i>
-				</button>
+				</label>
 			</div>
 		</div>
 	</fieldset>
