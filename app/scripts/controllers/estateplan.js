@@ -144,10 +144,15 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
     };
     $scope.removePoa = function() {
       var poa = this.poa;
-      if($scope.plan.dpoas.length < 2) {
-        $scope.plan.dpoas = [{}];
-        return;
-      }
+      // if($scope.plan.dpoas.length < 2) {
+      //   $scope.plan.dpoas = [{
+      //     clientDPA: true,
+      //     clientAHCD: true,
+      //     spouseDPA: true,
+      //     spouseAHCD: true
+      //   }];
+      //   return;
+      // }
       $scope.plan.dpoas.splice($scope.plan.dpoas.indexOf(poa), 1);
     };
 
