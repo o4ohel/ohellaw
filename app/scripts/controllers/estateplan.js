@@ -7,7 +7,7 @@
  * # EstateplanCtrl
  * Controller of the ohellawApp
  */
-angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams) {
+angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams, $state) {
     $scope.planId = $stateParams.planId;
 
     $scope.datepicker = {
@@ -50,6 +50,7 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
         age3: 18
       },
       guardians: [],
+      dpoas: [],
       rentalProperties: [{}],
       stockOptionPlans: [{}],
       prevPlans: [{}]
@@ -130,6 +131,26 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
       $scope.plan.guardians.splice($scope.plan.guardians.indexOf(guardian), 1);
     };
 
+    $scope.addPoa = function() {
+      if(!$scope.plan.dpoas) {
+        $scope.plan.dpoas = [];
+      }
+      $scope.plan.dpoas.push({
+        clientDPA: true,
+        clientAHCD: true,
+        spouseDPA: true,
+        spouseAHCD: true
+      });
+    };
+    $scope.removePoa = function() {
+      var poa = this.poa;
+      if($scope.plan.dpoas.length < 2) {
+        $scope.plan.dpoas = [{}];
+        return;
+      }
+      $scope.plan.dpoas.splice($scope.plan.dpoas.indexOf(poa), 1);
+    };
+
     $scope.addTrustee = function() {
       var trustee = {};
       $scope.plan.trustees.push(trustee);
@@ -172,8 +193,10 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
 
     $scope.save = function() {
       // plans.push($scope.plan);
+      $state.go('estateplan.preview');
       $http.post('php/estateplan.php', $scope.plan).success(function(data) {
         console.log('data from estateplan.php : %o', data);
+
       });
     };
 
