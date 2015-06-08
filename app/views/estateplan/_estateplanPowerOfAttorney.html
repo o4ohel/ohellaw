@@ -1,12 +1,13 @@
 <fieldset class="fieldset-section">
 	<legend>
-		<span>Durable Power Of Attorney For Financial And Medical Decisions</span>
+		<span>Successor Agent for Medical Decisions</span>
 		<span class="legend-action">
 			<button type="button" ng-click="dpoasForm.$valid && addPoa()" class="btn btn-default btn-xs">
 				<i class="glyphicon glyphicon-plus"></i> Add
 			</button>
 		</span>
 	</legend>
+	<p>Only fill-in if you want someone <u class="text-underline">different</u> than the Successor Trustee(s)</span></p>
 	<ng-form name="dpoasForm">
 		<ng-form name="poaForm" ng-repeat="poa in plan.dpoas track by $index">
 			<div class="row" ng-mouseenter="poa.showRemove = true" ng-mouseleave="poa.showRemove = false">
@@ -15,7 +16,7 @@
 					<input ng-model="poa.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 					<small ng-show="poaForm.name.$touched && poaForm.name.$error.required" class="error">Required Field</small>
 				</div>
-				<div class="col-md-4 form-group">
+				<div class="col-md-3 form-group">
 					<label>Address</label>
 					<input ng-model="poa.address" name="address" required googleplace ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
 					<small ng-show="poaForm.address.$touched && poaForm.address.$error.required" class="error">Required Field</small>
@@ -29,6 +30,18 @@
 					<label>Relationship</label>
 					<input type="text" ng-model="poa.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
 				</div>
+				<div class="col-md-1 form-group form-group-2cb">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="poa.clientAHCD" aria-label="...">Client
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="poa.spouseAHCD" aria-label="...">Spouse
+						</label>
+					</div>
+				</div>
 				<div class="col-md-1 form-group">
 					<label>&nbsp;</label>
 					<div>
@@ -36,27 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<label>{{plan.client.firstName || 'Client'}}</label>: &nbsp;&nbsp;
-					<label class="checkbox-inline">
-					  <input type="checkbox" ng-model="poa.clientDPA"> DPA <i tooltip="Durable Power of Attorney" class="glyphicon glyphicon-question-sign"></i>
-					</label>&nbsp;&nbsp;
-					<label class="checkbox-inline">
-					  <input type="checkbox" ng-model="poa.clientAHCD"> AHCD <i tooltip="Advance Health Care Directives are written instructions to communicate the care & treatment you want if you can no longer make health care decisions." class="glyphicon glyphicon-question-sign"></i>
-					</label>
-				</div>
-				<div class="col-md-6">
-					<label>{{plan.spouse.firstName || 'Spouse'}}</label>: &nbsp;&nbsp;
-					<label class="checkbox-inline">
-					  <input type="checkbox" ng-model="poa.spouseDPA"> DPA <i tooltip="Durable Power of Attorney" class="glyphicon glyphicon-question-sign"></i>
-					</label>&nbsp;&nbsp;
-					<label class="checkbox-inline">
-					  <input type="checkbox" ng-model="poa.spouseAHCD"> AHCD <i tooltip="Advance Health Care Directives are written instructions to communicate the care & treatment you want if you can no longer make health care decisions." class="glyphicon glyphicon-question-sign"></i>
-					</label>
-				</div>
-			</div>
-			<hr>
 		</ng-form>
 	</ng-form>
+	<!-- <pre>{{plan.dpoas | json}}</pre> -->
 </fieldset>
