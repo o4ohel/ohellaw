@@ -2,8 +2,20 @@
 	<h3>Client</h3>
 	<div><label>Name</label>: {{plan.client.firstName}} {{plan.client.lastName}}</div>
 	<div><label for="clientDob">Date of birth</label>: {{plan.client.dob | date: 'MMM d, y'}}</div>
-	<div><label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></div>
-	<div><label class="vertical-align">US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label></div>
+	<div>
+		<label class="vertical-align">Home Owner?</label>
+		<i 
+			class="glyphicon" 
+			ng-class="{'glyphicon-ok text-success': plan.client.isOwner, 'glyphicon-remove text-danger': !plan.client.isOwner}">
+		</i>
+	</div>
+	<div>
+		<label class="vertical-align">US Citizen?</label>
+		<i 
+			class="glyphicon" 
+			ng-class="{'glyphicon-ok text-success': plan.client.isCitizen, 'glyphicon-remove text-danger': !plan.client.isCitizen}">
+		</i>
+	</div>
 	<div><label>Email</label>: {{plan.client.email}}</div>
 	<div><label>Phone</label>: {{plan.client.phone}}</div>
 	<div><label>Address</label>: {{plan.client.address}}</div>
