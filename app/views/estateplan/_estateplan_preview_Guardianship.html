@@ -1,0 +1,21 @@
+
+<fieldset class="fieldset-section">
+  <h2>Guardianship For Minor Children Younger Than 18</h2>
+    <table width="100%" ng-repeat="guardian in plan.guardians track by $index">
+      <tr>
+        <td width="48%">
+          <div><label>Name</label>: <span ng-bind="guardian.name"></span></div>
+          <div><label>Address</label>: <span ng-bind="guardian.address"></span></div>
+          <div><label>Phone</label>: <span ng-bind="guardian.phone"></span></div>
+          <div><label>Relationship</label>: <span ng-bind="guardian.relationship"></span></div>
+        </td>
+
+        <td width="48%" ng-show="guardian.isCoGuardian">
+          <div><label>Spouse</label>: <span ng-bind="guardian.spouse.name"></span></div>
+          <div><label>Address</label>: <span ng-bind="guardian.spouse.address"></span></div>
+          <div><label>Phone</label>: <span ng-bind="guardian.spouse.phone"></span></div>
+          <div><label>Relationship</label>: <span ng-bind="guardian.spouse.relationship"></span></div>
+        </td>
+      </tr>
+    </table>
+</fieldset>
