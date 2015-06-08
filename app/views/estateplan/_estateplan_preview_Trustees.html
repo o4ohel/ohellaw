@@ -1,23 +1,29 @@
 <fieldset class="fieldset-section">
-	<h4>Trustees</h4>
-	<div ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}">
-		<div>
-			<label>{{beneficiary.firstName}} {{beneficiary.lastName}}</label>:
-			[<label>Relationship</label>: {{beneficiary.relationship}} &nbsp; | &nbsp;
-			<label>Gender</label>: {{beneficiary.gender}} &nbsp; | &nbsp;
-			<label>Address</label>: {{beneficiary.address}} &nbsp; | &nbsp;
-			<label>Phone</label>: {{beneficiary.phone}}]
-			]
-		</div>
-	</div>
-	<div ng-repeat="trustee in plan.trustees">
-		<div>
-			<label>{{trustee.name}}</label>:
-			[<label>Relationship</label>: {{trustee.relationship}} &nbsp; | &nbsp;
-			<label>Gender</label>: {{trustee.gender}} &nbsp; | &nbsp;
-			<label>Address</label>: {{trustee.address}} &nbsp; | &nbsp;
-			<label>Phone</label>: {{trustee.phone}}]
-		</div>
-	</div>
+	<h2>Trustees</h2>
+	<table width="100%">
+		<thead>
+			<th width="20%">Name</th>
+			<th>Relationship</th>
+			<th>Gender</th>
+			<th>Address</th>
+			<th>Phone</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true} track by $index">
+				<td>{{beneficiary.firstName}} {{beneficiary.lastName}}</td>
+				<td>{{beneficiary.relationship}}</td>
+				<td>{{beneficiary.gender}}</td>
+				<td>{{beneficiary.address}}</td>
+				<td>{{beneficiary.phone}}</td>
+			</tr>
+			<tr ng-repeat="trustee in plan.trustees track by $index">
+				<td>{{trustee.name}}</td>
+				<td>{{trustee.relationship}}</td>
+				<td>{{trustee.gender}}</td>
+				<td>{{trustee.address}}</td>
+				<td>{{trustee.phone}}</td>
+			</tr>
+		</tbody>	
+	</table>
 </fieldset>
 <!-- <pre>{{plan.beneficiaries | json}}</pre> -->

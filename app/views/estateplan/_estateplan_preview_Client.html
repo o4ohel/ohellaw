@@ -1,35 +1,10 @@
 <fieldset>
-	<h4>Client</h4>
-	<div class="row">
-		<div class="col-md-6">
-			<label>Name</label>: {{plan.client.firstName}} {{plan.client.lastName}}
-		</div>
-		<div class="col-md-6">
-			<label for="clientDob">Date of birth</label>: {{plan.client.dob | date: 'MMM d, y'}}
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
-			<label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label>
-		</div>
-		<div class="col-md-6">
-			<label class="vertical-align">US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
-			<label>Email</label>: {{plan.client.email}}
-		</div>
-		<div class="col-md-6 form-group">
-			<label>Phone</label>: {{plan.client.phone}}
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<label>Address</label>: {{plan.client.address}}
-		</div>
-	</div>
+	<h3>Client</h3>
+	<div><label>Name</label>: {{plan.client.firstName}} {{plan.client.lastName}}</div>
+	<div><label for="clientDob">Date of birth</label>: {{plan.client.dob | date: 'MMM d, y'}}</div>
+	<div><label class="vertical-align">Home Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label></div>
+	<div><label class="vertical-align">US Citizen? <input ng-model="plan.client.isCitizen" type="checkbox"></label></div>
+	<div><label>Email</label>: {{plan.client.email}}</div>
+	<div><label>Phone</label>: {{plan.client.phone}}</div>
+	<div><label>Address</label>: {{plan.client.address}}</div>
 </fieldset>

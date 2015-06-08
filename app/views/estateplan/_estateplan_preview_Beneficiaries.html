@@ -1,16 +1,29 @@
 <fieldset class="fieldset-section">
-	<h4>Beneficiaries</h4>
-	<div ng-repeat="beneficiary in plan.beneficiaries track by $index">
-		<div>
-			<label>{{beneficiary.firstName}} {{beneficiary.lastName}}</label>:
-			[<label>Relationship</label>: {{beneficiary.relationship}} &nbsp; | &nbsp;
-			<label>DOB</label>: {{beneficiary.dob | date: 'MMM d, y'}} &nbsp; | &nbsp;
-			<label>Gender</label>: {{beneficiary.gender}} &nbsp; <span ng-show="beneficiary.isTrustee">| &nbsp;
-			<label >is trustee</label></span>
-			<span ng-show="beneficiary.giftDistribution">| &nbsp;
-			<label>Cash Gift</label>: ${{beneficiary.cashGift}}</span>
-			]
-		</div>
-	</div>
+	<h2>Beneficiaries</h2>
+	<table width="100%">
+		<thead>
+			<th width="20%">Name</th>
+			<th>Relationship</th>
+			<th>DOB</th>
+			<th>Gender</th>
+			<th class="text-center">Trustee?</th>
+			<th class="text-center">Cash gift</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="beneficiary in plan.beneficiaries track by $index">
+				<td>{{beneficiary.firstName}} {{beneficiary.lastName}}</td>
+				<td>{{beneficiary.relationship}}</td>
+				<td>{{beneficiary.dob | date: 'MMM d, y'}}</td>
+				<td>{{beneficiary.gender}}</td>
+				<td class="text-center">
+					<i 
+						class="glyphicon" 
+						ng-class="{'glyphicon-ok text-success': beneficiary.isTrustee, 'glyphicon-remove text-danger': !beneficiary.isTrustee}">
+					</i>
+				</td>
+				<td class="text-center">{{(beneficiary.cashGift | currency: '$') || '--'}}</td>
+			</tr>
+		</tbody>	
+	</table>
 </fieldset>
 <!-- <pre>{{plan.beneficiaries | json}}</pre> -->
