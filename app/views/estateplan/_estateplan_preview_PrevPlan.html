@@ -1,0 +1,19 @@
+<fieldset class="fieldset-section">
+  <h2>Previous Estate Plan</h2>
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Trust Name</th>
+        <th>Signing Date</th>
+        <th>Signing Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="p in plan.prevPlans track by $index">
+        <td ng-bind="p.trustName"></td>
+        <td ng-bind="p.signingDate | date"></td>
+        <td ng-bind="p.signingLocation"></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

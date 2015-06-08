@@ -1,0 +1,27 @@
+<fieldset class="fieldset-section">
+  <h2>Previous Marriage</h2>
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>
+        <th>Previous Spouse’s Name  (if applicable)</th>
+        <th>Divorce / Death</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>{{plan.client.firstName || 'Client'}}</th>
+        <td ng-bind="plan.client.prevMarriage.name"></td>
+        <td ng-bind="plan.client.prevMarriage.divorceType"></td>
+        <td ng-bind="plan.client.prevMarriage.endDate"></td>
+      </tr>
+      <tr>
+        <th>{{plan.spouse.firstName || 'Spouse'}}</th>
+        <td ng-bind="plan.spouse.prevMarriage.name"></td>
+        <td ng-bind="plan.spouse.prevMarriage.divorceType"></td>
+        <td ng-bind="plan.spouse.prevMarriage.endDate"></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

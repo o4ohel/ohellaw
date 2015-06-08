@@ -1,0 +1,19 @@
+<fieldset class="fieldset-section">
+  <h2>Company Stock Option Plans</h2>
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Stock Owner</th>
+        <th>Company</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="stock in plan.stockOptionPlans track by $index">
+        <td ng-bind="stock.owner"></td>
+        <td ng-bind="stock.company"></td>
+        <td ng-bind="stock.notes"></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

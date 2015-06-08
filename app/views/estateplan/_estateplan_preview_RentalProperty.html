@@ -1,0 +1,6 @@
+<fieldset class="fieldset-section" ng-show="plan.rentalProperties && plan.rentalProperties.length > 0 && plan.rentalProperties[0].address">
+  <h2>Rental Properties</h2>
+  <ol>
+    <li ng-repeat="property in plan.rentalProperties track by $index">{{property.address}}</li>
+  </ol>
+</fieldset>
