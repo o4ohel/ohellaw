@@ -1,0 +1,24 @@
+<fieldset class="fieldset-section">
+  <h2>Burial / Cremation / Agent’s Discretion</h2>
+  <table width="100%">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Type</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>{{plan.client.firstName || 'Client'}}</th>
+        <td ng-bind="plan.client.burial.type"></td>
+        <td ng-bind="plan.client.burial.notes"></td>
+      </tr>
+      <tr>
+        <th>{{plan.spouse.firstName || 'Spouse'}}</th>
+        <td ng-bind="plan.spouse.burial.type"></td>
+        <td ng-bind="plan.spouse.burial.notes"></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>

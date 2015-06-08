@@ -1,0 +1,47 @@
+<fieldset class="fieldset-section">
+  <h2>Health Care Provisions</h2>
+  <h3>Stop life support if in irreversible Coma? </h3>
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td width="25%"><strong>{{plan.client.firstName || 'Client'}}</strong>: <span ng-bind="plan.client.health.stopLifeSupport"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.client.health.lifeSupportNotes"></span></td>
+      </tr>
+      <tr>
+        <td width="25%"><strong>{{plan.spouse.firstName || 'Spouse'}}</strong>: <span ng-bind="plan.spouse.health.stopLifeSupport"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.spouse.health.lifeSupportNotes"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Organ Donation</h3>
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td width="25%"><strong>{{plan.client.firstName || 'Client'}}</strong>: <span ng-bind="plan.client.health.organDonation"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.client.health.organDonationNotes"></span></td>
+      </tr>
+      <tr>
+        <td width="25%"><strong>{{plan.spouse.firstName || 'Spouse'}}</strong>: <span ng-bind="plan.spouse.health.organDonation"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.spouse.health.organDonationNotes"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Autopsy ok if requestion by family member?</h3>
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td width="25%"><strong>{{plan.client.firstName || 'Client'}}</strong>: <span ng-bind="plan.client.health.autopsy"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.client.health.autopsyNotes"></span></td>
+      </tr>
+      <tr>
+        <td width="25%"><strong>{{plan.spouse.firstName || 'Spouse'}}</strong>: <span ng-bind="plan.spouse.health.autopsy"</span></th>
+        <td><strong>Notes</strong>: <span ng-bind="plan.spouse.health.autopsyNotes"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</fieldset>
+<!-- <pre>{{plan.client | json}}</pre>
+<pre>{{plan.spouse | json}}</pre> -->
