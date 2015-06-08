@@ -1,0 +1,15 @@
+<fieldset class="fieldset-section">
+  <h2>Timing Of Distribution</h2>
+  
+  <p ng-show="plan.distribution.at18">I want my children to receive my money at age 18</p>
+
+  <p ng-hide="plan.distribution.at18">
+    I want my children to receive my money distributed at up to 3 equal installments at age:
+    <ol ng-hide="plan.distribution.at18">
+      <li ng-bind="plan.distribution.age1"></li>
+      <li ng-bind="plan.distribution.age2"></li>
+      <li ng-bind="plan.distribution.age3"></li>
+    </ol>
+  </p>
+
+</fieldset>
