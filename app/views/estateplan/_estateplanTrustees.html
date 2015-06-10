@@ -20,7 +20,7 @@
 			<div class="col-md-1 form-group">&nbsp;</div>
 		</div>
 		<div class="row animate-repeat" ng-repeat="beneficiary in plan.beneficiaries | filter: {isTrustee: true}" ng-mouseenter="beneficiary.showRemoveT = true" ng-mouseleave="beneficiary.showRemoveT = false">
-			<div class="col-md-3 form-group">{{beneficiary.firstName}} {{beneficiary.lastName}}</div>
+			<div class="col-md-3 form-group" ng-class="{'text-uppercase': capNames}">{{beneficiary.firstName}} {{beneficiary.lastName}}</div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.relationship}}</span></div>
 			<div class="col-md-1 form-group"><span>{{beneficiary.gender}}</span></div>
 			<div class="col-md-4 form-group"><input ng-model="beneficiary.address" type="text" googleplace class="form-control"></div>
@@ -36,7 +36,7 @@
 		<div class="row" ng-mouseenter="trustee.showRemove = true" ng-mouseleave="trustee.showRemove = false">
 			<div class="col-md-3 form-group">
 				<!-- <label>Successor Trustee's Name</label> -->
-				<input ng-model="trustee.name" type="text" class="form-control">
+				<input ng-model="trustee.name" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 			</div>
 			<div class="col-md-1 form-group">
 				<input type="text" ng-model="trustee.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch"  typeahead-focus class="form-control">

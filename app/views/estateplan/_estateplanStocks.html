@@ -18,7 +18,7 @@
 			<ng-form name="stockFrm">
 				<div class="col-md-4">
 					<!-- <input ng-model="stock.owner" name="trustName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control"> -->
-					<select ng-options="item for item in getFullNameList()" ng-model="stock.owner" class="form-control"></select>
+					<select ng-options="item for item in getFullNameList()" ng-model="stock.owner" class="form-control" ng-class="{'text-uppercase': capNames}"></select>
 				</div>
 				<div class="col-md-4">
 					<input type="text" class="form-control" ng-model="stock.company">

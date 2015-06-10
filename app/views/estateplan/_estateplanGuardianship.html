@@ -20,7 +20,7 @@
 								 <i class="glyphicon glyphicon-question-sign"></i>
 							</small>
 						</label>
-						<input ng-model="guardian.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+						<input ng-model="guardian.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 						<small ng-show="guardianForm.name.$touched && guardianForm.name.$error.required" class="error">Required Field</small>
 					</div>
 					<div>
@@ -42,7 +42,7 @@
 				<div class="col-md-5" ng-show="guardian.isCoGuardian">
 					<div>
 						<label>Name</label>
-						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 					</div>
 					<div>
 						<label>Address</label>

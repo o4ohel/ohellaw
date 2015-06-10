@@ -3,11 +3,11 @@
 	<div class="row">
 		<div class="col-md-6 form-group">
 			<label for="spouseFname">First Name</label>
-			<input ng-model="plan.spouse.firstName" type="text" class="form-control" placeholder="First Name" id="clientFname">
+			<input ng-model="plan.spouse.firstName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="First Name" id="clientFname">
 		</div>
 		<div class="col-md-6 form-group">
 			<label for="spouseLname">Last Name</label>
-			<input ng-model="plan.spouse.lastName" type="text" class="form-control" placeholder="Last Name" id="clientLname">
+			<input ng-model="plan.spouse.lastName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="Last Name" id="clientLname">
 		</div>
 	</div>
 

@@ -28,11 +28,11 @@
 			<ng-form name="beneficiaryForm">
 				<div class="row" ng-mouseenter="beneficiary.showRemove = true" ng-mouseleave="beneficiary.showRemove = false">
 					<div class="col-md-2 form-group">
-						<input ng-model="beneficiary.firstName" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+						<input ng-model="beneficiary.firstName" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 						<small ng-show="beneficiaryForm.firstName.$touched && beneficiaryForm.firstName.$error.required" class="error">Required Field</small>
 					</div>
 					<div class="col-md-2 form-group">
-						<input ng-model="beneficiary.lastName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+						<input ng-model="beneficiary.lastName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 						<small ng-show="beneficiaryForm.lastName.$touched && beneficiaryForm.lastName.$error.required" class="error">Required Field</small>
 					</div>
 					<div class="col-md-2 form-group">

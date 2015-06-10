@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="form-group col-md-3">
 				<div class="input-group">
-	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.client.firstName || 'Client'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.stopLifeSupport" class="form-control"></select>
 	      </div>
 	    </div>
@@ -23,7 +23,7 @@
 	  <div class="row">
 			<div class="form-group col-md-3">
 				<div class="input-group" dropdown>
-	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.spouse.firstName || 'Spouse'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.stopLifeSupport" class="form-control"></select>
 	      </div>
 	    </div>
@@ -48,7 +48,7 @@
 	  <div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.client.firstName || 'Client'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.organDonation" class="form-control"></select>
 	      </div>
 			</div>
@@ -62,7 +62,7 @@
 		<div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.spouse.firstName || 'Spouse'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.organDonation" class="form-control"></select>
 	      </div>
 			</div>
@@ -84,7 +84,7 @@
 	  <div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.client.firstName || 'Client'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.client.health.autopsy" class="form-control"></select>
 	      </div>
 			</div>
@@ -98,7 +98,7 @@
 		<div class="row">
 	  	<div class="form-group col-md-3">
 	  		<div class="input-group">
-	      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.spouse.firstName || 'Spouse'}}</div>
 	      	<select ng-options="item for item in yesNo" ng-model="plan.spouse.health.autopsy" class="form-control"></select>
 	      </div>
 			</div>

@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="form-group col-md-4">
 			<div class="input-group">
-      	<div class="input-group-addon">{{plan.client.firstName || 'Client'}}</div>
+      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.client.firstName || 'Client'}}</div>
       	<!-- <input ng-model="plan.burial.husband.type" type="text" class="form-control"> -->
         <select ng-options="item for item in burialTypes" ng-model="plan.client.burial.type" class="form-control"></select>
       </div>
@@ -20,7 +20,7 @@
   <div class="row">
 		<div class="form-group col-md-4">
 			<div class="input-group">
-      	<div class="input-group-addon">{{plan.spouse.firstName || 'Spouse'}}</div>
+      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.spouse.firstName || 'Spouse'}}</div>
         <select ng-options="item for item in burialTypes" ng-model="plan.spouse.burial.type" class="form-control"></select>
       </div>
     </div>

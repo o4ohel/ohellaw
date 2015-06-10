@@ -8,6 +8,7 @@
  * Controller of the ohellawApp
  */
 angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams, $state) {
+    $scope.capNames = $stateParams.capNames ? ($stateParams.capNames === 'true' ? true : false ) : false;
     $scope.planId = $stateParams.planId;
 
     $scope.datepicker = {

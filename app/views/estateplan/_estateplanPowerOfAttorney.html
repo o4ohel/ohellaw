@@ -13,7 +13,7 @@
 			<div class="row" ng-mouseenter="poa.showRemove = true" ng-mouseleave="poa.showRemove = false">
 				<div class="col-md-3 form-group">
 					<label>Name</label>
-					<input ng-model="poa.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
+					<input ng-model="poa.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 					<small ng-show="poaForm.name.$touched && poaForm.name.$error.required" class="error">Required Field</small>
 				</div>
 				<div class="col-md-3 form-group">

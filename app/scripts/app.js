@@ -23,7 +23,7 @@ angular
       .state('directions', {url: '/directions', templateUrl: 'views/cupertino.html'})
       .state('contact', {url: '/contact', templateUrl: 'views/contactform.html', controller: 'ContactCtrl'})
       .state('disclaimer', {url: '/disclaimer', templateUrl: 'views/disclaimer.html', controller: 'DisclaimerCtrl'})
-      .state('estateplan', {url: '/estateplan/:planId', template: '<ui-view class="estateplan"></ui-view>', abstract: true, controller: 'EstateplanCtrl'})
+      .state('estateplan', {url: '/estateplan/:planId?capNames', template: '<ui-view class="estateplan"></ui-view>', abstract: true, controller: 'EstateplanCtrl'})
         .state('estateplan.form', {url: '', templateUrl: 'views/estateplan.html'})
         .state('estateplan.preview', {url: '/preview', templateUrl: 'views/estateplan_preview.html'})
     ;
