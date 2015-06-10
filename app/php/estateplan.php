@@ -41,13 +41,13 @@ fclose( $file );
 #$pdf->Output($filename . ".pdf", 'F');
 
 
-$to="o4ohel@gmail.com";
+$to="o4ohel@gmail.com, dohel@ohellaw.com, admin@ohellaw.com";
 $subject = "Estate Plan";
 $body = "The following Customer has requested your response: \n\n";
 $body .= "    Name: " . $data["client"]["firstName"] . "\n";
 $body .= "   Phone: " . $data["client"]["phone"] . "\n";
 $body .= "   Email: " . $data["client"]["email"] . "\n\n";
-$body .= "Comments: download the full form at: http://ohellaw.com/dist/#/estateplan/" . $filename . " \n\n";
+$body .= "Comments: download the full form at: http://ohellaw.com/dist/#/estateplan/" . $filename . "?capNames=true \n\n";
 $headers = "From: dohel@ohellaw.com\n";
 
 mail($to,$subject,$body,$headers);
