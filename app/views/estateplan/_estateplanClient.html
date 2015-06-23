@@ -1,22 +1,23 @@
 <fieldset>
 	<legend>Client</legend>
 	<div class="row">
-		<div class="col-md-6 form-group">
+		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientFname.$error.required}">
 			<label for="clientFname">First Name</label>
-			<input ng-model="plan.client.firstName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="First Name" id="clientFname">
+			<input ng-model="plan.client.firstName" type="text" name="clientFname" required class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="First Name" id="clientFname">
 		</div>
-		<div class="col-md-6 form-group">
+		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientLname.$error.required}">
 			<label for="clientLname">Last Name</label>
-			<input ng-model="plan.client.lastName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="Last Name" id="clientLname">
+			<input ng-model="plan.client.lastName" type="text" name="clientLname" required class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="Last Name" id="clientLname">
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4 form-group">
+		<div class="col-md-4 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientDob.$error.required}">
 			<label for="clientDob">Date of birth</label>
 			<!-- <input ng-model="plan.client.dob" type="date" class="form-control" id="clientDob"> -->
 			<p class="input-group">
 				<input 
+					name="clientDob" 
 					id="clientDob"
 					type="text" 
 					class="form-control" 
@@ -44,22 +45,22 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6 form-group">
+		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientEmail.$invalid}">
 			<label for="clientEmail">Email</label>
-			<input ng-model="plan.client.email" type="email" class="form-control" id="clientEmail">
+			<input ng-model="plan.client.email" type="email" name="clientEmail" required class="form-control" id="clientEmail">
 		</div>
-		<div class="col-md-6 form-group">
+		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientPhone.$error.required}">
 			<label for="clientPhone">Phone </label>
-			<input ng-model="plan.client.phone" type="text" class="form-control" id="clientPhone">
+			<input ng-model="plan.client.phone" type="text" name="clientPhone" required class="form-control" id="clientPhone">
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-12 form-group">
+		<div class="col-md-12 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientAddress.$error.required}">
 			<label for="clientAddress">Address</label>
-			<input ng-model="plan.client.address" type="text" class="form-control" id="clientAddress" googleplace>
+			<input ng-model="plan.client.address" type="text" name="clientAddress" required class="form-control" id="clientAddress" googleplace>
 		</div>
 	</div>
 	
 </fieldset>
-<!-- <label>Owner?&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label> -->
+<!-- <pre>{{plan.client.address }}</pre> -->

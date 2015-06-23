@@ -13,18 +13,15 @@
 			<div class="row" ng-mouseenter="poa.showRemove = true" ng-mouseleave="poa.showRemove = false">
 				<div class="col-md-3 form-group">
 					<label>Name</label>
-					<input ng-model="poa.name" name="name" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
-					<small ng-show="poaForm.name.$touched && poaForm.name.$error.required" class="error">Required Field</small>
+					<input ng-model="poa.name" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 				</div>
 				<div class="col-md-3 form-group">
 					<label>Address</label>
-					<input ng-model="poa.address" name="address" required googleplace ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
-					<small ng-show="poaForm.address.$touched && poaForm.address.$error.required" class="error">Required Field</small>
+					<input ng-model="poa.address" googleplace type="text" class="form-control">
 				</div>
 				<div class="col-md-2 form-group">
 					<label>Phone</label>
-					<input ng-model="poa.phone" name="phone" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control">
-					<small ng-show="poaForm.phone.$touched && poaForm.phone.$error.required" class="error">Required Field</small>
+					<input ng-model="poa.phone" type="text" class="form-control">
 				</div>
 				<div class="col-md-2 form-group">
 					<label>Relationship</label>

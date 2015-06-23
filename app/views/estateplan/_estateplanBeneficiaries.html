@@ -28,12 +28,10 @@
 			<ng-form name="beneficiaryForm">
 				<div class="row" ng-mouseenter="beneficiary.showRemove = true" ng-mouseleave="beneficiary.showRemove = false">
 					<div class="col-md-2 form-group">
-						<input ng-model="beneficiary.firstName" name="firstName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
-						<small ng-show="beneficiaryForm.firstName.$touched && beneficiaryForm.firstName.$error.required" class="error">Required Field</small>
+						<input ng-model="beneficiary.firstName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 					</div>
 					<div class="col-md-2 form-group">
-						<input ng-model="beneficiary.lastName" required ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
-						<small ng-show="beneficiaryForm.lastName.$touched && beneficiaryForm.lastName.$error.required" class="error">Required Field</small>
+						<input ng-model="beneficiary.lastName" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
 					</div>
 					<div class="col-md-2 form-group">
 						<input type="text" ng-model="beneficiary.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
@@ -46,8 +44,7 @@
 							ng-model="beneficiary.dob" 
 							is-open="datepicker['b' + $index]" 
 							date-disabled="disabled(date, mode)" 
-							datepicker-options="dateOptions"
-							ng-required="true" 
+							datepicker-options="dateOptions" 
 							close-text="Close" 
 							ng-click="datepicker['b' + $index] = true"
 							ng-change="beneficiary.isMinor = false"

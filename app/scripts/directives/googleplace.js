@@ -3,6 +3,10 @@
 angular.module('ohellawApp').directive('googleplace', function() {
     return {
         require: 'ngModel',
+        scope: {
+            ngModel: '=',
+            details: '=?'
+        },
         link: function(scope, element, attrs, model) {
             var options = {
                 types: [],
@@ -17,9 +21,15 @@ angular.module('ohellawApp').directive('googleplace', function() {
             }); 
 
             google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
-                // console.log(arguments);
+                // console.log(scope.gPlace);
                 scope.$apply(function() {
-                    model.$setViewValue(element.val());                
+                    scope.details = scope.gPlace.getPlace();
+                    var addressWithZip = '';
+                    /* jshint ignore:start */
+                    addressWithZip = scope.details.formatted_address;
+                    /* jshint ignore:end */
+                    // model.$setViewValue(element.val());    
+                    model.$setViewValue(addressWithZip);          
                 });
             });
         }
