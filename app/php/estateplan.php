@@ -43,7 +43,7 @@ fclose( $file );
 
 $to="o4ohel@gmail.com, dohel@ohellaw.com, admin@ohellaw.com";
 #$to="o4ohel@gmail.com";
-$subject = "Estate Plan: " + $data["client"]["email"];
+$subject = "Estate Plan: " . $data["client"]["email"];
 $body = "An Estate Planning Questionnaire Form has been filled out by: \n\n";
 $body .= "    Name: " . $data["client"]["firstName"] . "\n";
 $body .= "   Phone: " . $data["client"]["phone"] . "\n";
