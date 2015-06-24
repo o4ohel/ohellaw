@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientFname.$error.required}">
 			<label for="clientFname">First Name</label>
-			<input ng-model="plan.client.firstName" type="text" name="clientFname" required class="form-control" ng-class="{'text-uppercase': capNames}" placeholder="First Name" id="clientFname">
+			<input ng-model="plan.client.firstName" to-uppercase type="text" name="clientFname" required class="form-control"  placeholder="First Name" id="clientFname">
 		</div>
 		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientLname.$error.required}">
 			<label for="clientLname">Last Name</label>

@@ -36,9 +36,10 @@ angular.module('ohellawApp').directive('phoneInput', function($filter, $browser)
             $element.bind('change', listener);
             $element.bind('keydown', function(event) {
                 var key = event.keyCode;
+                // console.log(key);
                 // If the keys include the CTRL, SHIFT, ALT, or META keys, or the arrow keys, do nothing.
                 // This lets us support copy and paste too
-                if (key === 91 || (15 < key && key < 19) || (37 <= key && key <= 40)){
+                if (key === 91 || (15 < key && key < 19) || (37 <= key && key <= 40) || key === 67){
                     return;
                 }
                 $browser.defer(listener); // Have to do this or changes don't get picked up properly
@@ -53,7 +54,7 @@ angular.module('ohellawApp').directive('phoneInput', function($filter, $browser)
 })
 .filter('tel', function () {
     return function (tel) {
-        console.log(tel);
+        // console.log(tel);
         if (!tel) { return ''; }
 
         var value = tel.toString().trim().replace(/^\+/, '');
