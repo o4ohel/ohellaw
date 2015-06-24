@@ -51,7 +51,9 @@
 		</div>
 		<div class="col-md-6 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientPhone.$error.required}">
 			<label for="clientPhone">Phone </label>
-			<input ng-model="plan.client.phone" type="text" name="clientPhone" required class="form-control" id="clientPhone">
+			<input ng-model="plan.client.phone" phone-input type="text" name="clientPhone" required class="form-control" id="clientPhone">
+			<div class="text-help" ng-bind="plan.client.phone | tel"></div>
+			<div class="text-help" ng-bind="plan.client.phone"></div>
 		</div>
 	</div>
 
