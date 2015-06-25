@@ -20,7 +20,7 @@
 								 <i class="glyphicon glyphicon-question-sign"></i>
 							</small>
 						</label>
-						<input ng-model="guardian.name" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
+						<input ng-model="guardian.name" to-uppercase type="text" class="form-control">
 					</div>
 					<div>
 						<label>Address</label>
@@ -41,7 +41,7 @@
 				<div class="col-md-5" ng-show="guardian.isCoGuardian">
 					<div>
 						<label>Name</label>
-						<input ng-model="guardian.spouse.name" name="spouseName" ng-model-options="{updateOn: ' blur'}" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
+						<input ng-model="guardian.spouse.name" to-uppercase type="text" class="form-control">
 					</div>
 					<div>
 						<label>Address</label>

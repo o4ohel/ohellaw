@@ -17,7 +17,7 @@
 	  	<div class="form-group col-md-7">
 	  		<div class="input-group">
 	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.client.firstName || 'Client'}}</div>
-	      	<input ng-model="plan.client.prevMarriage.name" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
+	      	<input ng-model="plan.client.prevMarriage.name" to-uppercase type="text" class="form-control">
 	      </div>
 			</div>
 			<div class="form-group col-md-3">
@@ -31,7 +31,7 @@
 	  	<div class="form-group col-md-7">
 	  		<div class="input-group">
 	      	<div class="input-group-addon" ng-class="{'text-uppercase': capNames}">{{plan.spouse.firstName || 'Spouse'}}</div>
-	      	<input ng-model="plan.spouse.prevMarriage.name" type="text" class="form-control" ng-class="{'text-uppercase': capNames}">
+	      	<input ng-model="plan.spouse.prevMarriage.name" to-uppercase type="text" class="form-control">
 	      </div>
 			</div>
 			<div class="form-group col-md-3">
