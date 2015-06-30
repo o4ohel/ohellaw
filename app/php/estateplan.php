@@ -45,11 +45,11 @@ $to="o4ohel@gmail.com, dohel@ohellaw.com, admin@ohellaw.com";
 #$to="o4ohel@gmail.com";
 $subject = "Estate Plan: " . $data["client"]["email"];
 $body = "An Estate Planning Questionnaire Form has been filled out by: \n\n";
-$body .= "    Name: " . $data["client"]["firstName"] . "\n";
+$body .= "    Name: " . $data["client"]["firstName"] . " " . $data["client"]["lastName"] . "\n";
 $body .= "   Phone: " . $data["client"]["phone"] . "\n";
 $body .= "   Email: " . $data["client"]["email"] . "\n\n";
-$body .= "View the full form at: http://ohellaw.com/#/estateplan/" . $filename . "?capNames=true \n\n";
-$headers = "From: dohel@ohellaw.com\n";
+$body .= "View the full form at: http://ohellaw.com/#/estateplan/" . $filename . "\n\n";
+$headers = "From: estateplan@ohellaw.com\n";
 
 mail($to,$subject,$body,$headers);
 
