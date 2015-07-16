@@ -317,7 +317,11 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/concat/scripts',
-          src: ['*.js', '!oldieshim.js'],
+          src: [
+            '*.js',
+            '!vendor.js',
+            '!oldieshim.js'
+          ],
           dest: '.tmp/concat/scripts'
         }]
       }
