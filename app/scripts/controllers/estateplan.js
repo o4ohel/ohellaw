@@ -217,12 +217,6 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
       });
     };
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
     $scope.addPrevPlan = function() {
       $scope.plan.prevPlans.push({});
     };

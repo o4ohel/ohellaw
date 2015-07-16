@@ -16,7 +16,9 @@ describe('Controller: TrustsCtrl', function () {
     });
   }));
 
-  it('should attach a list of Questions and Answers to the scope', function () {
-    expect(scope.faqs.length).toBe(9);
+  describe('Initial state', function () {
+    it('should instantiate the controller properly', function () {
+      expect(TrustsCtrl).not.toBeUndefined();
+    });
   });
 });
