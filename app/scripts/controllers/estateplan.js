@@ -28,11 +28,14 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
 
   	$scope.plan = {
       client: {
-        isOwner: false,
+        isOwner: true,
+        isCitizen: true,
         firstName: '',
         lastName: ''
       },
       spouse: {
+        isOwner: true,
+        isCitizen: true,
         firstName: '',
         lastName: ''
       },
