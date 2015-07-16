@@ -17,11 +17,4 @@ angular.module('ohellawApp')
       $scope.navbarCollapse = true;
     });
 
-    $scope.navbarCollapse = true;
-
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });

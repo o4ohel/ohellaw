@@ -16,7 +16,9 @@ describe('Controller: CorpCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.faqs.length).toBe(6);
+  describe('Initial state', function () {
+    it('should instantiate the controller properly', function () {
+      expect(CorpCtrl).not.toBeUndefined();
+    });
   });
 });
