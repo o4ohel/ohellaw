@@ -80,7 +80,7 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
     };
     
 
-    $scope.relationships = ['Father', 'Mother', 'Son', 'Daughter', 'Father-in-law', 'Mother-in-law', 'Brother', 'Sister', 'Brother\’s spouse', 'Sister\’s spouse', 'Brother-in-law', 'Sister-in-law', 'Cousin', 'Cousin-in-law', 'Other'];
+    $scope.relationships = ['Father', 'Mother', 'Son', 'Daughter', 'Father-in-law', 'Mother-in-law', 'Brother', 'Sister', 'Brother\’s spouse', 'Sister\’s spouse', 'Brother-in-law', 'Sister-in-law', 'Cousin', 'Cousin-in-law', 'Friend', 'Other'];
     $scope.yesNo = ['Yes', 'No'];
     $scope.burialTypes = ['Spouse\'s Decision', 'Burial', 'Cremation'];
 
