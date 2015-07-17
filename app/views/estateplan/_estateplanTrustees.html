@@ -42,16 +42,12 @@
 				<input type="text" ng-model="trustee.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch"  typeahead-focus class="form-control">
 			</div>
 			<div class="col-md-1 form-group">
-				<div class="radio" style="margin-top: 0;">
-					<label>
-						<input ng-model="trustee.gender" type="radio" value="male"> M
-					</label>
-				</div>
-				<div class="radio">
-					<label>
-						<input ng-model="trustee.gender" type="radio" value="female"> F
-					</label>
-				</div>
+				<label>
+					<input ng-model="trustee.gender" type="radio" value="male"> M
+				</label>
+				<label>
+					<input ng-model="trustee.gender" type="radio" value="female"> F
+				</label>
 			</div>
 			<div class="col-md-4 form-group">
 				<!-- <label class="right inline">Address</label> -->
