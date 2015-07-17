@@ -1,13 +1,22 @@
 
 <fieldset class="fieldset-section">
   <h2>Guardianship For Minor Children Younger Than 18</h2>
-    <table width="100%" ng-repeat="guardian in plan.guardians track by $index">
+  <div ng-repeat="guardian in plan.guardians track by $index">
+    <hr ng-if="$index > 0" />
+    <table width="100%">
       <tr>
         <td width="48%">
           <div><label>Name</label>: <span ng-bind="guardian.name"></span></div>
           <div><label>Address</label>: <span ng-bind="guardian.address"></span></div>
           <div><label>Phone</label>: <span ng-bind="guardian.phone"></span></div>
           <div><label>Relationship</label>: <span ng-bind="guardian.relationship"></span></div>
+          <div>
+            <label>Preferred</label>: 
+            <i 
+              class="glyphicon" 
+              ng-class="{'glyphicon-ok text-success': guardian.isPreferred, 'glyphicon-remove text-danger': !guardian.isPreferred}">
+            </i>
+          </div>
         </td>
 
         <td width="48%" ng-show="guardian.isCoGuardian">
@@ -15,7 +24,16 @@
           <div><label>Address</label>: <span ng-bind="guardian.spouse.address"></span></div>
           <div><label>Phone</label>: <span ng-bind="guardian.spouse.phone"></span></div>
           <div><label>Relationship</label>: <span ng-bind="guardian.spouse.relationship"></span></div>
+          <div>
+            <label>Preferred</label>: 
+            <i 
+              class="glyphicon" 
+              ng-class="{'glyphicon-ok text-success': guardian.spouse.isPreferred, 'glyphicon-remove text-danger': !guardian.spouse.isPreferred}">
+            </i>
+          </div>
         </td>
       </tr>
     </table>
+
+  </div>
 </fieldset>

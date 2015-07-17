@@ -13,13 +13,27 @@
 			<div class="row" ng-mouseenter="guardian.showMoveRemove = true" ng-mouseleave="guardian.showMoveRemove = false">
 				<div class="col-md-6">
 					<div>
-						<label>
-							Name&nbsp;
+						<div>
+							<label>Name</label>
 							<small class="text-muted">Will a spouse or partner be co-guardian? 
 								<input type="checkbox" ng-model="guardian.isCoGuardian"> 
-								 <i class="glyphicon glyphicon-question-sign"></i>
+								<i 
+									class="glyphicon glyphicon-question-sign" 
+									popover-append-to-body="true" 
+									popover-placement="top" 
+									popover="Check this box if this guardian has a spouse or partner that will also be a co-guardian">
+								</i>
 							</small>
-						</label>
+							<small class="text-muted" style="margin-left: 12px;">Preferred? 
+								<input type="checkbox" ng-model="guardian.isPreferred" ng-click="checkPreferred()"> 
+								<i 
+									class="glyphicon glyphicon-question-sign" 
+									popover-append-to-body="true" 
+									popover-placement="top" 
+									popover="In case of co-guardian divorce/death the preferred guardian will remain as sole guardian, otherwise, will transfer to the next guardianship">
+								</i>
+							</small>
+						</div>
 						<input ng-model="guardian.name" to-uppercase type="text" class="form-control">
 					</div>
 					<div>
@@ -40,7 +54,18 @@
 
 				<div class="col-md-5" ng-show="guardian.isCoGuardian">
 					<div>
-						<label>Name</label>
+						<div>
+							<label>Name</label>
+							<small class="text-muted">Preferred? 
+								<input type="checkbox" ng-model="guardian.spouse.isPreferred" ng-click="checkPreferred('spouse')"> 
+								<i 
+									class="glyphicon glyphicon-question-sign" 
+									popover-append-to-body="true" 
+									popover-placement="top" 
+									popover="In case of co-guardian divorce/death the preferred guardian will remain as sole guardian, otherwise, will transfer to the next guardianship">
+								</i>
+							</small>
+						</div>
 						<input ng-model="guardian.spouse.name" to-uppercase type="text" class="form-control">
 					</div>
 					<div>
@@ -64,7 +89,7 @@
 						<i class="glyphicon glyphicon-chevron-up text-muted" ng-click="moveUp('guardians', $index)"></i>
 					</label>
 					<label>
-						<i class="glyphicon glyphicon-remove"></i>
+						<i class="glyphicon glyphicon-remove" ng-click="removeGuardian()"></i>
 					</label>
 				</div>
 

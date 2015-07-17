@@ -131,10 +131,10 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
     };
     $scope.removeGuardian = function() {
       var guardian = this.guardian;
-      if($scope.plan.guardians.length < 2) {
-        $scope.plan.guardians = [{}];
-        return;
-      }
+      // if($scope.plan.guardians.length < 2) {
+      //   $scope.plan.guardians = [{}];
+      //   return;
+      // }
       $scope.plan.guardians.splice($scope.plan.guardians.indexOf(guardian), 1);
     };
 
@@ -189,6 +189,18 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
         beneficiary.isMinor = true;
       } else {
         beneficiary.isMinor = false;
+      }
+    };
+
+    $scope.checkPreferred = function(spouse) {
+      var guardian = this.guardian;
+      if(!guardian.isPreferred) {return;}
+      if(spouse) {
+        guardian.isPreferred = false;
+      } else {
+        if(guardian.spouse) {
+          guardian.spouse.isPreferred = false;
+        }
       }
     };
 
