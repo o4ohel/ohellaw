@@ -1,0 +1,16 @@
+.dob {
+
+  .dob-month {
+    // border: none;
+  }
+  .dob-month, .dob-day, .dob-year {
+    border: none;
+    display: inline-block;
+    width: 25px;
+  }
+
+  
+  .dob-year {
+    width: 50px;
+  }
+}

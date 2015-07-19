@@ -14,8 +14,9 @@
 	<div class="row">
 		<div class="col-md-4 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientDob.$error.required}">
 			<label for="clientDob">Date of birth</label>
+			<dob></dob>
 			<!-- <input ng-model="plan.client.dob" type="date" class="form-control" id="clientDob"> -->
-			<p class="input-group">
+			<!-- <p class="input-group">
 				<input 
 					name="clientDob" 
 					id="clientDob"
@@ -33,7 +34,7 @@
 				<span class="input-group-btn">
 					<button type="button" class="btn btn-default" ng-click="datepicker.open($event, 'client')"><i class="glyphicon glyphicon-calendar"></i></button>
 				</span>
-			</p>
+			</p> -->
 		</div>
 		<div class="col-md-4 form-group">
 			<label class="vertical-align">Home Owner&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label>
@@ -63,4 +64,4 @@
 	</div>
 	
 </fieldset>
-<!-- <pre>{{plan.client.address }}</pre> -->
+<pre>{{plan.client | json }}</pre>
