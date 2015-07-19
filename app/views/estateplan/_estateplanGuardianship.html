@@ -33,6 +33,15 @@
 									popover="In case of co-guardian divorce/death the preferred guardian will remain as sole guardian, otherwise, will transfer to the next guardianship">
 								</i>
 							</small>
+							<small class="text-muted" style="margin-left: 12px;">Temporary? 
+								<input type="checkbox" ng-model="guardian.isTemporary"> 
+								<i 
+									class="glyphicon glyphicon-question-sign" 
+									popover-append-to-body="true" 
+									popover-placement="top" 
+									popover="(Optional) This guardian shall take care of your minor children temporarily while the permanent guardian travels from out-of-state or out-of-country to pick them up">
+								</i>
+							</small>
 						</div>
 						<input ng-model="guardian.name" to-uppercase type="text" class="form-control">
 					</div>

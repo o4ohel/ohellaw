@@ -17,6 +17,13 @@
               ng-class="{'glyphicon-ok text-success': guardian.isPreferred, 'glyphicon-remove text-danger': !guardian.isPreferred}">
             </i>
           </div>
+          <div>
+            <label>Temporary</label>: 
+            <i 
+              class="glyphicon" 
+              ng-class="{'glyphicon-ok text-success': guardian.isTemporary, 'glyphicon-remove text-danger': !guardian.isTemporary}">
+            </i>
+          </div>
         </td>
 
         <td width="48%" ng-show="guardian.isCoGuardian">
