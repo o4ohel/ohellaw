@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-md-4 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientDob.$error.required}">
 			<label for="clientDob">Date of birth</label>
-			<dob></dob>
+			<dob date="plan.client.dob"></dob>
 			<!-- <input ng-model="plan.client.dob" type="date" class="form-control" id="clientDob"> -->
 			<!-- <p class="input-group">
 				<input 
@@ -64,4 +64,4 @@
 	</div>
 	
 </fieldset>
-<pre>{{plan.client | json }}</pre>
+<!-- <pre>{{plan.client | json }}</pre> -->

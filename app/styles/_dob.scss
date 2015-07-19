@@ -1,5 +1,7 @@
 .dob {
 
+  max-width: 142px;
+  
   .dob-month {
     // border: none;
   }
@@ -20,7 +22,7 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+
   .dob-day-dropdown {
     min-width: 65px;
   }

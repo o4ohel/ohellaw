@@ -11,24 +11,24 @@ angular.module('ohellawApp').directive('dob', function () {
     templateUrl: 'views/dobTpl.html',
     restrict: 'E',
     scope: {
-      dob: '='
+      dob: '=date'
     },
-    link: function (scope, element, attrs) {
+    link: function (scope) {
       var now = new Date(),
         thisYear = now.getFullYear(),
         months = [
-          {key: '01', label: 'Jan'},
-          {key: '02', label: 'Feb'},
-          {key: '03', label: 'Mar'},
-          {key: '04', label: 'Apr'},
-          {key: '05', label: 'May'},
-          {key: '06', label: 'Jun'},
-          {key: '07', label: 'Jul'},
-          {key: '08', label: 'Aug'},
-          {key: '09', label: 'Sep'},
-          {key: '10', label: 'Oct'},
-          {key: '11', label: 'Nov'},
-          {key: '11', label: 'Dec'}
+          {key: '01', label: 'Jan', num: 0},
+          {key: '02', label: 'Feb', num: 1},
+          {key: '03', label: 'Mar', num: 2},
+          {key: '04', label: 'Apr', num: 3},
+          {key: '05', label: 'May', num: 4},
+          {key: '06', label: 'Jun', num: 5},
+          {key: '07', label: 'Jul', num: 6},
+          {key: '08', label: 'Aug', num: 7},
+          {key: '09', label: 'Sep', num: 8},
+          {key: '10', label: 'Oct', num: 9},
+          {key: '11', label: 'Nov', num: 10},
+          {key: '11', label: 'Dec', num: 11}
 
         ],
         days = {
@@ -61,7 +61,7 @@ angular.module('ohellawApp').directive('dob', function () {
 
       function getYears(thisYear) {
         var years = [thisYear], i = 0, len = 100;
-        for(i = 1; i < 100; i++) {
+        for(i = 1; i < len; i++) {
           years.push(thisYear - i);
         }
         return years;
@@ -70,20 +70,21 @@ angular.module('ohellawApp').directive('dob', function () {
       scope.months = months;
       scope.days = days;
       scope.years = getYears(thisYear);
+      if(!scope.dob) {
+        scope.dob = now;
+      } else {
+        scope.dob = new Date(scope.dob);
+      }
       scope._dob = {
-        month: months[0],
-        day: '01',
-        year: thisYear
+        month: months[scope.dob.getMonth()],
+        day: scope.dob.getDate(),
+        year: scope.dob.getFullYear()
       };
 
       scope.$watchCollection('_dob', function(d) {
-        //TODO: update the dob from the outside controller
-        
-        console.log(d);
+        var newDate = new Date(d.year, d.month.num, parseInt(d.day));
+        scope.dob = newDate;
       });
-
-      scope.maxYear = thisYear;
-      scope.minYear = thisYear - 100;
     }
   };
 });
