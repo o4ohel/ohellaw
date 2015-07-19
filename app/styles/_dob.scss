@@ -9,7 +9,25 @@
     width: 25px;
   }
 
+  .dob-year-dropdown, .dob-day-dropdown, .dob-month-dropdown {
+    height: 165px;
+    left: -17px;
+    min-width: 85px;
+    overflow: auto;
+  }
+
+  .dropdown-menu > li > a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   
+  .dob-day-dropdown {
+    min-width: 65px;
+  }
+  .dob-month-dropdown {
+    min-width: 75px;
+  }
+
   .dob-year {
     width: 50px;
   }
