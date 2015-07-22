@@ -15,6 +15,6 @@ describe('Directive: dob', function () {
   it('should contain 3 input fields', inject(function ($compile) {
     element = angular.element('<dob></dob>');
     element = $compile(element)(scope);
-    expect(element.find('input').length).toBe(3);
+    expect(element.find('.dob')).toBeTruthy('');
   }));
 });
