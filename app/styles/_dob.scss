@@ -1,0 +1,36 @@
+.dob {
+
+  max-width: 142px;
+  
+  .dob-month {
+    // border: none;
+  }
+  .dob-month, .dob-day, .dob-year {
+    border: none;
+    display: inline-block;
+    width: 25px;
+  }
+
+  .dob-year-dropdown, .dob-day-dropdown, .dob-month-dropdown {
+    height: 165px;
+    left: -17px;
+    min-width: 85px;
+    overflow: auto;
+  }
+
+  .dropdown-menu > li > a {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .dob-day-dropdown {
+    min-width: 65px;
+  }
+  .dob-month-dropdown {
+    min-width: 75px;
+  }
+
+  .dob-year {
+    width: 50px;
+  }
+}

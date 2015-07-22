@@ -1,0 +1,85 @@
+<div class="dob form-control">
+
+  <span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">
+    <!-- <input ng-model="_dob.month.label" class="dropdown-toggle dob-month" dropdown-toggle> -->
+    <a href class="dropdown-toggle" dropdown-toggle>
+      <span ng-bind="_dob.month.label"></span>
+    </a>
+    <ul class="dropdown-menu dob-month-dropdown">
+      <li ng-repeat="month in months">
+        <a ng-click="_dob.month = month">{{month.label}}</a>
+      </li>
+    </ul>
+  </span>&nbsp;/&nbsp;
+  <span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">
+    <!-- <input ng-model="_dob.day" class="dropdown-toggle dob-day" dropdown-toggle> -->
+    <a href class="dropdown-toggle" dropdown-toggle>
+      <span ng-bind="_dob.day"></span>
+    </a>
+    <ul class="dropdown-menu dob-day-dropdown">
+      <li ng-repeat="day in days[_dob.month.key]">
+        <a ng-click="_dob.day = day">{{day}}</a>
+      </li>
+    </ul>
+  </span>&nbsp;/&nbsp;
+  <span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">
+    <!-- <input ng-model="_dob.year" class="dropdown-toggle dob-year" dropdown-toggle> -->
+    <a href class="dropdown-toggle" dropdown-toggle>
+      <span ng-bind="_dob.year"></span>
+    </a>
+    <ul class="dropdown-menu dob-year-dropdown">
+      <li ng-repeat="year in years">
+        <a ng-click="_dob.year = year">{{year}}</a>
+      </li>
+    </ul>
+  </span>
+
+  <!-- <select 
+    ng-options="month as month.label for month in months track by month.key" 
+    ng-model="_dob.month"
+    class="dob-month"
+  ></select> -->
+  <!-- <input 
+    type="text" 
+    ng-model="_dob.month" 
+    typeahead="month as month.label for month in months | filter:$viewValue:emptyOrMatch " 
+    typeahead-focus
+    typeahead-editable="false"
+    class="dob-month"
+  >&nbsp;/&nbsp;
+  <input 
+    type="text" 
+    ng-model="_dob.day" 
+    typeahead="day as day for day in days1 | filter:$viewValue:emptyOrMatch" 
+    typeahead-focus
+    class="dob-day"
+  >&nbsp;/&nbsp;  -->
+
+  <!-- <input 
+    type="number" 
+    minlength="1"
+    maxlength="2"
+    min="1" 
+    max="12" 
+    ng-model="_dob.month" 
+    class="dob-month"
+  >&nbsp;/&nbsp; 
+  <input 
+    type="number" 
+    minlength="1"
+    maxlength="2"
+    ng-model="_dob.day" 
+    class="dob-day"
+  >&nbsp;/&nbsp;
+  <input 
+    type="number" 
+    minlength="4"
+    maxlength="4"
+    min="{{minYear}}" 
+    max="{{maxYear}}" 
+    ng-model="_dob.year" 
+    class="dob-year"
+  >
+  -->
+</div>
+<!-- <pre>{{_dob | json}}</pre> -->
