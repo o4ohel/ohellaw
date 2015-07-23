@@ -31,6 +31,8 @@ angular.module('ohellawApp').directive('dob', function () {
           {key: '11', label: 'Dec', num: 11}
 
         ],
+        init = false,
+        initMonth = {key: '01', label: '--', num: 0},
         days = {
           '01': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
                 '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
@@ -72,13 +74,14 @@ angular.module('ohellawApp').directive('dob', function () {
       scope.years = getYears(thisYear);
       if(!scope.dob) {
         scope.dob = now;
+        init = true;
       } else {
         scope.dob = new Date(scope.dob);
       }
       scope._dob = {
-        month: months[scope.dob.getMonth()],
-        day: scope.dob.getDate(),
-        year: scope.dob.getFullYear()
+        month: init ? initMonth : months[scope.dob.getMonth()],
+        day: init ? '--' : scope.dob.getDate(),
+        year: init ? '----' : scope.dob.getFullYear()
       };
 
       scope.$watchCollection('_dob', function(d) {
