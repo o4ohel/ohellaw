@@ -8,7 +8,28 @@
  */
 angular.module('ohellawApp').directive('dob', function () {
   return {
-    templateUrl: 'views/dobTpl.html',
+    // templateUrl: 'views/dobTpl.html',
+    template: '\n' + 
+    '<div class="dob form-control">' + 
+      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' + 
+        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.month.label"></span></a>' +
+        '<ul class="dropdown-menu dob-month-dropdown">' +
+          '<li ng-repeat="month in months"><a ng-click="_dob.month = month">{{month.label}}</a></li>' +
+        '</ul>' + 
+      '</span>&nbsp;/&nbsp;' +
+      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
+        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.day"></span></a>' +
+        '<ul class="dropdown-menu dob-day-dropdown">' +
+          '<li ng-repeat="day in days[_dob.month.key]"><a ng-click="_dob.day = day">{{day}}</a></li>' +
+        '</ul>' +
+      '</span>&nbsp;/&nbsp;' +
+      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
+        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.year"></span></a>' +
+        '<ul class="dropdown-menu dob-year-dropdown">' +
+          '<li ng-repeat="year in years"><a ng-click="_dob.year = year">{{year}}</a></li>' +
+        '</ul>' +
+      '</span>' +
+    '</div>',
     restrict: 'E',
     scope: {
       dob: '=date'
