@@ -24,10 +24,32 @@
   }
 
   .dob-day-dropdown {
-    min-width: 65px;
+    height: 144px;
+    width: 327px;
+    > li {
+      display: inline-block;
+      text-align: center;
+    }
+
+    text-align: left;
   }
   .dob-month-dropdown {
-    min-width: 75px;
+    height: 117px;
+    width: 170px;
+    > li {
+      display: inline-block;
+      text-align: center;
+    }
+    text-align: center;
+  }
+
+  .dob-year-dropdown {
+    height: 165px;
+    width: 310px;
+    > li {
+      display: inline-block;
+      text-align: center;
+    }
   }
 
   .dob-year {
