@@ -63,9 +63,36 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
       prevPlans: [{}]
     };
 
+    function date2parts(date) {
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var parts = {};
+      date = typeof(date) === 'object' ? date : new Date(date);
+      parts.month = months[date.getMonth()];
+      parts.day = date.getDate();
+      parts.year = date.getUTCFullYear();
+
+      return parts;
+    }
+    function markup(data) {
+      var d = angular.copy(data);
+      if(!d.client.dob.month && typeof(d.client.dob) === 'string' && d.client.dob.length > 1) {
+        d.client.dob = date2parts(d.client.dob);
+      }
+      if(!d.spouse.dob.month && typeof(d.spouse.dob) === 'string' && d.spouse.dob.length > 1) {
+        d.spouse.dob = date2parts(d.spouse.dob);
+      }
+      var i = 0, len = d.beneficiaries.length;
+      for(i = 0; i < len; i++) {
+        if(!d.beneficiaries[i].dob.month && typeof(d.beneficiaries[i].dob) === 'string' && d.beneficiaries[i].dob.length > 1) {
+          d.beneficiaries[i].dob = date2parts(d.beneficiaries[i].dob);
+        }
+      }
+
+      return d;
+    }
     $scope.loadPlan = function(planId) {
       $http.get('db/'+ planId +'.json').success(function(data) {
-        $scope.plan = data;
+        $scope.plan = markup(data);
       });
     };
     if($scope.planId) {

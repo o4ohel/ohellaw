@@ -1,38 +1,56 @@
-.dob {
+.dob-input {
 
-  max-width: 142px;
-  
-  .dob-month {
-    // border: none;
+  &.form-control {
+    padding: 6px 8px;
   }
+  max-width: 145px;
+
+  .caret {
+    margin-left: -6px;
+  }
+  
   .dob-month, .dob-day, .dob-year {
     border: none;
     display: inline-block;
     width: 25px;
   }
 
+  .dob-month {
+    width: 32px;
+  }
+
+  .dob-year {
+    width: 45px;
+  }
+
   .dob-year-dropdown, .dob-day-dropdown, .dob-month-dropdown {
     height: 323px;
     left: -17px;
-    min-width: 85px;
+    min-width: 30px;
     overflow: auto;
-  }
-
-  .dropdown-menu > li > a {
-    padding-left: 15px;
-    padding-right: 15px;
+    top: -14px;
   }
 
   .dob-day-dropdown {
-    height: 144px;
-    width: 327px;
-    > li {
-      display: inline-block;
-      text-align: center;
+    height: 350px;
+    width: 50px;
+    // > li {
+    //   display: inline-block;
+    //   text-align: center;
+    // }
+
+    &.dropdown-menu > li > a {
+      padding: 0 10px;
     }
 
     text-align: left;
+    top: -100px;
   }
+
+  // .dropdown-menu.dob-day-dropdown > li > a {
+  //   padding
+  // }
+
   .dob-month-dropdown {
     height: 117px;
     width: 170px;
@@ -41,6 +59,11 @@
       text-align: center;
     }
     text-align: center;
+
+    &.dropdown-menu > li > a {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 
   .dob-year-dropdown {
@@ -50,9 +73,5 @@
       display: inline-block;
       text-align: center;
     }
-  }
-
-  .dob-year {
-    width: 50px;
   }
 }

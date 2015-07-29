@@ -2,113 +2,87 @@
 
 /**
  * @ngdoc directive
- * @name ohellawApp.directive:dob
+ * @name ohellawApp.directive:dobInput
  * @description
- * # dob
+ * # dobInput
  */
-angular.module('ohellawApp').directive('dob', function () {
+angular.module('ohellawApp').directive('dobInput', function () {
   return {
-    // templateUrl: 'views/dobTpl.html',
-    template: '\n' + 
-    '<div class="dob form-control">' + 
-      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' + 
-        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.month.label"></span></a>' +
-        '<ul class="dropdown-menu dob-month-dropdown">' +
-          '<li ng-repeat="month in months"><a ng-click="_dob.month = month">{{month.label}}</a></li>' +
-        '</ul>' + 
-      '</span>&nbsp;/&nbsp;' +
-      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
-        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.day"></span></a>' +
-        '<ul class="dropdown-menu dob-day-dropdown">' +
-          '<li ng-repeat="day in days[_dob.month.key]"><a ng-click="_dob.day = day">{{day}}</a></li>' +
-        '</ul>' +
-      '</span>&nbsp;/&nbsp;' +
-      '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
-        '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.year"></span></a>' +
-        '<ul class="dropdown-menu dob-year-dropdown">' +
-          '<li ng-repeat="year in years"><a ng-click="_dob.year = year">{{year}}</a></li>' +
-        '</ul>' +
-      '</span>' +
-    '</div>',
+    templateUrl: 'views/dobTpl.html',
+    // template: '\n' + 
+    // '<div class="dob form-control">' + 
+    //   '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' + 
+    //     '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.month.label"></span></a>' +
+    //     '<ul class="dropdown-menu dob-month-dropdown">' +
+    //       '<li ng-repeat="month in months"><a ng-click="_dob.month = month">{{month.label}}</a></li>' +
+    //     '</ul>' + 
+    //   '</span>&nbsp;/&nbsp;' +
+    //   '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
+    //     '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.day"></span></a>' +
+    //     '<ul class="dropdown-menu dob-day-dropdown">' +
+    //       '<li ng-repeat="day in days[_dob.month.key]"><a ng-click="_dob.day = day">{{day}}</a></li>' +
+    //     '</ul>' +
+    //   '</span>&nbsp;/&nbsp;' +
+    //   '<span class="dropdown" dropdown on-toggle="toggled(open)" tabindex="0">' +
+    //     '<a href class="dropdown-toggle" dropdown-toggle><span ng-bind="_dob.year"></span></a>' +
+    //     '<ul class="dropdown-menu dob-year-dropdown">' +
+    //       '<li ng-repeat="year in years"><a ng-click="_dob.year = year">{{year}}</a></li>' +
+    //     '</ul>' +
+    //   '</span>' +
+    // '</div>',
     restrict: 'E',
     scope: {
-      dob: '=date'
+      dob: '='
     },
-    link: function (scope) {
-      var now = new Date(),
-        thisYear = now.getFullYear(),
-        months = [
-          {key: '01', label: 'Jan', num: 0},
-          {key: '02', label: 'Feb', num: 1},
-          {key: '03', label: 'Mar', num: 2},
-          {key: '04', label: 'Apr', num: 3},
-          {key: '05', label: 'May', num: 4},
-          {key: '06', label: 'Jun', num: 5},
-          {key: '07', label: 'Jul', num: 6},
-          {key: '08', label: 'Aug', num: 7},
-          {key: '09', label: 'Sep', num: 8},
-          {key: '10', label: 'Oct', num: 9},
-          {key: '11', label: 'Nov', num: 10},
-          {key: '11', label: 'Dec', num: 11}
-
-        ],
-        init = false,
-        initMonth = {key: '01', label: '--', num: 0},
+    link: function (scope, element) {
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         days = {
-          '01': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '02': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29'],
-          '03': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '04': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
-          '05': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '06': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
-          '07': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '08': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '09': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
-          '10': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
-          '11': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
-          '12': ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15',
-                '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31']
+          'Jan': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Feb': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29'],
+          'Mar': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Apr': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+          'May': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Jun': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+          'Jul': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Aug': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Sep': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+          'Oct': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          'Nov': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
+          'Dec': ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31']
         }
       ;
 
-      function getYears(thisYear) {
-        var years = [thisYear], i = 0, len = 100;
-        for(i = 1; i < len; i++) {
-          years.push(thisYear - i);
-        }
-        return years;
-      }
-
       scope.months = months;
       scope.days = days;
-      scope.years = getYears(thisYear);
+
       if(!scope.dob) {
-        scope.dob = now;
-        init = true;
-      } else {
-        scope.dob = new Date(scope.dob);
+        scope.dob = {
+          month: null,
+          day: null,
+          year: null
+        };
       }
-      scope._dob = {
-        month: init ? initMonth : months[scope.dob.getMonth()],
-        day: init ? '--' : scope.dob.getDate(),
-        year: init ? '----' : scope.dob.getFullYear()
+
+      scope.isOpenDay = false;
+
+      scope.onSelectDay = function() {
+        var day = this.day;
+        scope.dob.day = day;
+        element.find('input')[2].focus();
       };
 
-      scope.$watchCollection('_dob', function(d) {
-        var newDate = new Date(d.year, d.month.num, parseInt(d.day));
-        scope.dob = newDate;
-      });
+      scope.onSelectMonth = function() {
+        var month = this.month;
+        scope.dob.month = month;
+        element.find('input')[1].focus();
+        // scope.isOpenDay = true;
+      };
+
+      // scope.$watchCollection('dob', function(newCollection, oldCollection, scope) {
+      //   if(scope.dob.month && scope.dob.day && scope.dob.year) {
+      //     scope.date = new Date();
+      //   }
+      // });
     }
   };
 });

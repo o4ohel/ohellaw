@@ -13,7 +13,8 @@
 			<tr ng-repeat="beneficiary in plan.beneficiaries track by $index">
 				<td>{{beneficiary.firstName}} {{beneficiary.lastName}}</td>
 				<td>{{beneficiary.relationship}}</td>
-				<td>{{beneficiary.dob | date: 'MMM d, y'}}</td>
+				<!-- <td>{{beneficiary.dob | date: 'MMM d, y'}}</td> -->
+				<td>{{beneficiary.dob.month}}&nbsp;{{beneficiary.dob.day}}, {{beneficiary.dob.year}}
 				<td>{{beneficiary.gender}}</td>
 				<td class="text-center">
 					<i 

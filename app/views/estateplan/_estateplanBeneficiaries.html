@@ -37,19 +37,7 @@
 						<input type="text" ng-model="beneficiary.relationship" typeahead="r for r in relationships | filter:$viewValue:emptyOrMatch" typeahead-focus class="form-control">
 					</div>
 					<div class="col-md-2 form-group">
-						<dob date="beneficiary.dob"></dob>
-						<!-- <input 
-							type="text" 
-							class="form-control" 
-							datepicker-popup="dd-MMM-yyyy" 
-							ng-model="beneficiary.dob" 
-							is-open="datepicker['b' + $index]" 
-							date-disabled="disabled(date, mode)" 
-							datepicker-options="dateOptions" 
-							close-text="Close" 
-							ng-click="datepicker['b' + $index] = true"
-							ng-change="beneficiary.isMinor = false"
-							> -->
+						<dob-input dob="beneficiary.dob"></dob-input>
 					</div>
 					<div class="col-md-1 form-group text-center">
 						<input ng-model="beneficiary.gender" type="radio" value="male">&nbsp;&nbsp;

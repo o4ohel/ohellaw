@@ -14,27 +14,7 @@
 	<div class="row">
 		<div class="col-md-4 form-group" ng-class="{'has-error': estateplanForm.$submitted && estateplanForm.clientDob.$error.required}">
 			<label for="clientDob">Date of birth</label>
-			<dob date="plan.client.dob"></dob>
-			<!-- <input ng-model="plan.client.dob" type="date" class="form-control" id="clientDob"> -->
-			<!-- <p class="input-group">
-				<input 
-					name="clientDob" 
-					id="clientDob"
-					type="text" 
-					class="form-control" 
-					datepicker-popup="dd-MMM-yyyy" 
-					ng-model="plan.client.dob" 
-					is-open="datepicker.client" 
-					date-disabled="disabled(date, mode)" 
-					datepicker-options="dateOptions"
-					ng-required="true" 
-					close-text="Close" 
-					ng-click="datepicker.open($event, 'client')"
-					>
-				<span class="input-group-btn">
-					<button type="button" class="btn btn-default" ng-click="datepicker.open($event, 'client')"><i class="glyphicon glyphicon-calendar"></i></button>
-				</span>
-			</p> -->
+			<dob-input dob="plan.client.dob"></dob-input>
 		</div>
 		<div class="col-md-4 form-group">
 			<label class="vertical-align">Home Owner&nbsp;<input ng-model="plan.client.isOwner" type="checkbox"></label>

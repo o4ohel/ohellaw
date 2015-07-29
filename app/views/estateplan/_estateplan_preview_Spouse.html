@@ -1,7 +1,11 @@
 <fieldset>
 	<h3>Spouse</h3>
 	<div><label>Name</label>: {{plan.spouse.firstName}} {{plan.spouse.lastName}}</div>
-	<div><label for="spouseDob">Date of birth</label>: {{plan.spouse.dob | date: 'MMM d, y'}}</div>
+	<div>
+		<label for="spouseDob">Date of birth</label>: 
+		<!-- {{plan.spouse.dob | date: 'MMM d, y'}} -->
+		{{plan.spouse.dob.month}}&nbsp;{{plan.spouse.dob.day}}, {{plan.spouse.dob.year}}
+	</div>
 	<div>
 		<label class="vertical-align">Home Owner?</label>
 		<i 

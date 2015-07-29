@@ -14,24 +14,7 @@
 	<div class="row">
 		<div class="col-md-4 form-group">
 			<label for="spouseDob">Date of birth</label>
-			<dob date="plan.spouse.dob"></dob>
-			<!-- <p class="input-group">
-				<input 
-					id="spouseDob"
-					type="text" 
-					class="form-control" 
-					datepicker-popup="dd-MMM-yyyy" 
-					ng-model="plan.spouse.dob" 
-					is-open="datepicker.spouse" 
-					date-disabled="disabled(date, mode)" 
-					datepicker-options="dateOptions"
-					close-text="Close" 
-					ng-click="datepicker.open($event, 'spouse')"
-					>
-				<span class="input-group-btn">
-					<button type="button" class="btn btn-default" ng-click="datepicker.open($event, 'spouse')"><i class="glyphicon glyphicon-calendar"></i></button>
-				</span>
-			</p> -->
+			<dob-input dob="plan.spouse.dob"></dob-input>
 		</div>
 		<div class="col-md-4 form-group">
 			<label class="vertical-align">Home Owner&nbsp;<input ng-model="plan.spouse.isOwner" type="checkbox"></label>

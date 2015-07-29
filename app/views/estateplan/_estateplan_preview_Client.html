@@ -1,7 +1,11 @@
 <fieldset>
 	<h3>Client</h3>
 	<div><label>Name</label>: {{plan.client.firstName}} {{plan.client.lastName}}</div>
-	<div><label for="clientDob">Date of birth</label>: {{plan.client.dob | date: 'MMM d, y'}}</div>
+	<div>
+		<label for="clientDob">Date of birth</label>: 
+		<!-- {{plan.client.dob | date: 'MMM d, y'}} -->
+		{{plan.client.dob.month}}&nbsp;{{plan.client.dob.day}}, {{plan.client.dob.year}}
+	</div>
 	<div>
 		<label class="vertical-align">Home Owner?</label>
 		<i 
