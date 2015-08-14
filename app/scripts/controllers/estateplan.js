@@ -78,9 +78,12 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
       if(!d.client.dob.month && typeof(d.client.dob) === 'string' && d.client.dob.length > 1) {
         d.client.dob = date2parts(d.client.dob);
       }
-      if(!d.spouse.dob.month && typeof(d.spouse.dob) === 'string' && d.spouse.dob.length > 1) {
-        d.spouse.dob = date2parts(d.spouse.dob);
+      if(d.spouse.dob) {
+        if(!d.spouse.dob.month && typeof(d.spouse.dob) === 'string' && d.spouse.dob.length > 1) {
+          d.spouse.dob = date2parts(d.spouse.dob);
+        }
       }
+      
       var i = 0, len = d.beneficiaries.length;
       for(i = 0; i < len; i++) {
         if(!d.beneficiaries[i].dob.month && typeof(d.beneficiaries[i].dob) === 'string' && d.beneficiaries[i].dob.length > 1) {
