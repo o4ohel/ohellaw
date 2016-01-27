@@ -1,3 +1,13 @@
+
+form.estateplan {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+form.estateplan .estateplan-section {
+  flex: 1;
+}
+
 .estateplan {
 	margin: 0 4%;
 

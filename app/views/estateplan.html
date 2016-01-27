@@ -2,7 +2,7 @@
 <form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate class="estateplan">
     <h1>Confidential Estate Planning Questionnaire</h1>
 
-	<div ui-view ng-class="{'estateplan-section-prev': isBackAnim, 'estateplan-section-next': !isBackAnim}"></div>
+	<div ui-view class="estateplan-section" ng-class="{'estateplan-section-prev': isBackAnim, 'estateplan-section-next': !isBackAnim}"></div>
 
  	<fieldset class="fieldset-section">
     <a ng-show="sections[sectionIdx - 1]" ui-sref="estateplan.form.section({sectionId: sectionIdx - 1})" class="btn btn-default" ng-click="prev()">
