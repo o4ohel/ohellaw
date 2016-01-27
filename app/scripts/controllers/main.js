@@ -13,7 +13,7 @@ angular.module('ohellawApp')
     $scope.navbarCollapse = true;
 
   	$rootScope.$on('$stateChangeStart', function(event, toState){
-  		$rootScope.fluidBodyLayout = (toState.name === 'estateplan.form');
+  		$rootScope.fluidBodyLayout = (toState.name.indexOf('estateplan.form') > -1);
       $scope.navbarCollapse = true;
     });
 

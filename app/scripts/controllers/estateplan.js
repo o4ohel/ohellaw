@@ -7,10 +7,37 @@
  * # EstateplanCtrl
  * Controller of the ohellawApp
  */
-angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams, $state) {
+angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $http, $modal, $log, $stateParams, $state, epfSectionSrv, $timeout) {
     $scope.capNames = $stateParams.capNames ? ($stateParams.capNames === 'true' ? true : false ) : false;
     $scope.planId = $stateParams.planId;
 
+    $scope.isBackAnim = false;
+    $scope.sections = epfSectionSrv.getSections();
+
+    $scope.sectionId = epfSectionSrv.getCurId();
+    $scope.sectionIdx = parseInt($scope.sectionId);
+
+    $scope.submitReady = !$scope.sections[$scope.sectionIdx + 1];
+
+    $scope.next = function() {
+      $scope.isBackAnim = false;
+      updateSectionId().then(function() {
+        $scope.submitReady = !$scope.sections[$scope.sectionIdx + 1];
+      }, angular.noop);
+    };
+
+    $scope.prev = function() {
+      $scope.isBackAnim = true;
+      updateSectionId();
+    };
+
+    function updateSectionId() {
+      return $timeout(function() {
+        $scope.sectionId = epfSectionSrv.getCurId();
+        $scope.sectionIdx = parseInt($scope.sectionId);
+      }, 10);
+    }
+    
     $scope.datepicker = {
       open: function(evt, who) {
         evt.preventDefault();
@@ -98,7 +125,8 @@ angular.module('ohellawApp').controller('EstateplanCtrl', function ($scope, $htt
         $scope.plan = markup(data);
       });
     };
-    if($scope.planId) {
+
+    if($scope.planId  && $scope.planId !== '0') {
       $scope.loadPlan($scope.planId);
     }
 

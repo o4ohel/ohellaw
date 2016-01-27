@@ -1,55 +1,34 @@
 
 <form ng-submit="estateplanForm.$valid && save()" name="estateplanForm" novalidate class="estateplan">
-<!-- <form ng-submit="save()" name="estateplanForm" novalidate class="estateplan"> -->
-	<h1>Confidential Estate Planning Questionnaire</h1>
-	<div class="row">
-		<div class="col-md-6">
-			<ng-include src="'views/estateplan/_estateplanClient.html'"></ng-include>
-		</div>
-		<div class="col-md-6">
-			<ng-include src="'views/estateplan/_estateplanSpouse.html'"></ng-include>
-		</div>	
-	</div>
-		
-	<ng-include src="'views/estateplan/_estateplanBeneficiaries.html'"></ng-include>
+    <h1>Confidential Estate Planning Questionnaire</h1>
 
-	<ng-include src="'views/estateplan/_estateplanTrustees.html'"></ng-include>
+	<div ui-view ng-class="{'estateplan-section-prev': isBackAnim, 'estateplan-section-next': !isBackAnim}"></div>
 
-	<ng-include src="'views/estateplan/_estateplanDistribution.html'"></ng-include>
+ 	<fieldset class="fieldset-section">
+    <a ng-show="sections[sectionIdx - 1]" ui-sref="estateplan.form.section({sectionId: sectionIdx - 1})" class="btn btn-default" ng-click="prev()">
+    	<i class="glyphicon glyphicon-menu-left"></i>&nbsp;Back: {{sections[sectionIdx - 1].label}}
+    </a>
+    <a 
+    	ng-show="sections[sectionIdx+1]" 
+    	ui-sref="estateplan.form.section({sectionId: sectionIdx+1})" 
+    	class="btn btn-primary pull-right" 
+    	ng-click="next()"
+    	ng-disabled="estateplanForm.$invalid"
+    >
+    	Next: {{sections[sectionIdx + 1].label}}&nbsp;<i class="glyphicon glyphicon-menu-right"></i>
+    </a>
+  </fieldset>
 
-	<ng-include src="'views/estateplan/_estateplanGuardianship.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanPowerOfAttorney.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanHealthCareProvisions.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanBurial.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanRentalProperty.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanStocks.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanPrevMarriage.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanPrevPlan.html'"></ng-include>
-
-	<ng-include src="'views/estateplan/_estateplanNotes.html'"></ng-include>
-
-
-	<fieldset class="fieldset-section">
+	<fieldset class="fieldset-section" ng-show="submitReady">
 		<div class="row">
-			<div class="col-md-3">
-				<button class="btn btn-success" type="submit">Submit</button>
-				<!-- <button class="small round" type="button" ng-click="preview()">Preview</button> -->
-				<button class="btn btn-default" type="button">Cancel</button>
-
+			<div class="col-md-2 col-md-offset-10 text-right">
+				<!-- <button class="btn btn-default" type="button">Cancel</button> -->
 				<button type="button" class="btn btn-info" ng-click="preview()">Preview</button>
+				<button class="btn btn-success" type="submit">Submit</button>
 			</div>
     </div>
-    <div class="text-danger" ng-show="estateplanForm.$invalid && estateplanForm.$submitted && estateplanForm.$dirty">
+    <!-- <div class="text-danger" ng-show="estateplanForm.$invalid && estateplanForm.$submitted && estateplanForm.$dirty">
     	Please correct errors (highlighted in red above)
-    	<!-- <pre>{{estateplanForm.$error | json}}</pre> -->
-    </div>
+    </div> -->
 	</fieldset>
 </form>
-<!-- <pre>{{plan | json}}</pre> -->
